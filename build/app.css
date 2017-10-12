@@ -1,23 +1,16 @@
-@font-face {
-  font-family: 'Cler Mark Headline';
+/*@font-face {
+  font-family: 'Example for Special';
   font-style: normal;
   font-weight: 400;
-  src: local("Cler Mark Headline"),
-  url("./fonts/ClerMarkHeadline-Regular.ttf") format('truetype')
-}
-@font-face {
-  font-family: 'Cler Mark Headline Bold';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Cler Mark Headline"),
-  url("./fonts/ClerMarkHeadline-Bold.ttf") format('truetype')
-}
+  src: local("True Type Font Name"),
+  url("./fonts/TrueTypeFontName.ttf") format('truetype')
+}*/
 
 /*html **/
 body, body > *, button {
    font-size: 4rem;
   /*//  color: $theme-color-text;*/
-   font-family: 'Cler Mark Headline', 'Open Sans' !important;
+   font-family: 'Open Sans' !important;
    font-smooth: always;
    -webkit-font-smoothing: subpixel-antialiased;
    margin: 0px;
@@ -25,7 +18,7 @@ body, body > *, button {
 }
 
 .bolder {
-  font-family: 'Cler Mark Headline Bold', 'Cler Mark Headline', 'Open Sans' !important;
+  font-family: 'Open Sans' !important;
   font-weight: bold;
 }
 
@@ -38,7 +31,7 @@ html, body {
 }
 
 button, input {
-  font-family: 'Cler Mark Headline', 'Open Sans' !important;
+  font-family: 'Open Sans' !important;
 }
 
 

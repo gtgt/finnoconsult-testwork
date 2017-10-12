@@ -34,8 +34,7 @@ node_modules
 
 # App packaged
 dist
-build/bundle.js
-build/cler-*.js
+build/*.js
 build/index.html
 build/200.html
 
