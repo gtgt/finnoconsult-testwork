@@ -1,0 +1,134 @@
+/*
+ * Global
+ */
+$theme-viewport-width: 100vw;
+$device-smallscreen-phone: 500px;
+$device-smallscreen-tablet: 700px;
+
+/*
+ * Responsive Breakpoints
+ */
+
+$bp-xs: 0px;
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1440px;
+
+$breakpoints: (
+    xs: $bp-xs,
+    sm-gt: $bp-sm,
+    sm: 'max-width' $bp-sm,
+    md-gt: $bp-md,
+    md: 'max-width' $bp-md,
+    lg-gt: $bp-lg,
+    lg: 'max-width' $bp-lg,
+    xl-gt: $bp-xl,
+    xl: 'max-width' $bp-xl,
+);
+
+/*
+ * General UI
+ */
+ $theme-page-margin: 50px;
+// $theme-default-shadow: 0 0 1rem rgba(#000, 0.2);
+// $theme-slide-background: $theme-color-white;
+$theme-default-font-letter-spacing: 0.1rem;
+// $theme-handwriting-font-size: 4rem;
+$theme-tinyfont-size: 2vh;
+$theme-smallfont-size: 2.5vh;
+$theme-mediumfont-size: 3vh;
+$theme-bigfont-size: 3.5vh;
+
+/*
+ * Buttons
+ */
+// $theme-button-cta-background: $theme-color-dark;
+// $theme-button-cta-padding: 1rem 4rem;
+// $theme-button-cta-border-radius: 0.6rem;
+// $theme-button-cta-color: $theme-color-dark-text;
+// $theme-button-cta-font-size: 2.4rem;
+// $theme-button-cta-active-background: $theme-color-main;
+// $theme-button-cta-active-color: $theme-color-dark;
+
+/*
+ * Navigation
+ */
+$theme-navigation-z-index: 10;
+$theme-navigation-height: 110px;
+$theme-navigation-color: $theme-color-main;
+$theme-navigation-background: $theme-color-white;
+$theme-navigation-background-alternate: $theme-color-lightgray;
+$theme-navigation-bottom-height: 100px;
+$theme-navigation-border: $theme-color-darkgray;
+
+/*
+ * Menu
+ */
+$theme-menu-border: $theme-color-gray;
+$theme-menu-background: $theme-color-lightgray;
+
+/*
+ * Cards
+ */
+// $theme-card-background: $theme-color-gray-lightest;
+// $theme-card-border-color: $theme-color-gray-light;
+
+/*
+ * Toggle
+ */
+// $theme-toggle-size: 11rem;
+// $theme-toggle-border-color: $theme-color-gray-light;
+// $theme-toggle-border-width: 0.8rem;
+// $theme-toggle-background: #FFF;
+// $theme-toggle-click-background: darken($theme-toggle-background, 5%);
+// $theme-toggle-active-background: $theme-color-main;
+// $theme-toggle-icon-size: 6rem;
+
+/*
+ * Wheel
+*/
+// $theme-wheel-transition-time: 1s;
+// $theme-wheel-center-size: 210px;
+// $theme-wheel-inner-size: 450px;
+// $theme-wheel-outer-size: 560px;
+//
+// $theme-wheel-center-button-size: 72px;
+// $theme-video-stamp-width: 140px;
+// $theme-video-stamp-height: 80px;
+// $theme-video-loader-overlay-size: 3000px;
+//
+// $theme-pie-width: 266px;
+// $theme-pie-height: 225px;
+// $theme-pie-count: 5;
+// $theme-pie-base-rotation: 360 / $theme-pie-count;
+//
+// $theme-pie-slideout-itemwidth: 105;
+
+
+// $theme-outer-pie-count: 10;
+// $theme-outer-pie-base-rotation: 360 / $theme-outer-pie-count;
+
+// $theme-ok-button-size: 11rem;
+// $theme-ok-button-background: $theme-color-main;
+// $theme-ok-button-click-background: darken($theme-color-main, 5%);
+// $theme-ok-button-font-size: 2.4rem;
+// $theme-ok-button-color: $theme-color-dark;
+// $theme-ok-button-disabled-opacity: 0.5;
+// $theme-ok-button-disabled-background: $theme-color-gray-light;
+
+// $theme-video-loader-background: $theme-color-gray-darkest;
+
+/*
+ * Stepper
+ */
+// $theme-stepper-size: 11rem;
+// $theme-stepper-border-color: $theme-color-gray-light;
+// $theme-stepper-border-width: 0.8rem;
+// $theme-stepper-background: #FFF;
+// $theme-stepper-icon-size: 6rem;
+// $theme-stepper-button-background: $theme-color-main;
+// $theme-stepper-button-click-background: darken($theme-stepper-button-background, 5%);
+// $theme-stepper-button-border-color: #FFF;
+// $theme-stepper-button-size: 6rem;
+// $theme-stepper-button-icon-size: 2.8rem;

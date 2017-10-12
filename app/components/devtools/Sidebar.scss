@@ -1,0 +1,71 @@
+.component {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  max-height: 600px;
+  overflow: scroll;
+  top: 80px;
+  right: 0;
+  padding: 10px;
+  background: #FFF;
+  box-shadow: 0 0 10px rgba(black, 0.5);
+  z-index: 99999;
+  font-size: 12px;
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  :global {
+    h2 {
+      font-size: 24px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    button {
+      background: $theme-color-main;
+      color: $theme-color-dark;
+      padding: 5px;
+    }
+
+    input {
+      // display: block;
+      width: 50px;
+      padding: 4px;
+
+      &.grow {
+        width: 100%;
+      }
+    }
+  }
+  .info, .info p {
+    font-size: 12px;
+  }
+  .debug {
+    max-height:200px;
+    width: 180px;
+    border: solid 1px #fefefe;
+    white-space: pre;
+    overflow-y: auto;
+  }
+
+
+  .animationStatus {
+    border: solid 1px black;
+
+    li {
+      // list-style-type: none;
+
+    }
+  }
+}
+
+.section {
+  height: auto;
+  margin-bottom: 20px;
+}

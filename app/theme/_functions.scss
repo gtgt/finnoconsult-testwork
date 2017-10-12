@@ -1,0 +1,8 @@
+// get breakpoint size
+@function bp($size) {
+    @if map-has-key($breakpoints, $size) {
+        @return map-get($breakpoints, $size);
+    } @else {
+        @error('breakpoint key `#{$size}` does not exist');
+    }
+}

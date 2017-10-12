@@ -1,0 +1,64 @@
+Cler Mark Headline
+
+body {
+  // background-color: $theme-menu-background;
+}
+
+h1 {
+  font-size: $theme-bigfont-size;
+  font-weight: 400;
+  margin: 0 0 1rem;
+  text-align: center;
+  letter-spacing: $theme-default-font-letter-spacing;
+  color: $theme-color-main;
+
+  &.content-title {
+    margin-top: 40px;
+    padding-top: 5px;
+  }
+}
+
+a {
+  color: $theme-color-dark;
+}
+
+h2,h3,h4,h5 {
+  font-size: $theme-smallfont-size;
+  font-weight: 400;
+  margin: 2rem 0 1rem;
+  text-align: center;
+}
+p {
+  font-size: $theme-smallfont-size;
+}
+
+button {
+  font-size: $theme-smallfont-size;
+  font-weight: bold;
+  letter-spacing: $theme-default-font-letter-spacing;
+  cursor: pointer;
+}
+
+input {
+  font-size: $theme-smallfont-size;
+  font-weight: 400;
+  // letter-spacing: $theme-default-font-letter-spacing;
+  border-radius: 4px;
+  padding: 8px;
+  padding-left: 32px;
+  padding-right: 32px;
+  min-width: 40%;
+  background-color: $theme-color-white;
+  border: solid 1px $theme-navigation-border;
+  outline: 0;
+}
+input:hover, input:focus {
+  border: solid 1px $theme-color-main;
+}
+
+// .handwritten {
+//   font-family: 'Just Another Hand';
+//   text-transform: uppercase;
+//   font-size: $theme-handwriting-font-size;
+//   font-weight: normal;
+// }

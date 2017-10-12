@@ -1,0 +1,28 @@
+@include object(button) {
+  text-decoration: none;
+  transition: transform 1s ease;
+
+  &--cta {
+    cursor:pointer;
+    display: block;
+
+    &:hover {
+      // transform: scale(1.05);
+    }
+    &:active, &:visited {
+    }
+  }
+
+  &--submit {
+    cursor:pointer;
+    background-color: $theme-color-main;
+    font-size: $theme-mediumfont-size;
+    color: $theme-color-white;
+    border-radius: 70px;
+    margin: 0px auto;
+    // margin-top: 2vh;
+    padding: 8px;
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}

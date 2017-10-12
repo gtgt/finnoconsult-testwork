@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'Cler Mark Headline';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Cler Mark Headline"),
+  url("./fonts/ClerMarkHeadline-Regular.ttf") format('truetype')
+}
+@font-face {
+  font-family: 'Cler Mark Headline Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Cler Mark Headline"),
+  url("./fonts/ClerMarkHeadline-Bold.ttf") format('truetype')
+}
+
+/*html **/
+body, body > *, button {
+   font-size: 4rem;
+  /*//  color: $theme-color-text;*/
+   font-family: 'Cler Mark Headline', 'Open Sans' !important;
+   font-smooth: always;
+   -webkit-font-smoothing: subpixel-antialiased;
+   margin: 0px;
+   padding: 0px;
+}
+
+.bolder {
+  font-family: 'Cler Mark Headline Bold', 'Cler Mark Headline', 'Open Sans' !important;
+  font-weight: bold;
+}
+
+html, body {
+  position: fixed;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100vw;
+}
+
+button, input {
+  font-family: 'Cler Mark Headline', 'Open Sans' !important;
+}
+
+
+// html * {
+//   padding:0px;
+//   margin:0px;
+//   width:100%;
+//   height: 100%;
+// }
+
+button,a {
+  /*transition: transform 1s ease;*/
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover, a:hover {
+  /*transform: scale(1.2);*/
+}
+
+button:focus {
+  /*padding-left: 10px;
+  padding-top: 10px;*/
+  outline: 0;
+}

@@ -1,0 +1,71 @@
+/*
+ * Grid Styles
+ *
+ * Grid/layout styles have to be prefixed with `l-`
+ * SASS-BEM does not provide a layout namespace
+ */
+
+@include block(l-container) {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
+  padding-right: 50px;
+  padding-left: 50px;
+
+  @include modifier(fullwidth) {
+    width: 100%;
+    padding: 0px;
+  }
+
+  @include modifier(horizontal) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include modifier(end) {
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  @include modifier(wrapped) {
+    flex-wrap: wrap;
+  }
+
+  @include modifier(grow) {
+    height: 100%;
+  }
+}
+
+@include block(l-row) {
+  height: auto;
+
+  @include modifier(shrinkable) {
+    transition: all 1s ease;
+    flex: 1;
+    overflow: hidden;
+  }
+  @include modifier(shrinking) {
+    flex: 0.00001;
+  }
+  @include modifier(growing) {
+    flex: 10;
+  }
+
+  @include modifier(fullwidth) {
+    width: 100%;
+  }
+
+  @include modifier(grow) {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
+
+  @include modifier(center) {
+    justify-content: center;
+    text-align: center;
+  }
+}

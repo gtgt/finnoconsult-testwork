@@ -1,0 +1,285 @@
+@include object(noTransition) {
+  transition: none;
+}
+
+@include object(quickTransition) {
+  transition: all 0.3s ease;
+}
+
+
+@include object(fadeIn) {
+  @include modifier(start) {
+    opacity: 0;
+  }
+
+  @include modifier(perform) {
+    opacity: 1;
+  }
+
+  @include modifier(final) {
+    opacity: 0;
+  }
+}
+
+
+@include object(magnify) {
+
+  @include modifier(start) {
+    transform-origin: bottom center;
+    transform:scale(0.2);
+    opacity: 0;
+  }
+
+  @include modifier(perform) {
+    transform:scale(1);
+    opacity: 1;
+  }
+
+  @include modifier(final) {
+    transform:scale(0.2);
+    opacity: 0;
+  }
+}
+
+
+@include object(slideIn) {
+
+  @include element(fromRight) {
+
+    @include modifier(start) {
+      transform: translateX(100%);
+    }
+
+    @include modifier(perform) {
+      transform: translateX(0);
+    }
+
+    @include modifier(final) {
+      transform: translateX(100%);
+    }
+
+  }
+  @include element(fromLeft) {
+
+    @include modifier(start) {
+      transform: translateX(-100%);
+    }
+
+    @include modifier(perform) {
+      transform: translateX(0);
+    }
+
+    @include modifier(final) {
+      transform: translateX(-100%);
+    }
+
+  }
+  @include element(fromBottom) {
+
+    @include modifier(start) {
+      transform: translateY(100%);
+    }
+
+    @include modifier(perform) {
+      transform: translateY(0);
+    }
+
+    @include modifier(final) {
+      transform: translateY(100%);
+    }
+
+  }
+  @include element(fromTop) {
+
+    @include modifier(start) {
+      transform-origin: top center;
+      transform: scaleY(0);
+    }
+
+    @include modifier(perform) {
+      transform: scaleY(1);
+    }
+
+    @include modifier(final) {
+      transform: scaleY(0);
+    }
+
+  }
+}
+
+
+
+
+@include object(tile01_magnify) {
+  transition: opacity 0.2s ease;
+
+  @include modifier(start) {
+    :global {
+      .tile {
+        margin-left: 17.6vh;
+        margin-top: 21.5vh;
+        width: 16.4vh;
+      }
+    }
+    opacity: 0;
+  }
+
+  @include modifier(perform) {
+    :global {
+      .tile {
+        margin-left: 0;
+        margin-top: 0;
+        width: 35vh;
+        // width: 46vh;
+      }
+    }
+    opacity: 1;
+  }
+
+  @include modifier(final) {
+    :global {
+      .tile {
+        margin-left: 17.6vh;
+        margin-top: 21.5vh;
+        width: 16.4vh;
+      }
+    }
+    opacity: 0;
+  }
+}
+
+@include object(tile01__fromTop) {
+  overflow:hidden;
+  :global {
+    .ImageStep_component {
+      overflow: hidden;
+    }
+  }
+
+  @include modifier(start) {
+
+    img {
+      transform-origin: top center;
+      transform: translateY(-100%);
+    }
+  }
+
+  @include modifier(perform) {
+    img {
+      transform: translateY(0);
+    }
+  }
+
+  @include modifier(final) {
+    img {
+      transform-origin: top center;
+      transform: translateY(-100%);
+    }
+  }
+}
+
+@include object(swipe) {
+  @include element(fromTop) {
+
+    @include modifier(start) {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @include modifier(perform) {
+      opacity: 1;
+      transform-origin: top center;
+      transform: translateY(15%);
+    }
+
+    @include modifier(final) {
+      opacity: 0;
+      transform: translateY(0);
+    }
+  }
+
+  @include element(fromRight) {
+
+    @include modifier(start) {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @include modifier(perform) {
+      opacity: 1;
+      transform-origin: top center;
+      transform: translateX(-25rem);
+    }
+
+    @include modifier(final) {
+      opacity: 0;
+      transform: translateY(0);
+    }
+  }
+}
+
+//
+// .fadeIn {
+//   transition: opacity 1s ease-out;
+// }
+//
+// .fadeIn-appear {
+//   opacity: 0.01;
+// }
+//
+// .fadeIn-appear.fadeIn-appear-active {
+//   opacity: 1.0;
+//   transition: opacity 1s ease-out;
+// }
+//
+// .fadeIn-start {
+//   opacity: 0;
+// }
+//
+// .fadeIn-perform {
+//   opacity: 1;
+// }
+//
+//
+// .fadeOut {
+//   transition: opacity 1s ease-out;
+// }
+//
+// .fadeOut-start {
+//   opacity: 1;
+// }
+//
+// .fadeOut-perform {
+//   opacity: 0;
+// }
+//
+//
+// .animable {
+//   transition: all 1s ease;
+// }
+//
+//
+//
+// .magnify {
+//   transition: all 2s ease;
+// }
+//
+// .magnify-start,.magnify-final {
+//   transform:scale(0.8);
+// }
+//
+// .magnify-perform {
+//   transform:scale(1);
+// }
+//
+// .slideUp {
+//   transition: all 2s ease;
+// }
+//
+// .slideUp-start {
+//   margin-top:20px;
+// }
+//
+// .slideUp-perform {
+//   margin-top:0px;
+// }
