@@ -1,3 +1,3 @@
-import { insuranceConfig as config } from './insurance';
+import { links as linksList } from './links';
 
-export const insuranceConfig = config;
+export const links = linksList;

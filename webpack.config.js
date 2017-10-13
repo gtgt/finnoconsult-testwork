@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack'); // eslint-disable-line
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const pkg = require('./package.json');
 
 // ========== CONFIG ===========
@@ -141,6 +143,8 @@ plugins.push(new HtmlWebpackPlugin({
   filename: '200.html',
   inject: 'body',
 }));
+// plugins.push(new BundleAnalyzerPlugin());
+
 
 const config = {
   entry: {
@@ -159,7 +163,7 @@ const config = {
   },
   plugins,
   devServer: {
-    port: 3005,
+    port: 3000,
     historyApiFallback: true,
     host: '0.0.0.0', // Make the dev server accessible for virtual machines
   },

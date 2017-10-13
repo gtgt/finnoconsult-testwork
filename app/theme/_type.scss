@@ -21,12 +21,12 @@ a {
 }
 
 h2,h3,h4,h5 {
-  font-size: $theme-smallfont-size;
+  font-size: $theme-mediumfont-size;
   font-weight: 400;
   margin: 2rem 0 1rem;
   text-align: center;
 }
-p {
+h6, p {
   font-size: $theme-smallfont-size;
 }
 

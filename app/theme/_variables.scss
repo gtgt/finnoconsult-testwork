@@ -2,6 +2,8 @@
  * Global
  */
 $theme-viewport-width: 100vw;
+$theme-viewport-height: 100vh;
+$theme-viewport-maxwidth: 100vw;
 $device-smallscreen-phone: 500px;
 $device-smallscreen-tablet: 700px;
 
@@ -30,15 +32,15 @@ $breakpoints: (
 /*
  * General UI
  */
- $theme-page-margin: 50px;
+ $theme-page-margin: 2.4vh;
 // $theme-default-shadow: 0 0 1rem rgba(#000, 0.2);
 // $theme-slide-background: $theme-color-white;
 $theme-default-font-letter-spacing: 0.1rem;
 // $theme-handwriting-font-size: 4rem;
-$theme-tinyfont-size: 2vh;
-$theme-smallfont-size: 2.5vh;
-$theme-mediumfont-size: 3vh;
-$theme-bigfont-size: 3.5vh;
+$theme-tinyfont-size: 3.4vw;
+$theme-smallfont-size: 3.4vw;
+$theme-mediumfont-size: 4.2vw;
+$theme-bigfont-size: 4vw;
 
 /*
  * Buttons
@@ -55,7 +57,8 @@ $theme-bigfont-size: 3.5vh;
  * Navigation
  */
 $theme-navigation-z-index: 10;
-$theme-navigation-height: 110px;
+$theme-navigation-height: 6vh;
+$theme-navigation-menubarmaxwidth: 100vw;
 $theme-navigation-color: $theme-color-main;
 $theme-navigation-background: $theme-color-white;
 $theme-navigation-background-alternate: $theme-color-lightgray;

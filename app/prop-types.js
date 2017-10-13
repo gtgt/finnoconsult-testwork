@@ -14,6 +14,11 @@ export const oneOrManyChildElements = PropTypes.oneOfType([
   PropTypes.bool,
 ]);
 
+export const functionOrStringText = PropTypes.oneOfType([
+  PropTypes.string,
+  PropTypes.func,
+]);
+
 export const numberOrStringText = PropTypes.oneOfType([
   PropTypes.string,
   PropTypes.number,

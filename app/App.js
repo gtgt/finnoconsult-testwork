@@ -1,8 +1,11 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import LayoutMode from './components/layout/LayoutMode';
 import Authenticate from './containers/auth/Authenticate';
 import DevTools from './components/devtools/Sidebar';
+
+import RouterContainer from './containers/RouterContainer';
 
 import './theme/app.global.scss';
 
@@ -16,7 +19,9 @@ export default function App() {
   return (
     <Authenticate>
       <LayoutMode>
-        <h1>{project.name} v{project.version}</h1>
+        <Router>
+          <RouterContainer />
+        </Router>
         <DevTools />
       </LayoutMode>
     </Authenticate>

@@ -8,15 +8,16 @@
     "test": "jest",
     "_prebuild": "yarn test",
     "build": "mkdir ./Release; mv -f ./build/*.js ./Release; rm -rf ./build/*.js.map; NODE_ENV=production webpack -p --config webpack.config.js",
-
+    "fixindex": "sed 's/\"\\/cler-tutorial/\".\\/cler-tutorial/g' ./build/index.html >./build/_index.html; mv ./build/_index.html ./build/index.html",
+    "fix200": "sed 's/\"\\/cler-tutorial/\".\\/cler-tutorial/g' ./build/200.html >./build/_200.html; mv ./build/_200.html ./build/200.html",
     "_predeploy": "yarn test",
     "surgedeploy": "surge ./build _FinnoProject.surge.sh",
-    "deploy": "yarn build; yarn surgedeploy",
-
+    "deploy": "yarn build; yarn fixindex; yarn fix200; yarn surgedeploy",
     "zipclean": "mkdir ./Package; rm ./Package/*.zip",
     "ziprelease": "cd ./build; zip -r -9 ../Package/_FinnoProject_0.0.1.zip ./*; cd ..",
     "zipupload": "scp -r ./Package/* media@media.finnoconsult.at:/home/media/public_html/clients/_FinnoProject",
-    "downloads": "yarn zipclean; yarn ziprelease; yarn zipupload"
+    "predownloads": "more ./build/index.html; echo 'PLEASE DON'T FORGET TO yarn build and DOUBLE CHECK relative links are working: ./ instead of / in *.html; read -n1 -r -p \"Press any key to continue...\" key",
+    "downloads": "yarn zipclean; yarn fixindex; yarn fix200; yarn ziprelease; yarn zipupload"
   },
   "author": "Peter <peter.horvath@finnoconsult.at>",
   "license": "UNLICENSED",
@@ -35,7 +36,9 @@
     "babel-preset-react": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-preset-stage-1": "^6.22.0",
+    "breakpoint-sass": "^2.7.1",
     "css-loader": "^0.26.1",
+    "deep-equal": "^1.0.1",
     "enzyme": "^2.7.1",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
@@ -50,19 +53,20 @@
     "jest-enzyme": "^2.1.0",
     "node-sass": "^4.3.0",
     "react-addons-test-utils": "^15.4.2",
+    "react-swipeable": "^3.9.1",
     "react-test-renderer": "^15.4.2",
+    "sass-bem": "^2.6.5",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.1.0-beta.26",
+    "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "2.1.0-beta.12"
   },
   "dependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-object-assign": "^6.22.0",
-    "breakpoint-sass": "^2.7.1",
     "classnames": "^2.2.5",
-    "deep-equal": "^1.0.1",
     "html-webpack-plugin": "2.22.0",
     "mobx": "^2.7.0",
     "mobx-react": "^4.0.3",
@@ -71,9 +75,8 @@
     "rc-queue-anim": "^0.13.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "react-style-proptype": "^3.0.0",
-    "react-swipeable": "^3.9.1",
-    "sass-bem": "^2.6.5"
+    "react-router-dom": "^4.2.2",
+    "react-style-proptype": "^3.0.0"
   },
   "devEngines": {
     "node": "6.x",

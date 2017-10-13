@@ -1,0 +1,52 @@
+.component {
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  font-size: $theme-mediumfont-size;
+
+  ul {
+    margin: 0;
+    padding: 2vh 0 0;
+
+  }
+
+  li {
+    clear:both;
+    padding: 2.5vh 2vh;
+
+    a {
+      text-decoration: none;
+    }
+
+    .image {
+      // width: 22rem;
+      // height: 22rem;
+      width: 12vh;
+      height: 12vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      float:left;
+      border-radius: 3vh;
+      border: solid 1px $theme-color-lightgray;
+      margin-right: 1vh;
+      // background-color: rgba($theme-color-main, 0.4);
+
+    }
+
+    h5, h6 {
+      text-align: left;
+      margin: 0 0 1vh;
+    }
+
+    h5 {
+
+    }
+
+    h6 {
+
+    }
+
+  }
+
+}

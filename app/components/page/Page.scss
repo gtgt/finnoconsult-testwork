@@ -1,0 +1,84 @@
+.component {
+  // padding-top: $theme-navigation-height;
+  // margin-top: -0.1vh;
+  width: $theme-viewport-width;
+  max-width: $theme-viewport-maxwidth;
+  height: $theme-viewport-height;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  transition: transform 0.5s ease;
+  // NOTE: page is not scollable, rather some components have their own scolling features
+  // overflow: hidden;
+  // overflow-y: auto;
+  :global {
+    iframe,.iframe {
+      transition: opacity 1.5s ease;
+      opacity: 1;
+    }
+  }
+
+  &.isMenuVisible {
+    transform: translateX($theme-navigation-menubarmaxwidth);
+
+    :global {
+      iframe,.iframe {
+        opacity: 0;
+      }
+    }
+  }
+
+}
+
+:global {
+  .Page_component.menu {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: $theme-navigation-menubarmaxwidth;
+    padding-top: 0px;
+    transform: translateX(-$theme-navigation-menubarmaxwidth);
+
+    .l-container {
+      width: $theme-navigation-menubarmaxwidth;
+    }
+    .NavigationBar_component {
+      width: $theme-navigation-menubarmaxwidth;
+      box-shadow: inset -3px 0px 1.5vw 0px rgba(0, 0, 0, 0.8);
+      -webkit-box-shadow: inset -3px 0px 1.5vw 0px rgba(0, 0, 0, 0.8);
+      -moz-box-shadow: inset -3px 0px 1.5vw 0px rgba(0, 0, 0, 0.8);
+      -o-box-shadow: inset -3px 0px 1.5vw 0px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .Page_component.menu.Page_isMenuVisible {
+    transform: translateX(0);
+  }
+
+}
+
+
+
+//
+// @media only screen and (orientation: portrait) {
+//   body::before {
+//     content:'This website is supported only in \ALandscape mode.\APlease rotate your device and refresh!';
+//     white-space:pre;
+//     position: fixed;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     z-index: 1000;
+//     top:0;
+//     left:0;
+//     width: 100vw;
+//     height: 100vh;
+//     text-align: center;
+//     font-family: 'Open Sans';
+//     font-weight: bold;
+//     font-size: 50px;
+//     opacity: 0.9;
+//     background-color: gray;
+//     color: white;
+//   }
+// }
