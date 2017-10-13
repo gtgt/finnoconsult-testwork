@@ -45,12 +45,12 @@ export default class RouterContainer extends Component {
     return (
       <div>
         <Route exact path="/*">
-          <Page className="menu" isHomeLocation={this.props.location.pathname === '/'}>
+          <Page className="menu" isHomeLocation={!this.props.location.pathname.match(/\/pages/g)}>
             <Route component={LinkContainer} />
           </Page>
         </Route>
-        <Route path="/pages">
-          <Page setScrollAnchor={e => this.setScrollAnchor(e)} isHomeLocation={this.props.location.pathname === '/'}>
+        <Route path="*/pages">
+          <Page setScrollAnchor={e => this.setScrollAnchor(e)} isHomeLocation={!this.props.location.pathname.match(/\/pages/g)}>
             {/* <Swipeable
               onSwipingRight={() => this.routerHistory.goBack()}
               className="iframe"
@@ -58,7 +58,7 @@ export default class RouterContainer extends Component {
             > */}
             <Route component={NavigationBarScreen} />
             <Route
-              path="/pages"
+              path="*/pages"
               render={() => (
                 <div>
                   <h1>Hello</h1>

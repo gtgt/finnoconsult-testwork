@@ -8,8 +8,7 @@ import NavigationBar from '../../components/navigation/NavigationBar';
 export default class NavigationBarScreen extends Component {
 
   onBackClick() {
-    if (this.props.location.pathname === '/pages') {
-      console.log('HEEY back');
+    if (this.props.location.pathname.match(/\/pages/g)) {
       this.props.actions.toggleNavbar({ isVisible: !this.props.stores.ui.isNavigationBarVisible });
       return null;
     }
@@ -28,7 +27,7 @@ export default class NavigationBarScreen extends Component {
         isNavigationBarVisible
         navigationBarClassName={ui.navigationBarClassName}
         navigationBarBackLink={() => this.onBackClick()}
-        // isHomeLocation={this.props.location.pathname === '/pages'}
+        // isHomeLocation={this.props.location.pathname.match(/\/pages/g)s'}
         title={ui.navigationBarTitle}
       />
     );
