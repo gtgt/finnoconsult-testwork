@@ -25,7 +25,7 @@ export default class LinkContainer extends React.Component {
   render() {
     return (
       <LinkList
-        list={links.items.map(item => Object.assign({}, item, { link: `./pages?${item.id}` }))}
+        list={links.items.map(item => Object.assign({}, item, { route: `./pages?${item.id}` }))}
         onSwipingRight={link => this.onSwipe(link)}
         onSwipingLeft={link => this.onSwipe(link)}
       />

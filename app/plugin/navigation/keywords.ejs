@@ -1,0 +1,12 @@
+<style>
+  .keywords {
+    display: none;
+    height: 0;
+    overflow: hidden;
+  }
+</style>
+<h1 class="keywords">
+  <% _.forEach(data.application.keywords, function(item) {  %>
+    <%- item%>,
+  <% }); %>
+</h1>

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <% const __ = require('./app/helpers/i18n') %>
+    <% const navBar = require('./app/plugin/navigation/keywords.ejs') %>
+    <% const footer = require('./app/plugin/navigation/footer.ejs') %>
+
     <script>
       var gaConfig= {};
     </script>
@@ -27,7 +31,7 @@
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
 
-    <link rel="stylesheet" href="./reset.css" />
+    <!-- <link rel="stylesheet" href="./reset.css" /> -->
     <link rel="stylesheet" href="./app.css" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" />
@@ -39,13 +43,46 @@
 
   </head>
   <body>
-    <!-- Always visible HTML DOM part -->
-    <% _.forEach(htmlWebpackPlugin.options.application.keywords, function(item) {  %>
-      <%- item%>
-    <% }); %>
+    <!-- Remains visible in DOM even after React code injest  -->
+    <%= navBar({ id: 'keywords', application: htmlWebpackPlugin.options.application })%>
     <div id='root'>
-      <h2>This DOM part is being by React-Dom</h2>
-      <p>The reference for this div#root id is in index.js</p>
+      <style>
+        h1 {
+          font-size: 10vh;
+          font-weight: bold;
+          animation: 0.5s linear infinite condemned_blink_effect;
+          -webkit-animation: 0.5s linear infinite condemned_blink_effect; // for android
+        }
+        @keyframes condemned_blink_effect {
+            0% {
+                visibility: visible;
+            }
+            50% {
+                visibility: hidden;
+            }
+            100% {
+                visibility: hidden;
+            }
+        }
+        @-webkit-keyframes condemned_blink_effect { // for android
+            0% {
+                visibility: visible;
+            }
+            50% {
+                visibility: hidden;
+            }
+            100% {
+                visibility: hidden;
+            }
+        }
+        h2 {
+          font-size: 5vh;
+        }
+      </style>
+      <h1><%= __('The page is being loaded...')%></h1>
+      <h2><%= __('This DOM part is being by React-Dom.\n'
+                +'The reference for this div#root id is in index.js')%></p>
     </div>
+    <%= footer()%>
   </body>
 </html>

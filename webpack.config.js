@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack'); // eslint-disable-line
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 // var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const pkg = require('./package.json');
@@ -13,6 +15,7 @@ const _PROJECT_NAME = `'${pkg.name}'`;
 const _PROJECT_VERSION = `'${pkg.version}'`;
 const SUBFOLDER_LOCATION = process.env.SUBFOLDER_LOCATION || '';
 const INPUTFOLDER = process.env.INPUTFOLDER || 'build';
+const DEF_LANG = process.env.DEF_LANG || Object.keys(pkg.supportedLanguages)[0];
 
 function withTemplate(name) {
   const newName = `${name}${APP_TEMPLATE ? `.${APP_TEMPLATE}` : ''}`;
@@ -53,15 +56,35 @@ rules.push({
   ],
 });
 
+// EJS templating support for files inside ./app
+rules.push({
+  test: /\/app\/.*\.ejs$/,
+  // loader:
+  // loader: 'ejs-loader?variable=data',
+  loader: [
+    // 'html-loader?interpolate',
+    'ejs-loader?variable=data',
+  ],
+});
+// HTML support
+// rules.push({
+//   test: /.*\.html/,
+// });
+
 // Sass + CSS-Modules support
 rules.push({
   test: /^((?!\.global).)*\.scss$/,
-  use: [
+  // TODO: enable extract CSS
+  // use:  ExtractTextPlugin.extract( {
+  //   fallback: 'style-loader',
+  use:
+  [
+    // TODO: this line to be removed in case extract plugin
     { loader: 'style-loader' },
     {
       loader: 'css-loader',
       options: {
-        sourceMap: true,
+        sourceMap: !IS_PRODUCTION,
         modules: true,
         localIdentName: '[name]_[local]',
         importLoaders: true,
@@ -69,6 +92,7 @@ rules.push({
     },
     { loader: 'sass-loader' },
   ],
+  // } ) ,
 });
 
 // Global stylesheets should keep their initial classname
@@ -79,7 +103,7 @@ rules.push({
     {
       loader: 'css-loader',
       options: {
-        sourceMap: true,
+        sourceMap: !IS_PRODUCTION,
         modules: true,
         localIdentName: '[local]',
         importLoaders: true,
@@ -115,6 +139,10 @@ plugins.push(new webpack.LoaderOptionsPlugin({
 
 // Minify Javascript for production
 if (IS_PRODUCTION) {
+  if (IS_PRODUCTION) {
+    plugins.push(new webpack.optimize.OccurrenceOrderPlugin());
+  }
+
   plugins.push(new webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: false,
@@ -140,10 +168,14 @@ const environmentOptions = {
   _PROJECT_VERSION,
   APP_TEMPLATE: JSON.stringify(APP_TEMPLATE),
   SUBFOLDER_LOCATION: JSON.stringify(SUBFOLDER_LOCATION),
-  subfolder: SUBFOLDER_LOCATION,
+  subfolder: SUBFOLDER_LOCATION || JSON.stringify(SUBFOLDER_LOCATION),
   AUTO_LOGIN: process.env.AUTO_LOGIN || 0,
   application: JSON.parse(JSON.stringify(pkg)),
+  language: JSON.stringify(DEF_LANG),
+
 };
+// plugins.push(new ExtractTextPlugin({ filename: `${pkg.name}_${pkg.version}-bundle.css?release=${new Date().getTime()}` }));
+
 
 plugins.push(new webpack.DefinePlugin({ ENV: environmentOptions }));
 
@@ -157,13 +189,6 @@ plugins.push(new HtmlWebpackPlugin(Object.assign({
   inject: 'body',
 }, environmentOptions)));
 
-if (APP_TEMPLATE) {
-  plugins.push(new webpack.NormalModuleReplacementPlugin(/[/\\]images[/\\]color[/\\]/, (resource) => {
-    // eslint-disable-next-line
-    resource.request = resource.request.replace(/(.*[/\\]images[/\\])color[/\\](.*)/, `$1/${withTemplate('color')}/$2`);
-    // console.log('resource.request', resource.request);
-  }));
-}
 
 const config = {
   entry: {

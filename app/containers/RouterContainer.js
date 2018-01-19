@@ -61,8 +61,12 @@ export default class RouterContainer extends Component {
               path="*/pages"
               render={() => (
                 <div>
-                  <h1>Hello</h1>
-                  {links.items.find(i => i.id === parseInt(this.props.location.search && this.props.location.search.match(/\?(\d+)/)[1], 10) || 0).link}
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={links.functions.getLink(links.items, this.props.location.search)}
+                    // src={links.items.find(i => i.id === parseInt(this.props.location.search && this.props.location.search.match(/\?(\d+)/)[1], 10) || 0).link}
+                  />
                 </div>
               )}
             />

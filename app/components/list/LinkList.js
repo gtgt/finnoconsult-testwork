@@ -12,13 +12,14 @@ const ListItem = props =>
       onSwipingLeft={() => props.onSwipingLeft && props.onSwipingLeft(props.link)}
       // style={{ height: 'auto' }}
     > */}
-    <Link to={props.link}>
+    <Link to={props.route}>
       {props.image && (
         <div className={styles.image} style={{ backgroundImage: `url(${props.image})` }} />
       )}
       <h5>{props.title}</h5>
+      <h6>{props.link}</h6>
       {props.description && (
-        <h6>{props.description}</h6>
+        <p>{props.description}</p>
       )}
     </Link>
     {/* </Swipeable> */}
@@ -28,6 +29,7 @@ ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   link: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired,
   // onSwipingRight: PropTypes.func,
   // onSwipingLeft: PropTypes.func,
 };
@@ -35,12 +37,7 @@ ListItem.propTypes = {
 
 export default class LinkList extends React.Component {
   static propTypes = {
-    list: PropTypes.arrayOf(PropTypes.shape({
-      image: PropTypes.string,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string,
-      link: PropTypes.string.isRequired,
-    })).isRequired,
+    list: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)).isRequired,
     onSwipingRight: PropTypes.func,
     onSwipingLeft: PropTypes.func,
   };
@@ -56,6 +53,7 @@ export default class LinkList extends React.Component {
               title={item.title}
               description={item.description}
               link={item.link}
+              route={item.route}
               onSwipingRight={link => this.props.onSwipingRight(link)}
               onSwipingLeft={link => this.props.onSwipingLeft(link)}
             />
