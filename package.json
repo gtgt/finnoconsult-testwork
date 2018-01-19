@@ -1,25 +1,42 @@
 {
-  "name": "_FinnoProject",
-  "version": "0.0.1",
-  "description": "React project boilerplate template",
+  "name": "FinnoProject",
+  "version": "0.0.2",
+  "description": "React-router project boilerplate template",
+  "homepage": "https://finnoproject.surge.sh",
+  "keywords": ["React", "React-router", "Bolierplate", "bootstrap"],
+  "bugs": "https://trello.com/b/SUVj0dk1/beacon-db-admin",
   "main": "start.js",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --content-base build/ --config webpack.config.js --hot --inline",
+    "dev": "NODE_ENV=development AUTO_LOGIN=1 webpack-dev-server --content-base build/ --config webpack.config.js --hot --inline",
+    "### dev.subfolder": "yarn cleanbuild; NODE_ENV=production SUBFOLDER_LOCATION=/_subfolder_name webpack -p --config webpack.config.js; rm -rf ./_subfolder_name; mkdir ./_subfolder_name;  cp -R ./build/* ./_subfolder_name;  cp -R ./config/.htaccess ./_subfolder_name",
+
     "test": "jest",
+    "cleanbuild": "rm -rf ./build/*.js",
+
     "_prebuild": "yarn test",
-    "build": "mkdir ./Release; mv -f ./build/*.js ./Release; rm -rf ./build/*.js.map; NODE_ENV=production webpack -p --config webpack.config.js",
-    "fixindex": "sed 's/\"\\/_FinnoProject/\".\\/_FinnoProject/g' ./build/index.html >./build/_index.html; mv ./build/_index.html ./build/index.html",
-    "fix200": "sed 's/\"\\/_FinnoProject/\".\\/_FinnoProject/g' ./build/200.html >./build/_200.html; mv ./build/_200.html ./build/200.html",
+    "build": "yarn cleanbuild; mkdir ./Release; mv -f ./build/*.js ./Release; rm -rf ./build/*.js.map; NODE_ENV=production webpack -p --config webpack.config.js",
+
+    "### fixindex": "sed 's/\"\\/_FinnoProject/\".\\/_FinnoProject/g' ./build/index.html >./build/_index.html; mv ./build/_index.html ./build/index.html",
+    "### fix200": "sed 's/\"\\/_FinnoProject/\".\\/_FinnoProject/g' ./build/200.html >./build/_200.html; mv ./build/_200.html ./build/200.html",
+    "fixindex": "",
+    "fix200": "",
+    "surgedeploy": "surge ./build finnoproject.surge.sh",
     "_predeploy": "yarn test",
-    "surgedeploy": "surge ./build _FinnoProject.surge.sh",
     "deploy": "yarn build; yarn fixindex; yarn fix200; yarn surgedeploy",
+
     "zipclean": "mkdir ./Package; rm ./Package/*.zip",
-    "ziprelease": "cd ./build; zip -r -9 ../Package/_FinnoProject_0.0.1.zip ./*; cd ..",
+    "preziprelease": "more ./build/index.html; echo 'PLEASE DON'T FORGET TO yarn build and DOUBLE CHECK relative links are working: ./ instead of / in *.html; read -r -p \"Press any key to continue...\" key",
+    "ziprelease": "cd ./build; zip -r -9 ../Package/_FinnoProject_0.0.2.zip ./*; cd ..",
+    "prezip": "yarn build; yarn fixindex; yarn fix200",
+    "zip": "yarn zipclean; yarn ziprelease",
+
     "zipupload": "scp -r ./Package/* media@media.finnoconsult.at:/home/media/public_html/clients/_FinnoProject",
-    "predownloads": "more ./build/index.html; echo 'PLEASE DON'T FORGET TO yarn build and DOUBLE CHECK relative links are working: ./ instead of / in *.html; read -n1 -r -p \"Press any key to continue...\" key",
-    "downloads": "yarn zipclean; yarn fixindex; yarn fix200; yarn ziprelease; yarn zipupload"
+    "predownloads": "yarn zip",
+    "downloads": "yarn zipupload"
   },
-  "author": "Peter <peter.horvath@finnoconsult.at>",
+  "author": "Peter Horvath <peter.horvath@innovaciostanacsado.com>",
+  "contributors": "Peter Biró <peter.biro@innovaciostanacsado.com>",
+  "repository":"https://github.com/finnoconsult/react-boilerplate/",
   "license": "UNLICENSED",
   "devDependencies": {
     "babel-core": "^6.18.0",
@@ -77,6 +94,10 @@
     "react-dom": "^15.4.1",
     "react-router-dom": "^4.2.2",
     "react-style-proptype": "^3.0.0"
+  },
+  "engines" : {
+    "node": "6.x",
+    "npm": "3.x"
   },
   "devEngines": {
     "node": "6.x",

@@ -5,12 +5,12 @@
       var gaConfig= {};
     </script>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <title>_FinnoProject</title>
+    <title><%= htmlWebpackPlugin.options.title%></title>
     <!-- <meta name="viewport" content="initial-scale=1.0"> -->
-    <meta name="viewport" content="user-scalable=yes">
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="_FinnoProject">
-    <meta name="apple-mobile-web-app-title" content="_FinnoProject">
+    <meta name="application-name" content="<%= htmlWebpackPlugin.options.name%>">
+    <meta name="apple-mobile-web-app-title" content="<%= htmlWebpackPlugin.options.name%>">
     <meta name="theme-color" content="#ffffff">
     <meta name="msapplication-navbutton-color" content="#ffffff">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -21,17 +21,31 @@
     <link rel="manifest" href="./manifest.json">
     <meta name="msapplication-config" content="./browserconfig.xml" />
 
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./app.css" />
-    <script>
-(function(i,s,o,g,r,a,m){i['FinnoAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://stat.finnoconsult.at/'+
-''+window.location.href.replace(/\?/,'_')+'?'+'ver='+(1*new Date()),'fa');
-    </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
   </head>
   <body>
-    <div id='root'></div>
+    <!-- Always visible HTML DOM part -->
+    <% _.forEach(htmlWebpackPlugin.options.application.keywords, function(item) {  %>
+      <%- item%>
+    <% }); %>
+    <div id='root'>
+      <h2>This DOM part is being by React-Dom</h2>
+      <p>The reference for this div#root id is in index.js</p>
+    </div>
   </body>
 </html>

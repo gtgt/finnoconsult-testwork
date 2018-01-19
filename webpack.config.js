@@ -7,9 +7,18 @@ const pkg = require('./package.json');
 
 // ========== CONFIG ===========
 const NODE_ENV = process.env.NODE_ENV;
+const APP_TEMPLATE = process.env.APP_TEMPLATE;
 const IS_PRODUCTION = NODE_ENV === 'production';
 const _PROJECT_NAME = `'${pkg.name}'`;
 const _PROJECT_VERSION = `'${pkg.version}'`;
+const SUBFOLDER_LOCATION = process.env.SUBFOLDER_LOCATION || '';
+const INPUTFOLDER = process.env.INPUTFOLDER || 'build';
+
+function withTemplate(name) {
+  const newName = `${name}${APP_TEMPLATE ? `.${APP_TEMPLATE}` : ''}`;
+  return newName;
+}
+
 
 // =========== RULES ===========
 const rules = [];
@@ -98,7 +107,7 @@ plugins.push(new webpack.LoaderOptionsPlugin({
   debug: !IS_PRODUCTION,
   options: {
     sassLoader: {
-      data: `@import "${path.resolve(__dirname, './app/theme/_config.scss')}";`,
+      data: `@import "${path.resolve(__dirname, `./app/theme/${withTemplate('_config')}.scss`)}";`,
     },
     context: '/',
   },
@@ -125,26 +134,36 @@ if (IS_PRODUCTION) {
   }));
 }
 
-plugins.push(new webpack.DefinePlugin({
-  ENV: {
-    IS_PRODUCTION,
-    _PROJECT_NAME,
-    _PROJECT_VERSION,
-    AUTO_LOGIN: process.env.AUTO_LOGIN || 0,
-  },
-}));
+const environmentOptions = {
+  IS_PRODUCTION,
+  _PROJECT_NAME,
+  _PROJECT_VERSION,
+  APP_TEMPLATE: JSON.stringify(APP_TEMPLATE),
+  SUBFOLDER_LOCATION: JSON.stringify(SUBFOLDER_LOCATION),
+  subfolder: SUBFOLDER_LOCATION,
+  AUTO_LOGIN: process.env.AUTO_LOGIN || 0,
+  application: JSON.parse(JSON.stringify(pkg)),
+};
 
-plugins.push(new HtmlWebpackPlugin({
+plugins.push(new webpack.DefinePlugin({ ENV: environmentOptions }));
+
+plugins.push(new HtmlWebpackPlugin(Object.assign({
   template: IS_PRODUCTION ? 'index.template.ejs' : 'index.template.ejs',
   inject: 'body',
-}));
-plugins.push(new HtmlWebpackPlugin({
+}, environmentOptions)));
+plugins.push(new HtmlWebpackPlugin(Object.assign({
   template: IS_PRODUCTION ? 'index.template.ejs' : 'index.template.ejs',
   filename: '200.html',
   inject: 'body',
-}));
-// plugins.push(new BundleAnalyzerPlugin());
+}, environmentOptions)));
 
+if (APP_TEMPLATE) {
+  plugins.push(new webpack.NormalModuleReplacementPlugin(/[/\\]images[/\\]color[/\\]/, (resource) => {
+    // eslint-disable-next-line
+    resource.request = resource.request.replace(/(.*[/\\]images[/\\])color[/\\](.*)/, `$1/${withTemplate('color')}/$2`);
+    // console.log('resource.request', resource.request);
+  }));
+}
 
 const config = {
   entry: {
@@ -154,8 +173,8 @@ const config = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
+    path: path.resolve(__dirname, INPUTFOLDER),
+    publicPath: SUBFOLDER_LOCATION || '/',
     filename: `${pkg.name}_${pkg.version}.js?release=${new Date().getTime()}`,
   },
   module: {
