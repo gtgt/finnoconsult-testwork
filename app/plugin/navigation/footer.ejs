@@ -1,7 +1,7 @@
 <div id="footer">
-  <a>#FinnoScore</a>
-  <a>#SpeedCreation</a>
-  <a>#FinnoConsult</a>
+  <% _.forEach(data.links.links.items, function(item) {  %>
+    <a href="<%= data.links.links.functions.getRoute(item)%>" title="<%- item.description%>"><%- item.title%></a>
+  <% }) %>
 </div>
 <style>
 #footer {

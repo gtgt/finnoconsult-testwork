@@ -83,6 +83,6 @@
       <h2><%= __('This DOM part is being by React-Dom.\n'
                 +'The reference for this div#root id is in index.js')%></p>
     </div>
-    <%= footer()%>
+    <%= footer({ links: htmlWebpackPlugin.options.links })%>
   </body>
 </html>

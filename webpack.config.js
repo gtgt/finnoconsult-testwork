@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const pkg = require('./package.json');
+const links = require('./app/content/links');
 
 // ========== CONFIG ===========
 const NODE_ENV = process.env.NODE_ENV;
@@ -168,6 +169,7 @@ const environmentOptions = {
   subfolder: SUBFOLDER_LOCATION || JSON.stringify(SUBFOLDER_LOCATION),
   AUTO_LOGIN: process.env.AUTO_LOGIN || 0,
   application: JSON.parse(JSON.stringify(pkg)),
+  links,
   language: JSON.stringify(DEF_LANG),
 
 };
