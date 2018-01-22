@@ -59,7 +59,7 @@ rules.push({
 
 // EJS templating support for files inside ./app
 rules.push({
-  test: /\/app\/.*\.ejs$/,
+  test: /\/app\/theme\/navigation\/.*\.ejs$/,
   // loader:
   // loader: 'ejs-loader?variable=data',
   loader: [
@@ -179,11 +179,11 @@ plugins.push(new ExtractTextPlugin({ filename: `${pkg.name}_${pkg.version}-bundl
 plugins.push(new webpack.DefinePlugin({ ENV: environmentOptions }));
 
 plugins.push(new HtmlWebpackPlugin(Object.assign({
-  template: IS_PRODUCTION ? 'index.template.ejs' : 'index.template.ejs',
+  template: IS_PRODUCTION ? './app/theme/index.template.ejs' : './app/theme/index.template.ejs',
   inject: 'body',
 }, environmentOptions)));
 plugins.push(new HtmlWebpackPlugin(Object.assign({
-  template: IS_PRODUCTION ? 'index.template.ejs' : 'index.template.ejs',
+  template: IS_PRODUCTION ? './app/theme/index.template.ejs' : './app/theme/index.template.ejs',
   filename: '200.html',
   inject: 'body',
 }, environmentOptions)));
