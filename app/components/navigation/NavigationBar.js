@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { observer } from 'mobx-react';
+import Swipeable from 'react-swipeable';
 
 import { functionOrStringText } from '../../prop-types';
 
@@ -34,8 +35,10 @@ export default class NavigationBar extends Component {
     // if (!isNavigationBarVisible) return null;
 
     return (
-      <div
+      <Swipeable
+        onSwipingRight={() => this.onBackClick()}
         className={`${styles.component} ${this.props.navigationBarClassName}`}
+        // style={{ width: '100%', height: '100%' }}
       >
         <div className=" l-container l-container--horizontal l-container-grow">
 
@@ -54,7 +57,7 @@ export default class NavigationBar extends Component {
             </div>
           )}
         </div>
-      </div>
+      </Swipeable>
     );
   }
 }

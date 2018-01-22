@@ -26,9 +26,9 @@ export default class Page extends Component {
   }
 
   toggleMenu() {
-    if (!this.props.isHomeLocation) {
-      this.props.actions.toggleNavbar({ isVisible: false });
-    }
+    // if () {
+    this.props.actions.toggleNavbar({ isVisible: this.props.isHomeLocation });
+    // }
   }
 
   render() {

@@ -4,12 +4,42 @@ const links = {
   },
   items: [
     {
+      id: -1,
+      // image: cyberrisk,
+      title: 'Home',
+      route: '/',
+      description: 'Go to home',
+    },
+    {
       id: 21,
       // image: cyberrisk,
-      title: '#OpenSezame',
+      title: '#OpenSezame DB admin',
       route: '/opensezame',
-      description: 'EnglishHungarian website to promote our services to Hungarian customers',
-      link: 'https://finnoscore.finnoconsult.at',
+      description: 'Admin area for APP configuration via REST API',
+      link: 'https://beacondbadmin.finnoconsult.at/opensezame',
+      items: [
+        {
+          id: 1,
+          // image: cyberrisk,
+          title: 'Doors',
+          route: '/opensezame/doors',
+          description: 'Configure doors',
+        },
+        {
+          id: 1,
+          // image: cyberrisk,
+          title: 'Beacons',
+          route: '/opensezame/beacons',
+          description: 'Configure beacons',
+        },
+        {
+          id: 1,
+          // image: cyberrisk,
+          title: 'Triggers',
+          route: '/opensezame/triggers',
+          description: 'Configure triggers',
+        },
+      ],
     },
     {
       id: 11,

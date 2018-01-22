@@ -63,14 +63,15 @@ export default class SidebarDevTool extends Component {
                       <li key={key}>{item.name} {item.status}</li>
                     ))}
                   </ul> */}
-                  {/* <label htmlFor="isNavigationBarVisible">Show Navbar:</label>
+                  <label htmlFor="isNavigationBarVisible">Show Navbar:</label>
                   <input
                     type="checkbox"
                     name="isNavigationBarVisible"
-                    checked={this.props.stores.ui.isNavigationBarVisible}
-                    onChange={e => this.props.actions.toggleNavbar(e)}
+                    checked={!this.props.stores.ui.isNavigationBarVisible}
+                    onChange={e => console.log('not to be changed like this', e)}
+                    // onChange={e => this.props.actions.toggleNavbar(e)}
                   />
-                  <label htmlFor="setNavBarTitle">NavBar title:</label>
+                  {/* <label htmlFor="setNavBarTitle">NavBar title:</label>
                   <input
                     type="text"
                     name="setNavBarTitle"
@@ -188,7 +189,7 @@ SidebarDevTool.wrappedComponent.propTypes = {
     // pauseAnimation: PropTypes.func.isRequired,
     // setSlide: PropTypes.func.isRequired,
     // nextSlide: PropTypes.func.isRequired,
-  //   toggleNavbar: PropTypes.func.isRequired,
+    toggleNavbar: PropTypes.func.isRequired,
   //   setNavBarTitle: PropTypes.func.isRequired,
   //   updateFormData: PropTypes.func.isRequired,
   }),

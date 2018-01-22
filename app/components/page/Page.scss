@@ -7,7 +7,8 @@
   position: fixed;
   top: 0px;
   left: 0px;
-  transition: transform 0.5s ease;
+  transition: all 0.5s ease;
+  transform: translateX($theme-navigation-leftmenubarmaxwidth);
   // NOTE: page is not scollable, rather some components have their own scolling features
   // overflow: hidden;
   // overflow-y: auto;
@@ -19,7 +20,7 @@
   }
 
   &.isMenuVisible {
-    transform: translateX($theme-navigation-menubarmaxwidth);
+    transform: translateX($theme-navigation-topmenubarmaxwidth);
 
     :global {
       iframe,.iframe {
@@ -35,15 +36,17 @@
     position: fixed;
     top: 0px;
     left: 0px;
-    width: $theme-navigation-menubarmaxwidth;
+    width: $theme-navigation-topmenubarmaxwidth;
     padding-top: 0px;
-    transform: translateX(-$theme-navigation-menubarmaxwidth);
+    // transform: translateX(-$theme-navigation-topmenubarmaxwidth);
+    transform: translateX(0);
+    width: $theme-navigation-leftmenubarmaxwidth;
 
     .l-container {
-      width: $theme-navigation-menubarmaxwidth;
+      width: $theme-navigation-topmenubarmaxwidth;
     }
     .NavigationBar_component {
-      width: $theme-navigation-menubarmaxwidth;
+      width: $theme-navigation-topmenubarmaxwidth;
       box-shadow: inset -3px 0px 1.5vw 0px rgba(0, 0, 0, 0.8);
       -webkit-box-shadow: inset -3px 0px 1.5vw 0px rgba(0, 0, 0, 0.8);
       -moz-box-shadow: inset -3px 0px 1.5vw 0px rgba(0, 0, 0, 0.8);
@@ -53,6 +56,7 @@
 
   .Page_component.menu.Page_isMenuVisible {
     transform: translateX(0);
+    width: $theme-navigation-topmenubarmaxwidth;
   }
 
 }

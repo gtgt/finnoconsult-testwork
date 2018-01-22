@@ -37,10 +37,10 @@ $breakpoints: (
 // $theme-slide-background: $theme-color-white;
 $theme-default-font-letter-spacing: 0.1rem;
 // $theme-handwriting-font-size: 4rem;
-$theme-tinyfont-size: 3.4vw;
-$theme-smallfont-size: 3.4vw;
-$theme-mediumfont-size: 4.2vw;
-$theme-bigfont-size: 4vw;
+$theme-tinyfont-size: 1vh;
+$theme-smallfont-size: 1.8vh;
+$theme-mediumfont-size: 2vh;
+$theme-bigfont-size: 2.4vh;
 
 /*
  * Buttons
@@ -58,7 +58,8 @@ $theme-bigfont-size: 4vw;
  */
 $theme-navigation-z-index: 10;
 $theme-navigation-height: 6vh;
-$theme-navigation-menubarmaxwidth: 100vw;
+$theme-navigation-topmenubarmaxwidth: 100vw;
+$theme-navigation-leftmenubarmaxwidth: 20vw;
 $theme-navigation-color: $theme-color-main;
 $theme-navigation-background: $theme-color-white;
 $theme-navigation-background-alternate: $theme-color-lightgray;

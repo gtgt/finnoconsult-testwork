@@ -166,7 +166,7 @@ const environmentOptions = {
   _PROJECT_VERSION,
   APP_TEMPLATE: JSON.stringify(APP_TEMPLATE),
   SUBFOLDER_LOCATION: JSON.stringify(SUBFOLDER_LOCATION),
-  subfolder: SUBFOLDER_LOCATION || JSON.stringify(SUBFOLDER_LOCATION),
+  subfolder: SUBFOLDER_LOCATION || '',
   AUTO_LOGIN: process.env.AUTO_LOGIN || 0,
   application: JSON.parse(JSON.stringify(pkg)),
   links,

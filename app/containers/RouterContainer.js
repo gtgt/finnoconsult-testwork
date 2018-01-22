@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { Route, withRouter } from 'react-router-dom';
-// import Swipeable from 'react-swipeable';
 
 import Page from '../components/page/Page';
 import NavigationBarScreen from './navigation/NavigationBarScreen';
 import LinkContainer from './LinkContainer';
+import Doors from '../components/opensezame/doors/Doors';
 
 import { links } from '../content';
 
@@ -42,23 +42,18 @@ export default class RouterContainer extends Component {
   }
 
   render() {
+    const isHomeMatching = this.props.location.pathname.match(/^\/$/g) !== null;
     return (
       <div>
         <Route exact path="/*">
-          <Page className="menu" isHomeLocation={!this.props.location.pathname.match(/\/pages/g)}>
+          <Page className="menu" isHomeLocation={isHomeMatching}>
             <Route component={LinkContainer} />
           </Page>
         </Route>
         <Route path="*/pages">
-          <Page setScrollAnchor={e => this.setScrollAnchor(e)} isHomeLocation={!this.props.location.pathname.match(/\/pages/g)}>
-            {/* <Swipeable
-              onSwipingRight={() => this.routerHistory.goBack()}
-              className="iframe"
-              style={{ width: '100%', height: '100%' }}
-            > */}
+          <Page setScrollAnchor={e => this.setScrollAnchor(e)} isHomeLocation={isHomeMatching}>
             <Route component={NavigationBarScreen} />
             <Route
-              path="*/pages"
               render={() => (
                 <div>
                   <iframe
@@ -70,8 +65,27 @@ export default class RouterContainer extends Component {
                 </div>
               )}
             />
-            {/* </Swipeable> */}
+          </Page>
+        </Route>
 
+        <Route path="*/opensezame">
+          <Page setScrollAnchor={e => this.setScrollAnchor(e)} isHomeLocation={isHomeMatching}>
+            <Route component={NavigationBarScreen} />
+
+            <Route path="*/opensezame" exact component={Doors} />
+            <Route path="*/opensezame/beacons" exact component={Doors} />
+            <Route path="*/opensezame/triggers" exact component={Doors} />
+            <Route
+              path="*/opensezame/doors"
+              render={() => (
+                <div>
+                  <h1>
+                    This is more specific, the Door related admin
+                  </h1>
+                  <Doors />
+                </div>
+              )}
+            />
           </Page>
         </Route>
       </div>
