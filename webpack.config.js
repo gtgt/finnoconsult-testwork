@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack'); // eslint-disable-line
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -74,25 +74,22 @@ rules.push({
 // Sass + CSS-Modules support
 rules.push({
   test: /^((?!\.global).)*\.scss$/,
-  // TODO: enable extract CSS
-  // use:  ExtractTextPlugin.extract( {
-  //   fallback: 'style-loader',
-  use:
-  [
-    // TODO: this line to be removed in case extract plugin
-    { loader: 'style-loader' },
-    {
-      loader: 'css-loader',
-      options: {
-        sourceMap: !IS_PRODUCTION,
-        modules: true,
-        localIdentName: '[name]_[local]',
-        importLoaders: true,
+  use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use:
+    [
+      {
+        loader: 'css-loader',
+        options: {
+          sourceMap: !IS_PRODUCTION,
+          modules: true,
+          localIdentName: '[name]_[local]',
+          importLoaders: true,
+        },
       },
-    },
-    { loader: 'sass-loader' },
-  ],
-  // } ) ,
+      { loader: 'sass-loader' },
+    ],
+  }),
 });
 
 // Global stylesheets should keep their initial classname
@@ -174,7 +171,7 @@ const environmentOptions = {
   language: JSON.stringify(DEF_LANG),
 
 };
-// plugins.push(new ExtractTextPlugin({ filename: `${pkg.name}_${pkg.version}-bundle.css?release=${new Date().getTime()}` }));
+plugins.push(new ExtractTextPlugin({ filename: `${pkg.name}_${pkg.version}-bundle.css?release=${new Date().getTime()}` }));
 
 
 plugins.push(new webpack.DefinePlugin({ ENV: environmentOptions }));
