@@ -15,7 +15,8 @@ export default class UIStore extends Store {
   @observable navigationBarClassName = null;
   @observable slideLabels = ['', '', '', '', '', ''];
 
-  @observable userLoggedIn = false; // TODO: set to false
+  // NOTE:  set AUTO_LOGIN=1 in package.json script section for auto-login, or set to =0 or simple omit in case you want login page
+  @observable userLoggedIn = ENV.AUTO_LOGIN === 1;
   @observable userPassword = 'Passw0rd';
   @observable userAuthToken = '';
 
