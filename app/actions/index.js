@@ -23,6 +23,10 @@ export default defineActions({
   },
   nextSlide: {},
   prevSlide: {},
+  loginAttempt: {
+    username: PropTypes.string/* .isRequired */,
+    password: PropTypes.string.isRequired,
+  },
   setMaxSlides: {
     maxSlides: PropTypes.number.isRequired,
   },

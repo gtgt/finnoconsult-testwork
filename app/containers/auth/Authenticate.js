@@ -8,27 +8,18 @@ import UIStore from '../../stores/UIStore';
 
 import Login from './Login';
 
-@inject('stores') @observer
+@inject('stores', 'actions') @observer
 export default class Authenticate extends Component {
   static propTypes = {
     children: oneOrManyChildElements,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      userLoggedIn: props.stores.ui.userLoggedIn,
-    };
-  }
-
   onLoginAttempt(data) {
-    if (data.password === this.props.stores.ui.userPassword) {
-      this.setState({ userLoggedIn: true });
-    }
+    this.props.actions.loginAttempt(data);
   }
 
   render() {
-    const { userLoggedIn } = this.state;
+    const { userLoggedIn } = this.props.stores.ui;
 
     if (userLoggedIn) {
       return (
@@ -46,5 +37,8 @@ Authenticate.wrappedComponent.propTypes = {
   // title: PropTypes.string.isRequired,
   stores: PropTypes.shape({
     ui: PropTypes.instanceOf(UIStore).isRequired,
+  }).isRequired,
+  actions: PropTypes.shape({
+    loginAttempt: PropTypes.func.isRequired,
   }).isRequired,
 };

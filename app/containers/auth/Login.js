@@ -23,7 +23,10 @@ export default class Login extends Component {
   }
 
   onSubmit() {
-    const data = { password: this.state.password };
+    const data = {
+      // username: TODO,
+      password: this.state.password,
+    };
     this.props.onSubmit(data);
     this.setState({ password: '' });
   }

@@ -71,6 +71,8 @@ export default class SidebarDevTool extends Component {
                     onChange={e => console.log('not to be changed like this', e)}
                     // onChange={e => this.props.actions.toggleNavbar(e)}
                   />
+                  <label htmlFor="isNavigationBarVisible">UserAccessToken:</label>
+                  {this.props.stores.ui.userAuthToken}
                   {/* <label htmlFor="setNavBarTitle">NavBar title:</label>
                   <input
                     type="text"

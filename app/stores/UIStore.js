@@ -15,8 +15,9 @@ export default class UIStore extends Store {
   @observable navigationBarClassName = null;
   @observable slideLabels = ['', '', '', '', '', ''];
 
-  @observable userLoggedIn = true; // TODO: set to false
-  @observable userPassword = 'CL3Rtutorial';
+  @observable userLoggedIn = false; // TODO: set to false
+  @observable userPassword = 'Passw0rd';
+  @observable userAuthToken = '';
 
   @observable devToolDebugMessage = '';
 
@@ -37,6 +38,7 @@ export default class UIStore extends Store {
     this.actions.nextSlide.listen(this._nextSlide.bind(this));
     this.actions.setMaxSlides.listen(this._setMaxSlides.bind(this));
     this.actions.debug.listen(this._debug.bind(this));
+    this.actions.loginAttempt.listen(this._loginAttempt.bind(this));
   }
 
   @computed get slideLabel() {
@@ -95,6 +97,19 @@ export default class UIStore extends Store {
 
   _prevSlide() {
     this._setSlide({ slide: this.activeSlide - 1 });
+  }
+
+  _loginAttempt({ username, password }) {
+    console.log('//TODO: performing REST API call for auth & request assessToken + with username:', username, '(to be filled!)');
+    if (password === this.userPassword) {
+      this._loginSuccessful({ userAuthToken: JSON.stringify(new Date()) });
+    }
+  }
+  _loginSuccessful({ userAuthToken }) {
+    if (userAuthToken.length > 0) {
+      this.userLoggedIn = true;
+      this.userAuthToken = userAuthToken;
+    }
   }
 
 

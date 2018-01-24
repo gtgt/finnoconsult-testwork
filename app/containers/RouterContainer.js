@@ -5,6 +5,7 @@ import Page from '../components/page/Page';
 import NavigationBarScreen from './navigation/NavigationBarScreen';
 import LinkContainer from './LinkContainer';
 import Doors from '../components/opensezame/doors/Doors';
+import StartServiceContainer from '../containers/opensezame/StartServiceContainer';
 
 import { links } from '../content';
 
@@ -73,6 +74,7 @@ export default class RouterContainer extends Component {
             <Route component={NavigationBarScreen} />
 
             <Route path="*/opensezame" exact component={Doors} />
+            <Route path="*/opensezame/startservice" exact component={StartServiceContainer} />
             <Route path="*/opensezame/beacons" exact component={Doors} />
             <Route path="*/opensezame/triggers" exact component={Doors} />
             <Route
@@ -82,7 +84,7 @@ export default class RouterContainer extends Component {
                   <h1>
                     This is more specific, the Door related admin
                   </h1>
-                  <Doors />
+                  <Doors something="sample something" />
                 </div>
               )}
             />

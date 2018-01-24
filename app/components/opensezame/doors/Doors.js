@@ -10,7 +10,6 @@ export default class Doors extends React.Component {
 
 
   render() {
-    console.log('received something:', this.props.something);
     return (
       <div className={styles.component}>
         Let&acute;s try:

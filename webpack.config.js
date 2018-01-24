@@ -205,11 +205,11 @@ const config = {
     rules,
   },
   plugins,
-  devServer: {
-    port: 3000,
+  devServer: Object.assign({
+    // port: coming from package.json
     historyApiFallback: true,
     host: '0.0.0.0', // Make the dev server accessible for virtual machines
-  },
+  }, pkg.homepage_dev),
 };
 
 if (!IS_PRODUCTION) {

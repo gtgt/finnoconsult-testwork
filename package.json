@@ -1,6 +1,6 @@
 {
   "name": "FinnoProject",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React-router project boilerplate template",
   "keywords": [
     "React",
@@ -25,7 +25,7 @@
     "deploy": "yarn build; yarn fixindex; yarn fix200; yarn surgedeploy",
     "zipclean": "mkdir ./Package; rm ./Package/*.zip",
     "preziprelease": "more ./build/index.html; echo 'PLEASE DON'T FORGET TO yarn build and DOUBLE CHECK relative links are working: ./ instead of / in *.html; read -r -p \"Press any key to continue...\" key",
-    "ziprelease": "cd ./build; zip -r -9 ../Package/_FinnoProject_0.0.2.zip ./*; cd ..",
+    "ziprelease": "cd ./build; zip -r -9 ../Package/_FinnoProject_0.0.3.zip ./*; cd ..",
     "prezip": "yarn build; yarn fixindex; yarn fix200",
     "zip": "yarn zipclean; yarn ziprelease",
     "zipupload": "scp -r ./Package/* media@media.finnoconsult.at:/home/media/public_html/clients/_FinnoProject",
@@ -39,6 +39,10 @@
   "license": "UNLICENSED",
   "homepage": "https://finnoproject.surge.sh",
   "homepage_test": "https://localhost:3000",
+  "homepage_dev": {
+    "host": "0.0.0.0",
+    "port": 3000
+  },
   "supportedLanguages": {
     "en": "German",
     "hu": "Italian"
