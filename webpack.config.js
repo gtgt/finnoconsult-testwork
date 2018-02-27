@@ -171,6 +171,12 @@ const environmentOptions = {
   application: JSON.parse(JSON.stringify(pkg)),
   links,
   language: JSON.stringify(DEF_LANG),
+  title: pkg.description,
+  description: `${pkg.description} v${pkg.version}`,
+  homepage: JSON.stringify(pkg.homepage),
+  // homepage: JSON.stringify(IS_PRODUCTION ? pkg.homepage : pkg.homepage_test),
+  homepage_test: JSON.stringify(pkg.homepage_test),
+  homepage_dev: JSON.stringify(pkg.homepage_dev),
 
 };
 plugins.push(new ExtractTextPlugin({ filename: `${pkg.name}_${pkg.version}-bundle.css?release=${new Date().getTime()}` }));
