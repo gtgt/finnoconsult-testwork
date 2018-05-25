@@ -1,0 +1,37 @@
+.component {
+
+  display: grid;
+  grid-template-columns: 150px auto;
+  grid-template-rows: 62px auto 56px;
+  grid-gap: 0;
+
+  // TODO: check with grid
+  transition: all 1s ease;
+
+  & > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border:solid 1px black;
+
+    transition: all 1s ease;
+  }
+
+
+  header {
+    grid-column: 2 / 3;
+  }
+  aside {
+    grid-row: 1 / 4;
+  }
+  footer {
+    grid-column: 2 / 3;
+  }
+}
+
+//
+// .grid > * {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }

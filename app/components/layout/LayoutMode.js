@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
 import { oneOrManyChildElements } from '../../prop-types';
+
+// TODO: LAyoutMode.scss !
 
 export default class LayoutMode extends Component {
   static propTypes = {
     children: oneOrManyChildElements.isRequired,
-    action: PropTypes.func,
+    // onGoingPortrait: PropTypes.func,
+    // onGoingLandscape: PropTypes.func,
+    portrait: PropTypes.bool,
+    landscape: PropTypes.bool,
+  }
+
+  static defaultProps = {
+    landscape: true,
   }
 
   state = {
     windowWidth: window.innerWidth,
     windowHeight: window.innerHeight,
-    portrait: Math.floor(window.innerWidth / window.innerHeight) === 0, // TODO: determine from props if portrait or landscape
+    isPortrait: Math.floor(window.innerWidth / window.innerHeight) === 0, // TODO: determine from props if portrait or landscape
   }
 
   componentDidMount() {
@@ -20,17 +30,23 @@ export default class LayoutMode extends Component {
   }
 
   _checkLayoutMode() {
-    if (this.props.action && window.innerWidth !== this.state.windowWidth && window.innerHeight !== this.state.windowHeight) {
+    // TODO: onGoingPortrait, onGoingLandscape
+    // if (this.props.action && window.innerWidth !== this.state.windowWidth && window.innerHeight !== this.state.windowHeight) {
       // !this.state.portrait
-      this.props.action();
+      // this.props.action();
       // console.log('Warning! layout had changed or device were rotated!', this.state, window.innerWidth);
       // document.location.href='/'; // TODO: get url as props
-    }
+    // }
   }
 
   render() {
     return (
-      <div>
+      <div
+        className={classnames({
+          portrait: this.props.portrait,
+          landscape: this.props.landscape,
+        })}
+      >
         {this.props.children}
       </div>
     );
