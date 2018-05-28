@@ -8,23 +8,20 @@
   // TODO: check with grid
   transition: all 1s ease;
 
-  // & > * {
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    // border:solid 1px black;
+  & > header, & > aside, & > footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s ease;
+  }
 
-    // transition: all 1s ease;
-  // }
-
-
-  header {
+  & > header {
     grid-column: 2 / 3;
   }
-  aside {
+  & > aside {
     grid-row: 1 / 4;
   }
-  footer {
+  & > footer {
     grid-column: 2 / 3;
   }
 }

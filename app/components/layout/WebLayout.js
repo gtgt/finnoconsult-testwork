@@ -6,17 +6,15 @@ import ScrollView from './ScrollView';
 
 import { oneOrManyChildElements } from '../../prop-types';
 
-import styles from './MobileLayout.scss';
+import styles from './WebLayout.scss';
 
 console.log('styles.component', styles.component);
 
 // TODO: rename:
-const MobileLayout = props => (
+const WebLayout = props => (
   <View className={styles.component}>
     {props.navBar && <props.navBar />}
-    <View isHidden>
-      {props.sideMenu && <props.sideMenu />}
-    </View>
+    {props.sideMenu && <props.sideMenu />}
     <ScrollView center>
       {props.children}
     </ScrollView>
@@ -24,7 +22,7 @@ const MobileLayout = props => (
   </View>
 );
 
-MobileLayout.propTypes = {
+WebLayout.propTypes = {
   children: oneOrManyChildElements,
   navBar: PropTypes.func,
   tabBar: PropTypes.func,
@@ -32,4 +30,4 @@ MobileLayout.propTypes = {
 };
 
 
-module.exports = MobileLayout;
+module.exports = WebLayout;

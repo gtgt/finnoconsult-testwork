@@ -72,25 +72,33 @@ rules.push({
 //   test: /.*\.html/,
 // });
 
+
+const cssLoader = {
+  loader: 'css-loader',
+  options: {
+    sourceMap: !IS_PRODUCTION,
+    modules: true,
+    localIdentName: '[name]_[local]',
+    importLoaders: true,
+  },
+};
+const sassLader = { loader: 'sass-loader' };
+const styleLader = { loader: 'style-loader' };
 // Sass + CSS-Modules support
 rules.push({
   test: /^((?!\.global).)*\.scss$/,
-  use: ExtractTextPlugin.extract({
+  use: IS_PRODUCTION ? ExtractTextPlugin.extract({
     fallback: 'style-loader',
     use:
     [
-      {
-        loader: 'css-loader',
-        options: {
-          sourceMap: !IS_PRODUCTION,
-          modules: true,
-          localIdentName: '[name]_[local]',
-          importLoaders: true,
-        },
-      },
-      { loader: 'sass-loader' },
+      cssLoader,
+      sassLader,
     ],
-  }),
+  }) : [
+    styleLader,
+    cssLoader,
+    sassLader,
+  ],
 });
 
 // Global stylesheets should keep their initial classname
@@ -164,6 +172,8 @@ const environmentOptions = {
   IS_PRODUCTION,
   _PROJECT_NAME,
   _PROJECT_VERSION,
+  title: pkg.title,
+  description: `${pkg.description} v${pkg.version}`,
   APP_TEMPLATE: JSON.stringify(APP_TEMPLATE),
   SUBFOLDER_LOCATION: JSON.stringify(SUBFOLDER_LOCATION),
   subfolder: SUBFOLDER_LOCATION || '',
@@ -171,15 +181,14 @@ const environmentOptions = {
   application: JSON.parse(JSON.stringify(pkg)),
   links,
   language: JSON.stringify(DEF_LANG),
-  title: pkg.description,
-  description: `${pkg.description} v${pkg.version}`,
   homepage: JSON.stringify(pkg.homepage),
   // homepage: JSON.stringify(IS_PRODUCTION ? pkg.homepage : pkg.homepage_test),
   homepage_test: JSON.stringify(pkg.homepage_test),
   homepage_dev: JSON.stringify(pkg.homepage_dev),
 
 };
-plugins.push(new ExtractTextPlugin({ filename: `${pkg.name}_${pkg.version}-bundle.css?release=${new Date().getTime()}` }));
+// NOTE: in sycnh with line 90
+if (IS_PRODUCTION) plugins.push(new ExtractTextPlugin({ filename: `${pkg.name}_${pkg.version}.css?release=${new Date().getTime()}` }));
 
 
 plugins.push(new webpack.DefinePlugin({ ENV: environmentOptions }));

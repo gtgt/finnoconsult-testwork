@@ -1,6 +1,7 @@
 {
   "name": "FinnoProject",
   "version": "0.0.3",
+  "title": "React boilerplate",
   "description": "React-router project boilerplate template",
   "keywords": [
     "React",

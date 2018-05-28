@@ -8,6 +8,8 @@ import Authenticate from './containers/auth/Authenticate';
 
 // import RouterContainer from './containers/RouterContainer';
 import LayoutContainer from './containers/LayoutContainer';
+import WebLayout from './components/layout/WebLayout';
+
 
 import './theme/app.global.scss';
 
@@ -34,7 +36,39 @@ export default function App() {
           navBar={NavigationBarScreen}
           tabBar={FooterScreen}
           sideMenu={MenuScreen}
+          defaultLayout={WebLayout}
         >
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
+          <h1>PAGE!</h1>
           <h1>PAGE!</h1>
           {/* <Router basename={basename}>
             <RouterContainer />
