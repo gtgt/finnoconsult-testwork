@@ -7,6 +7,11 @@ $theme-viewport-maxwidth: 100vw;
 $device-smallscreen-phone: 500px;
 $device-smallscreen-tablet: 700px;
 
+:export {
+  deviceSmallScreenPhone: $device-smallscreen-phone;
+  deviceSmallScreenTable: $device-smallscreen-tablet;
+}
+
 /*
  * Responsive Breakpoints
  */

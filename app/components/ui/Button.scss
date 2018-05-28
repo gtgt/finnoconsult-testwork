@@ -1,0 +1,25 @@
+// .component {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+
+.button {
+  &.disabled {
+    background-color: #F3F3F3;
+  }
+}
+
+a.button {
+  // color: #FFFFFF;
+  // font-size: 21px;
+  // font-weight: bold;
+  // text-decoration: none;
+  // text-align: center;
+}
+
+
+button.button {
+  padding:0px;
+}

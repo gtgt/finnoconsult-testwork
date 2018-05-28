@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import platform from 'platform';
 
 import { oneOrManyChildElements } from '../../prop-types';
+import View from './View';
 
 // TODO: LAyoutMode.scss !
 
@@ -41,14 +43,19 @@ export default class LayoutMode extends Component {
 
   render() {
     return (
-      <div
+      <View
         className={classnames({
           portrait: this.props.portrait,
           landscape: this.props.landscape,
         })}
+        data-layout={this.isPortrait ? 'portrait' : 'landscape'}
+        data-platform-name={platform.name}
+        data-platform-version={platform.version}
+        data-platform-os-family={platform.os.family}
+        data-platform-os-version={platform.os.version}
       >
         {this.props.children}
-      </div>
+      </View>
     );
   }
 }

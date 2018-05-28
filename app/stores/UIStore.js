@@ -13,6 +13,8 @@ export default class UIStore extends Store {
   @observable isDebugBarVisible = true; // TODO: set to false
   @observable navigationBarTitle = '';
   @observable navigationBarClassName = null;
+  // TODO: setter
+  @observable navigationBarBackLink = null;
   @observable slideLabels = ['', '', '', '', '', ''];
 
   // NOTE:  set AUTO_LOGIN=1 in package.json script section for auto-login, or set to =0 or simple omit in case you want login page

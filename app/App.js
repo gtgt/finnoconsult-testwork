@@ -1,21 +1,20 @@
 import React from 'react';
-// import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 // import { createHistory, useBasename } from 'history'
 
 import LayoutMode from './components/layout/LayoutMode';
 import Authenticate from './containers/auth/Authenticate';
-// import DevTools from './components/devtools/Sidebar';
+// TODO: make routable
+import DevTools from './components/devtools/Sidebar';
+import LinkContainer from './containers/LinkContainer';
 
-// import RouterContainer from './containers/RouterContainer';
+import PageContainer from './containers/PageContainer';
 import LayoutContainer from './containers/LayoutContainer';
+import NavigationBarStoreWithButton from './containers/navigation/NavigationBarStoreWithButton';
 
 
 import './theme/app.global.scss';
 
-
-const NavigationBarScreen = () => (<header>NavigationBarScreen</header>);
-const FooterScreen = () => (<footer>FooterScreen</footer>);
-const MenuScreen = () => (<aside>MenuScreen</aside>);
 export default function App() {
   const project = {
     name: ENV._PROJECT_NAME,
@@ -23,7 +22,7 @@ export default function App() {
   };
   console.warn('Starting project boilerplate', project.name, project.version);
 
-  // const basename = ENV.SUBFOLDER_LOCATION || '';
+  const basename = ENV.SUBFOLDER_LOCATION || '';
   // const history = useBasename(createHistory)({
   //   basename: ENV.SUBFOLDER_LOCATION,
   // });
@@ -31,48 +30,18 @@ export default function App() {
   return (
     <Authenticate>
       <LayoutMode>
-        <LayoutContainer
-          navBar={NavigationBarScreen}
-          tabBar={FooterScreen}
-          sideMenu={MenuScreen}
-        >
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          <h1>PAGE!</h1>
-          {/* <Router basename={basename}>
-            <RouterContainer />
-          </Router>
-          <DevTools /> */}
-        </LayoutContainer>
+        <Router basename={basename}>
+
+          <LayoutContainer
+            navBar={() => <NavigationBarStoreWithButton rightButton={() => <span style={{ transform: 'rotate(90deg)' }}>:-)</span>} />}
+            tabBar={() => <div> TODO: FooterScreen</div>}
+            sideMenu={LinkContainer}
+          >
+            <PageContainer />
+            {/* <h1>PAGE!</h1> */}
+          </LayoutContainer>
+        </Router>
+        <DevTools />
       </LayoutMode>
     </Authenticate>
   );

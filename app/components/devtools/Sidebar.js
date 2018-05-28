@@ -1,12 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { inject, observer } from 'mobx-react';
 import platform from 'platform';
+import Draggable from 'react-draggable';
 
 import AnimStore from '../../stores/AnimStore';
 import UIStore from '../../stores/UIStore';
 import FormStore from '../../stores/FormStore';
 
 import styles from './Sidebar.scss';
+
+import cog from './SidebarCog.png';
+import close from './SidebarClose.png';
 
 const mapper = obj => ({
   x: obj.innerWidth || obj.width || obj.offsetWidth,
@@ -15,12 +19,40 @@ const mapper = obj => ({
 
 const resolutionFormatter = (title, obj) => (<p><span>{title}:</span> {mapper(obj).x} x {mapper(obj).y}px</p>);
 
+const ImgTag = props => (
+  <img
+    src={props.src}
+    alt=""
+  />
+);
+ImgTag.propTypes = {
+  src: PropTypes.string.isRequired,
+};
 
 @inject('stores', 'actions') @observer
 export default class SidebarDevTool extends Component {
   // state = {
   //   show: false,
   // };
+
+  static propTypes = {
+    stores: PropTypes.shape({
+      anim: PropTypes.instanceOf(AnimStore).isRequired,
+      ui: PropTypes.instanceOf(UIStore).isRequired,
+      form: PropTypes.instanceOf(FormStore).isRequired,
+    }).isRequired,
+    actions: PropTypes.shape({
+      toggleDebugBar: PropTypes.func.isRequired,
+      // setAnimationStep: PropTypes.func.isRequired,
+      // setAnimationAct: PropTypes.func.isRequired,
+      // pauseAnimation: PropTypes.func.isRequired,
+      // setSlide: PropTypes.func.isRequired,
+      // nextSlide: PropTypes.func.isRequired,
+      toggleNavbar: PropTypes.func.isRequired,
+    //   setNavBarTitle: PropTypes.func.isRequired,
+    //   updateFormData: PropTypes.func.isRequired,
+    }),
+  };
 
   devTest = false;
 
@@ -34,15 +66,23 @@ export default class SidebarDevTool extends Component {
 
     // const { data } = this.props.stores.form;
     // const { actions } = this.props;
+    if (!this.devTest) return null;
     return (
-      <div>
+      <Draggable>
         {this.devTest && (
           <div className={styles.component}>
             <h1>Dev Tools</h1>
             <button
+              className={styles.toggleDisplay}
               onClick={e => this.props.actions.toggleDebugBar(e)}
             >
-              x
+              {/* {this.props.stores.ui.isDebugBarVisible ? '^': 'v'} */}
+              {this.props.stores.ui.isDebugBarVisible && (
+                <ImgTag src={close} />
+              )}
+              {!this.props.stores.ui.isDebugBarVisible && (
+                <ImgTag src={cog} />
+              )}
             </button>
             {this.props.stores.ui.isDebugBarVisible && (
               <div>
@@ -67,9 +107,9 @@ export default class SidebarDevTool extends Component {
                   <input
                     type="checkbox"
                     name="isNavigationBarVisible"
-                    checked={!this.props.stores.ui.isNavigationBarVisible}
-                    onChange={e => console.log('not to be changed like this', e)}
-                    // onChange={e => this.props.actions.toggleNavbar(e)}
+                    checked={this.props.stores.ui.isNavigationBarVisible}
+                    // onChange={e => console.log('not to be changed like this', e)}
+                    onChange={e => this.props.actions.toggleNavbar(e)}
                   />
                   <label htmlFor="isNavigationBarVisible">UserAccessToken:</label>
                   {this.props.stores.ui.userAuthToken}
@@ -173,26 +213,7 @@ export default class SidebarDevTool extends Component {
             )}
           </div>
         )}
-      </div>
+      </Draggable>
     );
   }
 }
-
-SidebarDevTool.wrappedComponent.propTypes = {
-  stores: PropTypes.shape({
-    anim: PropTypes.instanceOf(AnimStore).isRequired,
-    ui: PropTypes.instanceOf(UIStore).isRequired,
-    form: PropTypes.instanceOf(FormStore).isRequired,
-  }).isRequired,
-  actions: PropTypes.shape({
-    toggleDebugBar: PropTypes.func.isRequired,
-    // setAnimationStep: PropTypes.func.isRequired,
-    // setAnimationAct: PropTypes.func.isRequired,
-    // pauseAnimation: PropTypes.func.isRequired,
-    // setSlide: PropTypes.func.isRequired,
-    // nextSlide: PropTypes.func.isRequired,
-    toggleNavbar: PropTypes.func.isRequired,
-  //   setNavBarTitle: PropTypes.func.isRequired,
-  //   updateFormData: PropTypes.func.isRequired,
-  }),
-};

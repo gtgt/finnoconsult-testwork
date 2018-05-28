@@ -6,16 +6,16 @@ import ScrollView from './ScrollView';
 
 import { oneOrManyChildElements } from '../../prop-types';
 
-import styles from './WebLayout.scss';
+import styles from './ResponsiveWebLayout.scss';
 
 const WebLayout = props => (
   <View className={styles.component}>
-    {props.navBar && <props.navBar />}
-    {props.sideMenu && <props.sideMenu />}
+    {props.navBar && <header><props.navBar /></header>}
+    {props.sideMenu && <aside><props.sideMenu /></aside>}
     <ScrollView>
       {props.children}
     </ScrollView>
-    {props.tabBar && <props.tabBar />}
+    {props.tabBar && <footer><props.tabBar /></footer>}
   </View>
 );
 

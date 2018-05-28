@@ -32,3 +32,26 @@
 //   align-items: center;
 //   justify-content: center;
 // }
+
+
+@media only screen and (max-width: $device-smallscreen-phone) {
+  .component {
+    grid-template-columns: auto;
+
+    header {
+      grid-column: 1 / 1;
+    }
+    aside {
+      // NOTE: was not working correwctly
+      // opacity: 0;
+      transform: translateX(-100%);
+      z-index: 100;
+      position: absolute;
+      height: $theme-viewport-height;
+    }
+    footer {
+      grid-column: 1 / 1;
+    }
+  }
+
+}

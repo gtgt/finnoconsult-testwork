@@ -1,0 +1,105 @@
+:export {
+  themeColorWhite: $theme-color-white;
+  themeColorMain: $theme-color-main;
+}
+
+.component {
+  // height: $theme-navigation-height;
+  background-color: $theme-navigation-background;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $theme-navigation-z-index;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
+  // width: $theme-viewport-width;
+  // max-width: $theme-viewport-maxwidth;
+  // border-bottom: solid 2px $theme-color-lightgray;
+  width: 100%;
+
+.leftButtonContainer,
+.titleContainer,
+.rightButtonContainer {
+    flex: 1 1 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+
+  .leftButtonContainer {
+    justify-content: flex-start;
+
+  }
+
+  .titleContainer {
+    margin: 0 auto;
+    // position: absolute;
+    // left: 0;
+    // text-align: center;
+    // flex-direction: column;
+    // flex-basis: auto;
+    min-width: 300px;
+    align-content: space-between;
+    // margin-top: 1.2vh;
+
+  }
+  .rightButtonContainer {
+    justify-content: flex-end;
+    text-align: right;
+  }
+
+  .back {
+    width: 3.2vh;
+    height: 2.7vh;
+  }
+
+  .title {
+    margin: 0;
+    color: $theme-navigation-color;
+    text-transform: uppercase;
+    font-size: $theme-bigfont-size;
+    font-weight: 400;
+    display: block;
+    padding: 10px;
+  }
+
+  //
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //
+  //   .back {
+  //     width: 3.2vh;
+  //     height: 2.7vh;
+  //   }
+  //
+  // }
+  //
+  // .leftButtonContainer {
+  //   position: absolute;
+  //   left: $theme-page-margin;
+  //   // align-self: flex-start;
+  //   button {
+  //     margin-right: 20px;
+  //   }
+  // }
+  //
+  // .leftButtonContainer {
+  //   position: absolute;
+  //   left: $theme-page-margin;
+  //   // align-self: flex-start;
+  //   button {
+  //     margin-right: 20px;
+  //   }
+  // }
+
+
+
+
+}

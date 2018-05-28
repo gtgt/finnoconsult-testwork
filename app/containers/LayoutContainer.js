@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 
 import { oneOrManyChildElements } from '../prop-types';
 
-import WebLayout from '../components/layout/WebLayout';
-import MobileLayout from '../components/layout/MobileLayout';
+import WebLayout from '../components/layout/ResponsiveWebLayout';
+// import MobileLayout from '../components/layout/MobileLayout';
 
+const MobileLayout = WebLayout;
 const TabletLayout = WebLayout;
 
 // @withRouter
