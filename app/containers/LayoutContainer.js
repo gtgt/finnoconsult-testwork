@@ -24,21 +24,23 @@ export default class LayoutContainer extends Component {
   }
 
   static defaultProps = {
-    defaultLayout: WebLayout,
+    // defaultLayout: WebLayout,
     canBeResponsive: true,
   }
 
   constructor(props) {
     super(props);
     this.state = {
-      layout: props.defaultLayout,
+      layout: this.calculateViewPortDimensions(props.defaultLayout),
     };
   }
 
 
   componentDidMount() {
     if (this.props.canBeResponsive) {
-      window.addEventListener('resize', () => this._checkViewPortDimensions());
+      window.addEventListener('resize', () => this.setState({
+        layout: this.calculateViewPortDimensions(this.props.defaultLayout),
+      }));
     }
   }
 
@@ -52,10 +54,8 @@ export default class LayoutContainer extends Component {
     return Math.floor(window.innerWidth / window.innerHeight) === 0;
   }
 
-  _checkViewPortDimensions() {
-    this.setState({
-      layout: this.viewPortDimensions.find(l => l(window.innerWidth, this.isPortrait))(window.innerWidth) || this.props.defaultLayout,
-    });
+  calculateViewPortDimensions(defaultLayout) {
+    return this.viewPortDimensions.find(l => l(window.innerWidth, this.isPortrait))(window.innerWidth) || defaultLayout;
   }
 
   render() {

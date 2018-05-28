@@ -8,14 +8,11 @@ import { oneOrManyChildElements } from '../../prop-types';
 
 import styles from './WebLayout.scss';
 
-console.log('styles.component', styles.component);
-
-// TODO: rename:
 const WebLayout = props => (
   <View className={styles.component}>
     {props.navBar && <props.navBar />}
     {props.sideMenu && <props.sideMenu />}
-    <ScrollView center>
+    <ScrollView>
       {props.children}
     </ScrollView>
     {props.tabBar && <props.tabBar />}

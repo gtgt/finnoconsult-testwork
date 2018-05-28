@@ -8,16 +8,11 @@ import { oneOrManyChildElements } from '../../prop-types';
 
 import styles from './MobileLayout.scss';
 
-console.log('styles.component', styles.component);
-
-// TODO: rename:
 const MobileLayout = props => (
   <View className={styles.component}>
     {props.navBar && <props.navBar />}
-    <View isHidden>
-      {props.sideMenu && <props.sideMenu />}
-    </View>
-    <ScrollView center>
+    {props.sideMenu && <props.sideMenu />}
+    <ScrollView>
       {props.children}
     </ScrollView>
     {props.tabBar && <props.tabBar />}
