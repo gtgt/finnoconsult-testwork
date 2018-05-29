@@ -1,0 +1,47 @@
+.component {
+  display: flex;
+  align-items: flex-start;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.itemContainer {
+  flex: 80vh;
+  flex-grow: 1;
+  display: flex;
+  width:100vw;
+  overflow: hidden;
+  height: 100%;
+}
+
+.indicatorContainer {
+  flex: 20vh;
+  text-align: center;
+  width: 100vw;
+  height: auto;
+  padding: 2vh;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.indicator {
+  width: 1vh;
+  height: 1vh;
+  border-radius: 1vh;
+  background-color: $theme-color-gray;
+  margin-right: 1vh;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+
+.indicatorActive {
+  background: $theme-color-main;
+}
