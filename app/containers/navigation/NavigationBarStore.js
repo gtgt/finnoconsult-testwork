@@ -5,6 +5,7 @@ import { oneOrManyChildElements } from '../../prop-types';
 
 import UIStore from '../../stores/UIStore';
 import MobileNavigationBar from '../../components/navigation/MobileNavigationBar';
+import View from '../../components/layout/View';
 
 @inject('stores', 'actions') @observer
 export default class NavigationBarStore extends Component {
@@ -26,18 +27,33 @@ export default class NavigationBarStore extends Component {
     return this.props.navigationBar || MobileNavigationBar;
   }
 
+  get customNavigationBar() {
+    return this.props.stores.ui.navigationBarComponent;
+  }
+
   render() {
     const { ui } = this.props.stores;
 
     return (
-      <this.navigationBar
-        isVisible={ui.isNavigationBarVisible}
-        className={ui.navigationBarClassName}
-        title={ui.navigationBarTitle}
-        {...this.props}
-      >
-        {this.props.children}
-      </this.navigationBar>
+      <View fullWidth>
+        <this.navigationBar
+          isVisible={ui.isNavigationBarVisible}
+          className={ui.navigationBarClassName}
+          title={ui.navigationBarTitle}
+          {...this.props}
+        >
+          {this.props.children}
+        </this.navigationBar>
+
+        {this.customNavigationBar && !ui.isNavigationBarVisible && (
+          <this.customNavigationBar
+            isVisible={!ui.isNavigationBarVisible}
+            {...this.props}
+          >
+            {this.props.children}
+          </this.customNavigationBar>
+        )}
+      </View>
     );
   }
 }

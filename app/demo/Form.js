@@ -1,11 +1,11 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
 
-import Screen from '../../containers/screens/Screen';
+import Screen from '../containers/screens/Screen';
 
 // import styles from './Form.scss';
-import View from '../layout/View';
-import Button from '../ui/Button';
+import View from '../components/layout/View';
+import Button from '../components/ui/Button';
 
 @inject('stores', 'actions') @observer
 export default class Form extends Screen {

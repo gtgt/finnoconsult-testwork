@@ -2,7 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 
 import Page from '../components/page/Page';
-import Form from '../components/_temp/Form';
+import Form from '../demo/Form';
+import Grid from '../demo/Grid';
+import NavBarOwner from '../demo/NavBarOwner';
+import StaticImagePage from '../components/page/StaticImagePage';
 
 import { links } from '../content';
 
@@ -64,7 +67,10 @@ export default class PageContainer extends Component {
           path="*/demo"
           render={() => (
             <Page setScrollAnchor={e => this.setScrollAnchor(e)} isHomeLocation={isHomeMatching}>
+              <Route path="*/demo/navbar" exact component={NavBarOwner} />
               <Route path="*/demo/form" exact component={Form} />
+              <Route path="*/demo/grid" exact component={() => <Grid pageTitle="I'm not a grid!" />} />
+              <Route path="*/demo/images" exact component={() => <StaticImagePage pageTitle="Scrolling through" images={[{ source: 'https://finnoconsult.at/img/logo.svg' }, { source: 'https://media.finnoconsult.at/2018/05/C18_Web_Nominiert-Mobile-Apps.png' }]} />} />
               <Route
                 path="*/demo/text"
                 render={() => (

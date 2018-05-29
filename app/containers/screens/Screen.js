@@ -5,11 +5,18 @@ import PropTypes from 'prop-types';
 export default class Screen extends Component {
   static propTypes = {
     pageTitle: PropTypes.string,
+    pageNavBar: PropTypes.func,
     navBarClassName: PropTypes.string,
+    navBarLeftLink: PropTypes.func,
+    navBarRightLink: PropTypes.func,
     // navBarBackLink: PropTypes.string,
     actions: PropTypes.shape({
       setNavBarTitle: PropTypes.func.isRequired,
       setNavBarClassName: PropTypes.func.isRequired,
+      setNavBarComponent: PropTypes.func.isRequired,
+      setNavigationBarLeftLink: PropTypes.func.isRequired,
+      setNavigationBarRightLink: PropTypes.func.isRequired,
+      toggleNavbar: PropTypes.func.isRequired,
       // setNavBarBackLink: PropTypes.func.isRequired,
     }).isRequired,
     // animationSpeed: PropTypes.number.isRequired,
@@ -24,17 +31,54 @@ export default class Screen extends Component {
     const {
       pageTitle,
       navBarClassName,
-      // navBarBackLink
+      pageNavBar,
+      navBarLeftLink,
+      navBarRightLink,
     } = this.props;
     const {
       setNavBarTitle,
       setNavBarClassName,
+      setNavBarComponent,
+      toggleNavbar,
+      setNavigationBarLeftLink,
+      setNavigationBarRightLink,
       // setNavBarBackLink
     } = this.props.actions;
 
+    if (pageNavBar) {
+      toggleNavbar({ isVisible: false });
+      setNavBarComponent({ component: pageNavBar });
+    } else {
+      toggleNavbar({ isVisible: true });
+    }
     setNavBarTitle({ title: this.getPageTitle || pageTitle || '' }); // TODO: move this default obj to Store?
     setNavBarClassName({ className: this.getNavBarClassName || navBarClassName });
-    // setNavBarBackLink({ link: this.getNavBarBackLink || navBarBackLink });
+    setNavigationBarLeftLink({ link: this.getNavBarLeftLink || navBarLeftLink || null });
+    setNavigationBarRightLink({ link: this.getNavBarRightLink || navBarRightLink || null });
+  }
+
+  componentWillUnmount() {
+    const {
+      setNavBarTitle,
+      setNavBarClassName,
+      setNavBarComponent,
+      toggleNavbar,
+      setNavigationBarLeftLink,
+      setNavigationBarRightLink,
+    } = this.props.actions;
+    const {
+      pageNavBar,
+    } = this.props;
+
+    if (pageNavBar) {
+      toggleNavbar({ isVisible: true }); // do we need ???
+      setNavBarComponent({ component: null });
+    }
+
+    setNavBarTitle({ title: '' });
+    setNavBarClassName({ className: '' });
+    setNavigationBarLeftLink({ link: null });
+    setNavigationBarRightLink({ link: null });
   }
 
 

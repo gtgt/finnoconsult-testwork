@@ -14,12 +14,7 @@ const TabletLayout = WebLayout;
 // @withRouter
 export default class LayoutContainer extends Component {
   static propTypes = {
-    navBar: PropTypes.func,
-    tabBar: PropTypes.func,
-    sideMenu: PropTypes.func,
-    /* eslint-disable */
-    defaultLayout: PropTypes.func,
-    /* eslint-enable */
+    defaultLayout: PropTypes.func, //eslint-disable-line
     canBeResponsive: PropTypes.bool,
     children: oneOrManyChildElements,
   }
@@ -62,9 +57,7 @@ export default class LayoutContainer extends Component {
   render() {
     return (
       <this.state.layout
-        navBar={this.props.navBar}
-        sideMenu={this.props.sideMenu}
-        tabBar={this.props.tabBar}
+        {...this.props}
       >
         {this.props.children}
       </this.state.layout>

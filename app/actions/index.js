@@ -11,12 +11,21 @@ export default defineActions({
   setNavBarTitle: {
     title: PropTypes.string.isRequired,
   },
+  setNavBarClassName: {
+    className: PropTypes.string,
+  },
+  setNavigationBarLeftLink: {
+    link: PropTypes.func,
+  },
+  setNavigationBarRightLink: {
+    link: PropTypes.func,
+  },
+  setNavBarComponent: {
+    component: PropTypes.func,
+  },
   setSlideLabel: {
     index: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-  },
-  setNavBarClassName: {
-    className: PropTypes.string,
   },
   setSlide: {
     slide: PropTypes.number.isRequired,

@@ -10,7 +10,8 @@ import styles from './ResponsiveWebLayout.scss';
 
 const WebLayout = props => (
   <View className={styles.component}>
-    {props.navBar && <header><props.navBar /></header>}
+    {props.headerMenu && <header><props.headerMenu /></header>}
+    {props.navBar && <nav><props.navBar /></nav>}
     {props.sideMenu && <aside><props.sideMenu /></aside>}
     <ScrollView>
       {props.children}
@@ -21,6 +22,7 @@ const WebLayout = props => (
 
 WebLayout.propTypes = {
   children: oneOrManyChildElements,
+  headerMenu: PropTypes.func,
   navBar: PropTypes.func,
   tabBar: PropTypes.func,
   sideMenu: PropTypes.func,

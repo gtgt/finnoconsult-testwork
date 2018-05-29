@@ -31,14 +31,13 @@ export default function App() {
     <Authenticate>
       <LayoutMode>
         <Router basename={basename}>
-
           <LayoutContainer
+            headerMenu={() => <valami>Tényleg valami</valami>}
             navBar={() => <NavigationBarStoreWithButton rightButton={() => <span style={{ transform: 'rotate(90deg)' }}>:-)</span>} />}
             tabBar={() => <div> TODO: FooterScreen</div>}
             sideMenu={LinkContainer}
           >
             <PageContainer />
-            {/* <h1>PAGE!</h1> */}
           </LayoutContainer>
         </Router>
         <DevTools />

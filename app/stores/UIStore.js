@@ -9,12 +9,17 @@ export default class UIStore extends Store {
 
   @observable activeSlide = 0; // TODO: set to 0, debugging only
   @observable maxSlides = 0; // TODO adjust on Reach.childern
-  @observable isNavigationBarVisible = true;
   @observable isDebugBarVisible = true; // TODO: set to false
+
+  @observable isNavigationBarVisible = true;
+  @observable navigationBarComponent = null;
+
   @observable navigationBarTitle = '';
   @observable navigationBarClassName = null;
   // TODO: setter
-  @observable navigationBarBackLink = null;
+  @observable navigationBarLeftLink = null;
+  @observable navigationBarRightLink = null;
+
   @observable slideLabels = ['', '', '', '', '', ''];
 
   // NOTE:  set AUTO_LOGIN=1 in package.json script section for auto-login, or set to =0 or simple omit in case you want login page
@@ -36,8 +41,11 @@ export default class UIStore extends Store {
     this.actions.toggleDebugBar.listen(this._toggleDebugBar.bind(this));
     this.actions.toggleNavbar.listen(this._toggleNavbar.bind(this));
     this.actions.setNavBarTitle.listen(this._setNavBarTitle.bind(this));
-    this.actions.setSlideLabel.listen(this._setSlideLabel.bind(this));
     this.actions.setNavBarClassName.listen(this._setNavBarClassName.bind(this));
+    this.actions.setNavigationBarLeftLink.listen(this._setNavigationBarLeftLink.bind(this));
+    this.actions.setNavigationBarRightLink.listen(this._setNavigationBarRightLink.bind(this));
+    this.actions.setNavBarComponent.listen(this._setNavBarComponent.bind(this));
+    this.actions.setSlideLabel.listen(this._setSlideLabel.bind(this));
     this.actions.nextSlide.listen(this._nextSlide.bind(this));
     this.actions.setMaxSlides.listen(this._setMaxSlides.bind(this));
     this.actions.debug.listen(this._debug.bind(this));
@@ -73,13 +81,23 @@ export default class UIStore extends Store {
   _setNavBarTitle({ title }) {
     this.navigationBarTitle = title;
   }
+  _setNavBarClassName({ className }) {
+    this.navigationBarClassName = className;
+  }
+
+  _setNavigationBarLeftLink({ link }) {
+    this.navigationBarLeftLink = link;
+  }
+  _setNavigationBarRightLink({ link }) {
+    this.navigationBarRightLink = link;
+  }
+
+  _setNavBarComponent({ component }) {
+    this.navigationBarComponent = component;
+  }
 
   _setSlideLabel({ index, title }) {
     this.slideLabels[index] = title;
-  }
-
-  _setNavBarClassName({ className }) {
-    this.navigationBarClassName = className;
   }
 
 

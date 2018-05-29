@@ -15,6 +15,9 @@ const View = styled.div`
     align-items: center;
     justify-content: center;
   `};
+  ${props => props.fullWidth && css`
+    width: 100%;
+  `};
 `;
   // display: flex;
 // const View = props => (<div {...props}>{props.children}</div>);
