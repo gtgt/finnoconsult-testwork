@@ -9,7 +9,7 @@ export default class UIStore extends Store {
 
   @observable activeSlide = 0; // TODO: set to 0, debugging only
   @observable maxSlides = 0; // TODO adjust on Reach.childern
-  @observable isDebugBarVisible = true; // TODO: set to false
+  @observable isDebugBarVisible = false; // TODO: set to false
 
   @observable isNavigationBarVisible = true;
   @observable navigationBarComponent = null;
@@ -30,9 +30,9 @@ export default class UIStore extends Store {
   @observable devToolDebugMessage = '';
 
 
-  pageTitles = [
-    'A',
-  ];
+  // pageTitles = [
+  //   'A',
+  // ];
 
   constructor(...args) {
     super(...args);

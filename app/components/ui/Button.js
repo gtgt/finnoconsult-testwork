@@ -13,6 +13,8 @@ export default class Button extends React.Component {
     link: PropTypes.string,
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
+    className: PropTypes.string,
+    style: PropTypes.shape(),
   };
 
   static defaultProps = {
@@ -25,7 +27,8 @@ export default class Button extends React.Component {
     if (this.props.onClick) {
       return (
         <button
-          className={styles.button}
+          className={`${styles.button} ${this.props.className}`}
+          style={this.props.style || {}}
           disabled={this.props.disabled}
           onClick={() => {
             this.props.onClick();
@@ -37,7 +40,12 @@ export default class Button extends React.Component {
     }
 
     return (
-      <Link className={styles.button} to={this.props.link} disabled={this.props.disabled}>
+      <Link
+        className={`${styles.button} ${this.props.className}`}
+        style={this.props.style || {}}
+        to={this.props.link}
+        disabled={this.props.disabled}
+      >
         {this.props.children}
       </Link>
     );

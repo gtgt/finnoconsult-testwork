@@ -14,7 +14,7 @@ export default class Carousel extends Component {
     children: oneOrManyChildElements.isRequired,
     activeIndex: PropTypes.number,
     dots: PropTypes.bool,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
   }
 
   static defaultProps = {
@@ -40,7 +40,9 @@ export default class Carousel extends Component {
       activeIndex,
     });
 
-    this.props.onChange(activeIndex);
+    if (this.props.onChange) {
+      this.props.onChange(activeIndex);
+    }
   }
 
   moveRight(activeIndex) {

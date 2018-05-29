@@ -5,6 +5,8 @@ import Swipeable from 'react-swipeable';
 
 import Screen from '../../containers/screens/Screen';
 
+import { oneOrManyChildElements } from '../../prop-types';
+
 import ScrollView from '../layout/ScrollView';
 import Image from '../ui/Image';
 
@@ -15,6 +17,7 @@ export default class StaticImagePage extends Screen {
       source: PropTypes.string.isRequired,
       title: PropTypes.string,
     }).isRequired).isRequired,
+    children: oneOrManyChildElements,
   }
 
   state = {
@@ -44,6 +47,8 @@ export default class StaticImagePage extends Screen {
         // style={{ position: 'absolute' }}
       >
         <ScrollView>
+          {this.props.children}
+
           <button
             onClick={() => this.onChangeIndex(1)}
             style={{ width: '100%', height: '100%' }}

@@ -4,6 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Page from '../components/page/Page';
 import Form from '../demo/Form';
 import Grid from '../demo/Grid';
+import CarouselDemo from '../demo/CarouselDemo';
 import NavBarOwner from '../demo/NavBarOwner';
 import StaticImagePage from '../components/page/StaticImagePage';
 
@@ -69,13 +70,31 @@ export default class PageContainer extends Component {
             <Page setScrollAnchor={e => this.setScrollAnchor(e)} isHomeLocation={isHomeMatching}>
               <Route path="*/demo/navbar" exact component={NavBarOwner} />
               <Route path="*/demo/form" exact component={Form} />
-              <Route path="*/demo/grid" exact component={() => <Grid pageTitle="I'm not a grid!" />} />
-              <Route path="*/demo/images" exact component={() => <StaticImagePage pageTitle="Scrolling through" images={[{ source: 'https://finnoconsult.at/img/logo.svg' }, { source: 'https://media.finnoconsult.at/2018/05/C18_Web_Nominiert-Mobile-Apps.png' }]} />} />
+              <Route path="*/demo/grid" exact component={() => <Grid pageTitle="I'm a *hacked* Grid from PageContainer!" />} />
+              <Route path="*/demo/carousel" exact component={CarouselDemo} />
+
+              <Route
+                path="*/demo/images"
+                exact
+                component={() => (
+                  <StaticImagePage
+                    pageTitle="Switching through 2 images"
+                    images={[
+                      { source: 'https://finnoconsult.at/img/logo.svg' },
+                      { source: 'https://media.finnoconsult.at/2018/05/C18_Web_Nominiert-Mobile-Apps.png' },
+                    ]}
+                  >
+                    <h2>Click the image / or swipe left-right</h2>
+                  </StaticImagePage>
+                )}
+              />
+
               <Route
                 path="*/demo/text"
                 render={() => (
                   <div>
                     <h1>Pudding gummies oat cake.</h1>
+                    <h2>TODO: instructions</h2>
                     <p>
                       Muffin gingerbread jujubes jelly brownie cheesecake cupcake jujubes. Carrot cake powder gummi bears marzipan. Gummies sweet cake dessert macaroon croissant jujubes. Liquorice gingerbread gummi bears sweet roll chocolate bar. Lollipop I love bonbon. Fruitcake pudding cotton candy croissant candy ice cream icing oat cake. Oat cake lollipop chupa chups lemon drops pudding tart pastry. Tootsie roll I love marshmallow tart cupcake I love lemon drops cheesecake. Marzipan bonbon I love. Gummies ice cream lollipop pudding oat cake chupa chups bonbon cupcake. Halvah oat cake dragée I love sesame snaps sugar plum dessert pastry cake. Gingerbread I love toffee pie. Caramels cheesecake oat cake bear claw cotton candy sugar plum fruitcake donut.</p>
 

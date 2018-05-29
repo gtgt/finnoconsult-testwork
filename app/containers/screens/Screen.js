@@ -9,7 +9,6 @@ export default class Screen extends Component {
     navBarClassName: PropTypes.string,
     navBarLeftLink: PropTypes.func,
     navBarRightLink: PropTypes.func,
-    // navBarBackLink: PropTypes.string,
     actions: PropTypes.shape({
       setNavBarTitle: PropTypes.func.isRequired,
       setNavBarClassName: PropTypes.func.isRequired,
@@ -17,7 +16,6 @@ export default class Screen extends Component {
       setNavigationBarLeftLink: PropTypes.func.isRequired,
       setNavigationBarRightLink: PropTypes.func.isRequired,
       toggleNavbar: PropTypes.func.isRequired,
-      // setNavBarBackLink: PropTypes.func.isRequired,
     }).isRequired,
     // animationSpeed: PropTypes.number.isRequired,
   };

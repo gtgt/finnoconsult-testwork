@@ -11,13 +11,13 @@ import NavigationBarContainer from '../containers/navigation/NavigationBarContai
 export default class NavBarOwner extends Screen {
 
   static defaultProps = {
-    pageNavBar: () => <NavigationBarContainer title="This willbe displayed in my own navbar">:-D</NavigationBarContainer>,
+    pageNavBar: () => <NavigationBarContainer title="This is displayed as my own navbar ">&nbsp;?:-D</NavigationBarContainer>,
   }
 
   render() {
     return (
       <View>
-        I should have my own navbar.
+        I should have my own navbar, up above
       </View>
 
     );
