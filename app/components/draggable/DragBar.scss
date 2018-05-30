@@ -1,0 +1,18 @@
+.component {
+  // border: solid 1px orange;
+  // height: 50vh;
+  // width: 70vw;
+  // margin-left: 10px;
+  // margin-top: 10px;
+  position: relative;
+
+
+  &.dragging {
+  }
+
+  .adjustHandle {
+    width: auto;
+    height: auto;
+
+  }
+}

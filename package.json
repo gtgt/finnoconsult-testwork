@@ -1,13 +1,14 @@
 {
   "name": "FinnoProject",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "title": "React boilerplate",
   "description": "React-router project boilerplate template",
   "keywords": [
     "React",
-    "React-router",
-    "Bolierplate",
-    "bootstrap"
+    "react-router",
+    "bolierplate",
+    "animated router",
+    "draggable components"
   ],
   "main": "start.js",
   "scripts": {
@@ -36,7 +37,7 @@
   "author": "Peter Horvath <peter.horvath@innovaciostanacsado.com>",
   "contributors": "Peter Biró <peter.biro@innovaciostanacsado.com>",
   "repository": "https://github.com/finnoconsult/react-boilerplate/",
-  "bugs": "https://trello.com/b/SUVj0dk1/beacon-db-admin",
+  "bugs": "https://trello.com/b/VJw3nIWg/boilerplate-for-prototype-and-speadcreation",
   "license": "UNLICENSED",
   "homepage": "https://finnoproject.surge.sh",
   "homepage_test": "https://localhost:3000",
@@ -46,7 +47,7 @@
   },
   "supportedLanguages": {
     "en": "German",
-    "hu": "Italian"
+    "hu": "Hungarian"
   },
   "supportedPlatforms": {
     "prod": "Production",

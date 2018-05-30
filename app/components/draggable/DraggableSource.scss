@@ -1,0 +1,28 @@
+.component {
+  height: auto;
+
+  &.dragging {
+    outline: 0;
+
+    :global {
+      .DraggingTarget_component.DraggingTarget_inactive {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.placeUser {
+  height: auto;
+  position: absolute;
+}
+.placeClone {
+  height: auto;
+  position: relative;
+  z-index: 1000;
+  cursor: pointer;
+
+  &.dragging {
+    opacity: 0;
+  }
+}

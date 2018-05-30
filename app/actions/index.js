@@ -74,4 +74,23 @@ export default defineActions({
   updateFormData: {
     riskLevel: PropTypes.number,
   },
+  registerTarget: {
+    node: PropTypes.shape().isRequired,
+  },
+  removeTarget: {
+    node: PropTypes.shape().isRequired,
+  },
+  setSourcePosition: {
+    position: PropTypes.shape({
+      x: PropTypes.number.isRequired,
+      y: PropTypes.number.isRequired,
+    }).isRequired,
+  },
+  cleanSourcePosition: {
+  },
+  setIndication: {
+    show: PropTypes.bool.isRequired,
+  },
+  cleanIndication: {
+  },
 }, PropTypes.validateWithErrors);
