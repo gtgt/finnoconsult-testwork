@@ -12,7 +12,6 @@ import PageContainer from './containers/PageContainer';
 import LayoutContainer from './containers/LayoutContainer';
 import NavigationBarStoreWithButton from './containers/navigation/NavigationBarStoreWithButton';
 
-
 import './theme/app.global.scss';
 
 export default function App() {
@@ -32,9 +31,9 @@ export default function App() {
       <LayoutMode>
         <Router basename={basename}>
           <LayoutContainer
-            headerMenu={() => <valami>Tényleg valami</valami>}
+            headerMenu={() => <valami>TODO: Dummy header</valami>}
             navBar={() => <NavigationBarStoreWithButton rightButton={() => <span style={{ transform: 'rotate(90deg)' }}>:-)</span>} />}
-            tabBar={() => <div> TODO: FooterScreen</div>}
+            tabBar={() => <div> TODO: Footer</div>}
             sideMenu={LinkContainer}
           >
             <PageContainer />

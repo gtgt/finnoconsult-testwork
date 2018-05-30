@@ -60,13 +60,13 @@ const links = {
           description: 'Sample carousel for some items',
         },
         {
-          id: 5,
+          id: 7,
           title: 'Drag&Drop',
           route: '/demo/drag-drop',
           description: 'Sample drag and drop',
         },
         {
-          id: 5,
+          id: 8,
           title: 'Slider',
           route: '/demo/slider',
           description: 'Sample slider',

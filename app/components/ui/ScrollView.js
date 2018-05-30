@@ -1,7 +1,4 @@
-// import React from 'react';
 import View from './View';
-
-// import { oneOrManyChildElements } from '../../prop-types';
 
 const ScrollView = View.extend`
   overflow:auto;

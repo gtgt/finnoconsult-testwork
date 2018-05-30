@@ -4,32 +4,33 @@ import styled from 'styled-components';
 
 import Screen from '../containers/screens/Screen';
 
-import View from '../components/ui/View';
 import Image from '../components/ui/Image';
+// import GridLayout from '../components/layout/GridLayout';
+import { View, Grid } from '../components/layout';
 
 import images from './images.json';
 
-const Cell = styled.div`
-  display: flex;
+const Cell = styled.li`
+  ${'' /* display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
+  overflow: hidden; */}
   background-color: rgba(0,0,0,0.2);
   border:solid 1px lightgray;
 `;
 
-const Grid = styled.div`
-   /* Grid Fallback */
-  display: flex;
-  flex-wrap: wrap;
-
-  /* Supports Grid */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(${props => props.height || '200px'}, 1fr));
-  grid-auto-rows: minmax(${props => props.height || '150px'}, auto);
-  grid-gap: ${props => props.gap || '1em'};
-`;
+// const Grid = styled.div`
+//    /* Grid Fallback */
+//   display: flex;
+//   flex-wrap: wrap;
+//
+//   /* Supports Grid */
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(${props => props.height || '200px'}, 1fr));
+//   grid-auto-rows: minmax(${props => props.height || '150px'}, auto);
+//   grid-gap: ${props => props.gap || '1em'};
+// `;
 
 @inject('stores', 'actions') @observer
 export default class GridDemo extends Screen {

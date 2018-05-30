@@ -1,17 +1,11 @@
-/*
- * Basic Layouts
- */
-export HorizontalLayout from './HorizontalLayout';
-export VerticalLayout from './VerticalLayout';
-export GridLayout from './GridLayout';
+import GridLayout from './GridLayout';
+import FormLayout from './FormLayout';
+import View from '../ui/View';
+import ScrollView from '../ui/ScrollView';
 
-/*
- * Form Layouts
- */
-export FormLayout from './FormLayout';
-
-/*
- * Screen Layouts
- */
-export MobileLayout from './MobileLayout';
-export ResponsiveWebLayout from './ResponsiveWebLayout';
+module.exports= {
+  View,
+  ScrollView,
+  Grid: GridLayout,
+  Form: FormLayout,
+};
