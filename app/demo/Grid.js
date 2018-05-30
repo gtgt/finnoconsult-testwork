@@ -6,30 +6,31 @@ import Screen from '../containers/screens/Screen';
 
 import View from '../components/layout/View';
 import Image from '../components/ui/Image';
+import GridLayout from '../components/layout/GridLayout';
 
 import images from './images.json';
 
-const Cell = styled.div`
-  display: flex;
+const Cell = styled.li`
+  ${'' /* display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
+  overflow: hidden; */}
   background-color: rgba(0,0,0,0.2);
   border:solid 1px lightgray;
 `;
 
-const Grid = styled.div`
-   /* Grid Fallback */
-  display: flex;
-  flex-wrap: wrap;
-
-  /* Supports Grid */
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(${props => props.height || '200px'}, 1fr));
-  grid-auto-rows: minmax(${props => props.height || '150px'}, auto);
-  grid-gap: ${props => props.gap || '1em'};
-`;
+// const Grid = styled.div`
+//    /* Grid Fallback */
+//   display: flex;
+//   flex-wrap: wrap;
+//
+//   /* Supports Grid */
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(${props => props.height || '200px'}, 1fr));
+//   grid-auto-rows: minmax(${props => props.height || '150px'}, auto);
+//   grid-gap: ${props => props.gap || '1em'};
+// `;
 
 @inject('stores', 'actions') @observer
 export default class GridDemo extends Screen {
@@ -49,7 +50,7 @@ export default class GridDemo extends Screen {
       <View>
         <button onClick={() => this.forceUpdate()}>Refresh!</button>
 
-        <Grid>
+        <GridLayout>
           <Cell>I&apos;m talking about...</Cell>
           {this.images.map((source, index) => (
             <Cell key={index}>
@@ -57,7 +58,7 @@ export default class GridDemo extends Screen {
             </Cell>
           ))}
           <Cell>...final thoughts</Cell>
-        </Grid>
+        </GridLayout>
       </View>
 
     );
