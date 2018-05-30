@@ -3,8 +3,8 @@ import { Route, withRouter, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import NavBarOwner from '../demo/NavBarOwner';
-import Form from '../demo/Form';
-import Grid from '../demo/Grid';
+import FormDemo from '../demo/Form';
+import GridDemo from '../demo/Grid';
 import CarouselDemo from '../demo/CarouselDemo';
 import DragDemo from '../demo/DragDemo';
 
@@ -75,8 +75,8 @@ export default class PageContainer extends Component {
                 <CSSTransition key={location.key} classNames="pageTransition" timeout={500}>
                   <Switch location={location}>
                     <Route path="*/demo/navbar" exact component={NavBarOwner} />
-                    <Route path="*/demo/form" exact component={Form} />
-                    <Route path="*/demo/grid" exact component={() => <Grid pageTitle="I'm a *hacked* Grid from PageContainer!" />} />
+                    <Route path="*/demo/form" exact component={FormDemo} />
+                    <Route path="*/demo/grid" exact component={() => <GridDemo pageTitle="I'm a *hacked* Grid from PageContainer!" />} />
                     <Route path="*/demo/carousel" exact component={CarouselDemo} />
                     <Route path="*/demo/drag-drop" exact component={DragDemo} />
 

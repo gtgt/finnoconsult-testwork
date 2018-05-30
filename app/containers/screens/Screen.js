@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 
 
@@ -43,40 +43,44 @@ export default class Screen extends Component {
       // setNavBarBackLink
     } = this.props.actions;
 
+    // console.warn('new NAVBAR!');
+
     if (pageNavBar) {
       toggleNavbar({ isVisible: false });
       setNavBarComponent({ component: pageNavBar });
     } else {
       toggleNavbar({ isVisible: true });
     }
-    setNavBarTitle({ title: this.getPageTitle || pageTitle || '' }); // TODO: move this default obj to Store?
+    // TODO: move this default '' obj to Store?
+    setNavBarTitle({ title: this.getPageTitle || pageTitle || '' });
+    setTimeout(() => setNavBarTitle({ title: this.getPageTitle || pageTitle || '' }), 600);
     setNavBarClassName({ className: this.getNavBarClassName || navBarClassName });
     setNavigationBarLeftLink({ link: this.getNavBarLeftLink || navBarLeftLink || null });
     setNavigationBarRightLink({ link: this.getNavBarRightLink || navBarRightLink || null });
   }
 
   componentWillUnmount() {
-    const {
-      setNavBarTitle,
-      setNavBarClassName,
-      setNavBarComponent,
-      toggleNavbar,
-      setNavigationBarLeftLink,
-      setNavigationBarRightLink,
-    } = this.props.actions;
-    const {
-      pageNavBar,
-    } = this.props;
-
-    if (pageNavBar) {
-      toggleNavbar({ isVisible: true }); // do we need ???
-      setNavBarComponent({ component: null });
-    }
-
-    setNavBarTitle({ title: '' });
-    setNavBarClassName({ className: '' });
-    setNavigationBarLeftLink({ link: null });
-    setNavigationBarRightLink({ link: null });
+    // const {
+    //   setNavBarTitle,
+    //   setNavBarClassName,
+    //   setNavBarComponent,
+    //   toggleNavbar,
+    //   setNavigationBarLeftLink,
+    //   setNavigationBarRightLink,
+    // } = this.props.actions;
+    // const {
+    //   pageNavBar,
+    // } = this.props;
+    //
+    // if (pageNavBar) {
+    //   toggleNavbar({ isVisible: true }); // do we need ???
+    //   setNavBarComponent({ component: null });
+    // }
+    //
+    // setNavBarTitle({ title: '' });
+    // setNavBarClassName({ className: '' });
+    // setNavigationBarLeftLink({ link: null });
+    // setNavigationBarRightLink({ link: null });
   }
 
 
@@ -93,9 +97,4 @@ export default class Screen extends Component {
     return this.state.playSound;
   }
 
-
 }
-
-Screen.contextTypes = {
-  router: React.PropTypes.object,
-};

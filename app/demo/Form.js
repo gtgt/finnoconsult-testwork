@@ -8,7 +8,6 @@ import { Form } from '../components/layout';
 
 import { TextInput, NumericInput, Button } from '../components/form';
 
-console.log(TextInput, NumericInput);
 @inject('stores', 'actions') @observer
 export default class FormDemo extends Screen {
 
