@@ -12,7 +12,6 @@ import PageContainer from './containers/PageContainer';
 import LayoutContainer from './containers/LayoutContainer';
 import NavigationBarStoreWithButton from './containers/navigation/NavigationBarStoreWithButton';
 
-
 import './theme/app.global.scss';
 
 export default function App() {

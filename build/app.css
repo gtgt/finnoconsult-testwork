@@ -8,7 +8,7 @@
 
 /*html **/
 body, body > *, button {
-   font-size: 4rem;
+   font-size: 2rem;
   /*//  color: $theme-color-text;*/
    font-family: 'Open Sans' !important;
    font-smooth: always;

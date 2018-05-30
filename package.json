@@ -1,6 +1,6 @@
 {
   "name": "FinnoProject",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "title": "React boilerplate",
   "description": "React-router project boilerplate template",
   "keywords": [
@@ -57,8 +57,11 @@
     "babel-eslint": "^7.1.1",
     "babel-jest": "^18.0.0",
     "babel-loader": "^6.2.9",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.20.0",
     "babel-preset-env": "^1.1.1",
     "babel-preset-es2015": "^6.22.0",
@@ -94,8 +97,6 @@
     "webpack-dev-server": "2.1.0-beta.12"
   },
   "dependencies": {
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-object-assign": "^6.22.0",
     "classnames": "^2.2.5",
     "ejs-loader": "^0.3.0",
     "extract-text-webpack-plugin": "^3.0.2",
@@ -111,6 +112,7 @@
     "react-router-dom": "^4.2.2",
     "react-style-proptype": "^3.0.0",
     "react-swipeable": "^3.9.1",
+    "react-transition-group": "^2.3.1",
     "styled-components": "^3.3.0"
   },
   "engines": {
