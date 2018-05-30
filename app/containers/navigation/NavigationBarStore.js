@@ -5,7 +5,7 @@ import { oneOrManyChildElements } from '../../prop-types';
 
 import UIStore from '../../stores/UIStore';
 import MobileNavigationBar from '../../components/navigation/MobileNavigationBar';
-import View from '../../components/layout/View';
+import { View } from '../../components/layout';
 
 @inject('stores', 'actions') @observer
 export default class NavigationBarStore extends Component {

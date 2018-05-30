@@ -31,9 +31,9 @@ export default function App() {
       <LayoutMode>
         <Router basename={basename}>
           <LayoutContainer
-            headerMenu={() => <valami>Tényleg valami</valami>}
+            headerMenu={() => <valami>TODO: Dummy header</valami>}
             navBar={() => <NavigationBarStoreWithButton rightButton={() => <span style={{ transform: 'rotate(90deg)' }}>:-)</span>} />}
-            tabBar={() => <div> TODO: FooterScreen</div>}
+            tabBar={() => <div> TODO: Footer</div>}
             sideMenu={LinkContainer}
           >
             <PageContainer />

@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 import Screen from '../containers/screens/Screen';
 
-import View from '../components/layout/View';
 import Image from '../components/ui/Image';
-import GridLayout from '../components/layout/GridLayout';
+// import GridLayout from '../components/layout/GridLayout';
+import { View, Grid } from '../components/layout';
 
 import images from './images.json';
 
@@ -50,7 +50,7 @@ export default class GridDemo extends Screen {
       <View>
         <button onClick={() => this.forceUpdate()}>Refresh!</button>
 
-        <GridLayout>
+        <Grid>
           <Cell>I&apos;m talking about...</Cell>
           {this.images.map((source, index) => (
             <Cell key={index}>
@@ -58,7 +58,7 @@ export default class GridDemo extends Screen {
             </Cell>
           ))}
           <Cell>...final thoughts</Cell>
-        </GridLayout>
+        </Grid>
       </View>
 
     );
