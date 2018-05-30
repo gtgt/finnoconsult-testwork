@@ -63,6 +63,12 @@
     footer {
       grid-column: 1 / 1;
     }
+
+    :global {
+      .l-container {
+        padding: 0;
+      }
+    }
   }
 
 }
