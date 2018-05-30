@@ -1,17 +1,17 @@
 // Common imports
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { observer } from 'mobx-react';
 import classnames from 'classnames';
 
 // Framework imports
 import View from './View';
-import Image from '../../components/ui/Image';
+import Image from './Image';
 
 // Style imports
 import styles from './Stepper.scss';
 
 @observer
-export default class TextToggle extends Component {
+export default class TextToggle extends View {
   static propTypes = {
     // initValue: PropTypes.number.isRequired,
     // stepValue: PropTypes.number.isRequired,

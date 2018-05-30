@@ -16,7 +16,7 @@ import styles from './NumericStepper.scss';
 
 // @inject('stores', 'actions') @observer
 @observer
-export default class InvestStepper extends React.Component {
+export default class InvestStepper extends View {
   static propTypes = {
     initValue: PropTypes.number.isRequired,
     stepValue: PropTypes.number.isRequired,

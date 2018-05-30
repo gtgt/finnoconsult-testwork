@@ -1,4 +1,4 @@
-import View from '../../ui/View';
+import View from '../ui/View';
 
 /*
  * Horizontal Layout
@@ -6,7 +6,7 @@ import View from '../../ui/View';
 const HorizontalLayout = View.extend`
   display: flex;
   flex: 1;
-  flexDirection: 'row';
+  flex-direction: row;
   height: auto;
 `;
 module.exports = HorizontalLayout;

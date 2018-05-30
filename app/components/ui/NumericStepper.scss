@@ -6,6 +6,11 @@
   flex-direction: column;
   justify-content: flex-start;
 
+  button {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+  }
+
   .value {
     font-size: 28px;
     color: #000000;

@@ -1,13 +1,18 @@
-import React, { Component, PropTypes } from 'react';
+// Common imports
+import React, { PropTypes } from 'react';
 import { observer } from 'mobx-react';
 import classnames from 'classnames';
 
+// Framework imports
+import View from './View';
+
+// Style imports
 import styles from './TextToggle.scss';
 
-import arrowDownIcon from '../../../images/static/arrow_down.png';
+// import arrowDownIcon from '../../../images/static/arrow_down.png';
 
 @observer
-export default class TextToggle extends Component {
+export default class TextToggle extends View {
   static propTypes = {
     titles: PropTypes.arrayOf(PropTypes.string).isRequired,
     value: PropTypes.number,
@@ -53,7 +58,7 @@ export default class TextToggle extends Component {
               })}
             >
               {title}
-              <img src={arrowDownIcon} alt="" />
+              {/* <img src={arrowDownIcon} alt="" /> */}
             </button>
           ))}
         </div>

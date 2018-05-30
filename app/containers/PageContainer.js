@@ -4,6 +4,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Page from '../components/page/Page';
 import Form from '../demo/Form';
+import UIDemo from '../demo/UIDemo';
 import Grid from '../demo/Grid';
 import CarouselDemo from '../demo/CarouselDemo';
 import NavBarOwner from '../demo/NavBarOwner';
@@ -75,6 +76,7 @@ export default class PageContainer extends Component {
                   <Switch location={location}>
                     <Route path="*/demo/navbar" exact component={NavBarOwner} />
                     <Route path="*/demo/form" exact component={Form} />
+                    <Route path="*/demo/uidemo" exact component={UIDemo} />
                     <Route path="*/demo/grid" exact component={() => <Grid pageTitle="I'm a *hacked* Grid from PageContainer!" />} />
                     <Route path="*/demo/carousel" exact component={CarouselDemo} />
 

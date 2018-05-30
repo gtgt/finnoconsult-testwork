@@ -1,4 +1,4 @@
-import View from '../../ui/View';
+import View from '../ui/View';
 
 /*
  * Vertical Layout
@@ -6,7 +6,7 @@ import View from '../../ui/View';
 const VerticalLayout = View.extend`
   display: flex;
   flex: 1;
-  flexDirection: 'row';
+  flex-direction: column;
   height: auto;
 `;
 module.exports = VerticalLayout;
