@@ -1,0 +1,68 @@
+$header-size: 30vh;
+$input-size: 10vh;
+
+:global {
+  //This is required to override other potential CSS coming from other component
+  .NumericInput_component.NumericInput_layoutGeneric_keyboard {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    bottom: 0;
+    padding-top: $header-size;
+    background-color: #ddd;
+    z-index: 200;
+    background-color: rgba(0,0,0,0.5);
+  }
+}
+
+.keyboard {
+
+  &, & * {
+    transition: all 0.5s ease;
+  }
+
+  :global {
+
+    .NumericInput_hintContainer {
+      opacity: 0;
+    }
+
+    .NumericInput_keyboardContainer {
+      height: 100vh - $input-size - $header-size;
+    }
+
+    .NumericInput_labelContainer {
+      margin-top: $header-size;
+    }
+
+    .NumericInput_labelContainer,
+    .NumericInput_doneContainer,
+    .NumericInput_input {
+      height: $input-size;
+
+    }
+
+    .NumericInput_doneContainer {
+      opacity: 1;
+      width: 10vh;
+      font-size: 100%;
+
+      color: #0d57ba;
+      background-color: #d3d3d3;
+      padding: 0;
+    }
+
+    .NumericInput_mainContainer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      width: 100%;
+      background-color: #F9F9F9;
+    }
+
+    .NumericInput_input {
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.component {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .key {
+    flex: 33.3%;
+    margin: 0;
+    padding: 0;
+    height: 25%;
+    border: solid 1px #E1E2E3;
+    font-size: 200%;
+    font-weight: normal;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+
+    &:active {
+      background-color: #B9DDEF;
+    }
+
+    &.special {
+      background-color: #ACAFB3;
+    }
+
+    &.image {
+      img {
+        width: auto;
+        height: 3.5vh;
+      }
+    }
+    &.backSpace {
+      outline: 0;
+      background-color: #ACAFB3;
+      background-repeat: no-repeat;
+      background-image: url(./backspaceXLeft.png);
+      background-size: contain;
+      background-position: left center;
+    }
+  }
+
+
+}
+
+
+// @media all and (max-height: $device-smallscreen-phone-height)
+@media only screen and (max-device-width : 568px) {
+  @supports (-webkit-appearance:none) {
+  /* Ihpone 10.1+ */
+    .component {
+      .key {
+        height: 22%;
+      }
+    }
+  }
+}

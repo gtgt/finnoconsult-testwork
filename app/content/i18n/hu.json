@@ -1,7 +1,7 @@
 {
-	"The page is being loaded...": "Azt ó'dal ippen töttődik!",
+	"The page is being loaded...": "...Loading...",
 	"This DOM part is being by React-Dom.": [
-		"Ez a DOM biz' felül gyüsz írva izibe.",
-		"'Sztán azé' mer' eztet rendösen megmondta vala az index.js-ben az Embör"
+		"Loading line 1",
+		"Loading line 2"
 	]
 }

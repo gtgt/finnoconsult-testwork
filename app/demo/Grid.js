@@ -6,7 +6,7 @@ import Screen from '../containers/screens/Screen';
 
 import Image from '../components/ui/Image';
 // import GridLayout from '../components/layout/GridLayout';
-import { View, Grid } from '../components/layout';
+import { View, AnimatedGrid as Grid } from '../components/layout';
 
 import images from './images.json';
 
