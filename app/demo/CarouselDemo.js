@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react';
 
 import Screen from '../containers/screens/Screen';
 
-import ScrollView from '../components/layout/ScrollView';
+import ScrollView from '../components/ui/ScrollView';
 import Carousel from '../components/carousel/Carousel';
 import Image from '../components/ui/Image';
 

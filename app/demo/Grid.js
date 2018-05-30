@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Screen from '../containers/screens/Screen';
 
-import View from '../components/layout/View';
+import View from '../components/ui/View';
 import Image from '../components/ui/Image';
 
 import images from './images.json';

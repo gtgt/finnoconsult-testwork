@@ -1,0 +1,19 @@
+.component {
+  height: 42px;
+  width: 110px;
+  display: flex;
+  margin-left: 20px;
+
+  button:hover, a:hover {
+    transform: none;
+  }
+
+  .decrement {
+    width: 50%;
+  }
+
+  .increment {
+    width: 50%;
+    margin-left: -2px;
+  }
+}

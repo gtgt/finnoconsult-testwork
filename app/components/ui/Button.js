@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import { oneOrManyChildElements } from '../../prop-types';
+
 // Style imports
 import styles from './Button.scss';
 

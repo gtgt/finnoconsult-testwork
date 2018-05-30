@@ -1,0 +1,29 @@
+.component {
+  height: 110px;
+  width: 150px;
+  margin: 0px 5px 0 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .value {
+    font-size: 28px;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 25px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .title {
+    font-size: 15px;
+    color: #000000;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 25px;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+}

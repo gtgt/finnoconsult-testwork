@@ -7,7 +7,7 @@ import Screen from '../../containers/screens/Screen';
 
 import { oneOrManyChildElements } from '../../prop-types';
 
-import ScrollView from '../layout/ScrollView';
+import ScrollView from '../ui/ScrollView';
 import Image from '../ui/Image';
 
 @inject('stores', 'actions') @observer
