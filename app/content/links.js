@@ -36,6 +36,12 @@ const links = {
           description: 'Form element demo',
         },
         {
+          id: 3,
+          title: 'UI demo',
+          route: '/demo/uidemo',
+          description: 'UI elements demo',
+        },
+        {
           id: 4,
           title: 'Image',
           route: '/demo/images',

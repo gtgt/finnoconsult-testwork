@@ -1,4 +1,4 @@
-import View from './View';
+import View from '../ui/View';
 
 const FormLayout = View.extend`
   display: grid;

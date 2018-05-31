@@ -1,0 +1,41 @@
+.component {
+  // background: $theme-color-gray;
+  // border: solid 1px $theme-navigation-border;
+  overflow: hidden;
+  width: max-content;
+
+  .toggleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toggle {
+    padding: 6px 20px;
+    height: 34px;
+    background-color: #FFF;
+    color: #004899;
+    font-size: 15px;
+    border: solid 1px #D8DBDD;
+
+    &:first-child {
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &.isActive {
+      background-color: #F2F2F2;
+      color: #000;
+    }
+  }
+
+}
+
+.isDisabled {
+  opacity: 0.3;
+}
