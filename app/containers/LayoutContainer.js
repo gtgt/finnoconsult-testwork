@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import { oneOrManyChildElements } from '../prop-types';
 
-import WebLayout from '../components/layout/ResponsiveWebLayout';
+import { ResponsiveWebLayout as WebLayout } from '../components/ui/layout';
 // import MobileLayout from '../components/layout/MobileLayout';
 
 const MobileLayout = WebLayout;

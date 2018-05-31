@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 
-import { Grid } from '../components/layout';
+import { Grid } from '../components/ui/layout';
 import { DraggableSource, DraggingTarget } from '../components/draggable';
 import { arrayOrMobXArray } from '../prop-types';
 

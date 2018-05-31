@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { observer } from 'mobx-react';
 import classnames from 'classnames';
-import { oneOrManyChildElements } from '../../prop-types';
+import { oneOrManyChildElements } from '../../../prop-types';
 
-import View from './View';
+import { View } from '../';
 
 import styles from './ButtonGroup.scss';
 

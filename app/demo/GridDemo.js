@@ -4,9 +4,8 @@ import styled from 'styled-components';
 
 import Screen from '../containers/screens/Screen';
 
-import Image from '../components/ui/Image';
-// import GridLayout from '../components/layout/GridLayout';
-import { View, AnimatedGrid as Grid } from '../components/layout';
+import { View, Image } from '../components/ui';
+import { AnimatedGrid as Grid } from '../components/ui/layout';
 
 import images from './images.json';
 

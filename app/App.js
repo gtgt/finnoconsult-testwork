@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 // import { createHistory, useBasename } from 'history'
 
-import LayoutMode from './components/layout/LayoutMode';
+import { LayoutMode } from './components/ui/layout';
 import Authenticate from './containers/auth/Authenticate';
 // TODO: make routable
 import DevTools from './components/devtools/Sidebar';

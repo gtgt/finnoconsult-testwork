@@ -3,12 +3,11 @@ import { inject, observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 import Swipeable from 'react-swipeable';
 
-import Screen from '../../containers/screens/Screen';
+import Screen from '../../../../containers/screens/Screen';
 
-import { oneOrManyChildElements } from '../../prop-types';
+import { oneOrManyChildElements } from '../../../../prop-types';
 
-import { ScrollView } from '../layout';
-import Image from '../ui/Image';
+import { Image, ScrollView } from '../../';
 
 @inject('stores', 'actions') @observer
 export default class StaticImagePage extends Screen {

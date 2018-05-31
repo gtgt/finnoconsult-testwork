@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import classnames from 'classnames';
 
 // Framework imports
-import View from './View';
+import { View } from '../';
 
 // Style imports
 import styles from './TextToggle.scss';

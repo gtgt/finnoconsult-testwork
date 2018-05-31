@@ -6,8 +6,8 @@ import styles from './NumericInput.scss';
 import kbStyles from './NumericInput_layoutGeneric.scss';
 import NumericKeyboard from './NumericKeyboard';
 
-import { isNumber, getNumber } from '../../helpers/number-helpers';
-import { numberOrStringText } from '../../prop-types';
+import { isNumber, getNumber } from '../../../helpers/number-helpers';
+import { numberOrStringText } from '../../../prop-types';
 
 export default class NumericInput extends React.Component {
   static propTypes = {

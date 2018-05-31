@@ -6,6 +6,10 @@ import VerticalLayout from './VerticalLayout';
 import GridLayout from './GridLayout';
 import AnimatedGridLayout from './AnimatedGridLayout';
 import FormLayout from './FormLayout';
+import LayoutMode from './LayoutMode';
+import ResponsiveWebLayout from './ResponsiveWebLayout';
+import ActionSheet from './ActionSheet';
+import Overlay from './Overlay';
 
 /*
  * Layouts
@@ -14,15 +18,14 @@ import FormLayout from './FormLayout';
  /*
   * UI
   */
-import View from '../ui/View';
-import ScrollView from '../ui/ScrollView';
-
 module.exports = {
-  View,
-  ScrollView,
   HorizontalLayout,
   VerticalLayout,
   Grid: GridLayout,
   AnimatedGrid: AnimatedGridLayout,
   Form: FormLayout,
+  LayoutMode,
+  ResponsiveWebLayout,
+  ActionSheet,
+  Overlay,
 };

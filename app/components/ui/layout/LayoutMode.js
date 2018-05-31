@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import platform from 'platform';
 
-import { oneOrManyChildElements } from '../../prop-types';
-import View from '../ui/View';
+import { oneOrManyChildElements } from '../../../prop-types';
+import { View } from '../';
+
 
 // TODO: LAyoutMode.scss !
 

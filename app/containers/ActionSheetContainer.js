@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import UIStore from '../stores/UIStore';
-import ActionSheet from '../components/layout/ActionSheet';
+import { ActionSheet } from '../components/ui/layout';
 
 @withRouter
 @inject('stores', 'actions') @observer

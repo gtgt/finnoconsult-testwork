@@ -6,7 +6,7 @@ import { oneOrManyChildElements } from '../../prop-types';
 
 import UIStore from '../../stores/UIStore';
 import NavigationBarStore from './NavigationBarStore';
-import Button from '../../components/ui/Button';
+import { Button } from '../../components/ui';
 
 @withRouter
 @inject('stores', 'actions') @observer

@@ -4,8 +4,7 @@ import { observer } from 'mobx-react';
 import classnames from 'classnames';
 
 // Framework imports
-import View from './View';
-import Image from './Image';
+import { View, Image } from '../';
 
 // Style imports
 import styles from './Stepper.scss';

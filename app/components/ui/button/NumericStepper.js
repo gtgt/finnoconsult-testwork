@@ -8,7 +8,7 @@ import classnames from 'classnames';
 // import { oneOrManyChildElements } from '../../prop-types';
 
 // Framework imports
-import View from './View';
+import { View } from '../';
 import Stepper from './Stepper';
 
 // Style imports

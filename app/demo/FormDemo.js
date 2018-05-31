@@ -1,24 +1,23 @@
 import React from 'react';
 import { inject, observer } from 'mobx-react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Screen from '../containers/screens/Screen';
 
-import { HorizontalLayout, VerticalLayout } from '../components/layout';
-
-import View from '../components/ui/View';
-import TextToggle from '../components/ui/TextToggle';
-import ButtonGroup from '../components/ui/ButtonGroup';
-import NumericStepper from '../components/ui/NumericStepper';
+import { TextInput, NumericInput, Button } from '../components/ui/input';
+import { Form, HorizontalLayout, VerticalLayout } from '../components/ui/layout';
+import { TextToggle, ButtonGroup, NumericStepper } from '../components/ui/button';
 
 @inject('stores', 'actions') @observer
-export default class UIDemo extends Screen {
+export default class FormDemo extends Screen {
 
   static defaultProps = {
-    pageTitle: 'UI Elements demo',
+    pageTitle: 'FORM!',
   }
 
   state = {
+    textInput: 'with half money',
+
     listType: 0,
     activeButtonIndex: 1,
     activeButtonIndex2: 0,
@@ -45,10 +44,32 @@ export default class UIDemo extends Screen {
 
   render() {
     return (
-      <View>
-        <b>Stepper</b>
-        <hr />
-        <HorizontalLayout>
+      <Form>
+        Link to:
+        <Link to="./grid">Grid Demo »</Link>
+
+
+        <label htmlFor="textInput">Market visit</label>
+        <TextInput
+          id="textInput"
+          hint="how much money?"
+          value={this.state.textInput}
+          onChange={({ target: { value } }) => this.setState({ textInput: value })}
+        />
+
+        <label htmlFor="sampleInput">Money division:</label>
+        <NumericInput
+          id="sampleInput"
+          label="Ft"
+          type="number"
+          max={180}
+          value={100}
+          onChange={e => console.log(e, 'forintnak', e/2, ' a fele!')}
+          // closeButtonPosition={9}
+        />
+
+        <label htmlFor="Stepper">Stepper</label>
+        <HorizontalLayout id="Stepper">
           <NumericStepper
             initValue={500}
             stepValue={100}
@@ -75,12 +96,8 @@ export default class UIDemo extends Screen {
           />
         </HorizontalLayout>
 
-        <br /><br />
-        <b>ButtonGroup & Toggle</b>
-        <hr />
-        <VerticalLayout>
-          <b>ButtonGroup</b>
-
+        <label htmlFor="ButtonGroup">ButtonGroup</label>
+        <VerticalLayout id="ButtonGroup">
           <ButtonGroup
             // className={styles.toggle}
             titles={['Button 1', 'Button 2', 'Button 3']}
@@ -89,29 +106,24 @@ export default class UIDemo extends Screen {
           />
           <ButtonGroup
             // className={styles.toggle}
-            titles={['Button 4', 'Button 5', 'Button 6', 'Button ...', 'Button N']}
+            titles={['Button 4', 'Button 5', 'Button ...', 'Button N']}
             value={1 * this.state.activeButtonIndex2}
             onClick={e => this.onChangedButtonGroup2(e)}
           />
-          {/* <ButtonGroup
-            // className={styles.toggle}
-            value={1 * this.state.activeButtonIndex2}
-          >
-            <Button className="o-button" onClick={() => this.onChangedButtonGroup2(0)}>Button 1</Button>
-            <Button className="o-button" onClick={() => this.onChangedButtonGroup2(1)}>Button 2</Button>
-            <Button className="o-button" onClick={() => this.onChangedButtonGroup2(2)}>Button 3</Button>
-          </ButtonGroup> */}
-          <br /><br />
-          <b>TextToggle</b>
-
-          <TextToggle
-            // className={styles.toggle1}
-            titles={['List', 'Grid']}
-            value={1 * this.state.listType}
-            onClick={e => this.onChangeTextToggle(e)}
-          />
         </VerticalLayout>
-      </View>
+
+        <label htmlFor="TextToggle">TextToggle</label>
+
+        <TextToggle
+          id="TextToggle"
+          // className={styles.toggle1}
+          titles={['List', 'Grid']}
+          value={1 * this.state.listType}
+          onClick={e => this.onChangeTextToggle(e)}
+        />
+
+        <Button className="o-button o-button--submit" onClick={() => console.log('submit')}>Submit form</Button>
+      </Form>
     );
   }
 }

@@ -6,7 +6,7 @@ import classnames from 'classnames';
 
 // import UIStore from '../../stores/UIStore';
 
-import { oneOrManyChildElements } from '../../prop-types';
+import { oneOrManyChildElements } from '../../../../prop-types';
 import styles from './Page.scss';
 
 @withRouter

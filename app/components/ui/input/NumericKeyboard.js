@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { oneOrManyChildElements } from '../../prop-types';
+import { oneOrManyChildElements } from '../../../prop-types';
 
 import styles from './NumericKeyboard.scss';
 

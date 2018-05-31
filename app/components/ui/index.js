@@ -1,13 +1,23 @@
 import Image from './Image';
 import Text from './Text';
-import Button from './Button';
+// TODO: reference from ./button
+import Button from './button/Button';
 import View from './View';
 import ScrollView from './ScrollView';
 
-module.exports = {
-  Image,
-  Text,
-  Button,
-  View,
-  ScrollView,
-};
+import Grid from './layout';
+
+console.log('TODO: import Grid', Grid);
+
+const allUIComponents = Object.assign(
+  {},
+  // Grid,
+  {
+    Image,
+    Text,
+    Button,
+    View,
+    ScrollView,
+  },
+);
+module.exports = allUIComponents;

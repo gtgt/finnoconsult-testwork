@@ -36,12 +36,6 @@ const links = {
           description: 'Form element demo',
         },
         {
-          id: 3,
-          title: 'UI demo',
-          route: '/demo/uidemo',
-          description: 'UI elements demo',
-        },
-        {
           id: 4,
           title: 'Image',
           route: '/demo/images',
@@ -104,7 +98,7 @@ const links = {
     },
   ],
   functions: {
-    getRoute: item => item.route || `./pages?${item.id}`,
+    getRoute: item => item.route || `/pages?${item.id}`,
     getLink: (items, search) => items.find(i => i.id === parseInt(search && search.match(/\?(\d+)/)[1], 10) || 0).link,
   },
 };

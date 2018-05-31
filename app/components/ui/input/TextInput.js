@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { View } from '../ui';
+import { View } from '../';
 
-import { numberOrStringText } from '../../prop-types';
+import { numberOrStringText } from '../../../prop-types';
 
 const Input = styled.input.attrs({
   type: 'text',

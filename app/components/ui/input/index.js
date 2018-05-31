@@ -1,6 +1,6 @@
 import TextInput from './TextInput';
 import NumericInput from './NumericInput';
-import Button from '../ui/Button';
+import Button from '../button/Button';
 
 module.exports= {
   TextInput,
