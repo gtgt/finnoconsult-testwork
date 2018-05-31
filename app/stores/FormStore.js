@@ -1,12 +1,10 @@
 import { action, observable, computed } from 'mobx';
 
 import Store from './lib/Store';
-import { advisors } from '../content';
 
 
 export default class FormStore extends Store {
 
-  @observable advisors = advisors;
   @observable data = {
   };
 

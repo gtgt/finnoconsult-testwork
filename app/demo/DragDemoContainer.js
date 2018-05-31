@@ -6,18 +6,16 @@ import AccountStore from '../stores/AccountStore';
 import Screen from '../containers/screens/Screen';
 
 import DragDemo from './DragDemo';
-import { View } from '../components/layout';
-import { Image } from '../components/ui';
+import { View, Image } from '../components/ui';
 import ContainerWithRouter from '../containers/ContainerWithRouter';
 
-import images from './images.json';
-
+import mockImages from './mockImages';
 
 const ItemComponent = props => (
   <View>
     <Image
       {...props}
-      source={props.source || images[props.id]}
+      source={props.source}
       caption={props.title}
     />
   </View>
@@ -25,7 +23,6 @@ const ItemComponent = props => (
 ItemComponent.propTypes = {
   source: PropTypes.string,
   title: PropTypes.string,
-  id: PropTypes.number.isRequired,
 };
 
 
@@ -38,16 +35,21 @@ export default class DragDemoContainer extends Screen {
   }
 
   static defaultProps = {
-    pageTitle: 'Drag & Drop Demo',
+    pageTitle: 'Drag & Drop Demo for selecting',
+  }
+
+  get items() {
+    return this.props.stores.account.items.map(item => mockImages(item));
   }
 
   render() {
     return (
+      // TODO: onDragEndPath?
       <ContainerWithRouter
         onDragEndPath={(from, to) => `transfer/${from}/${to}`}
       >
         <DragDemo
-          items={this.props.stores.account.items}
+          items={this.items}
           itemComponent={ItemComponent}
         />
       </ContainerWithRouter>

@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { View } from '../layout';
+import { View } from '../ui';
 
 import { numberOrStringText } from '../../prop-types';
 
-const Input = styled.input`
+const Input = styled.input.attrs({
+  type: 'text',
+})`
 `;
 const Hint = styled.label`
   position: absolute;

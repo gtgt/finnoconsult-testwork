@@ -59,12 +59,6 @@ const links = {
           route: '/demo/drag-drop',
           description: 'Sample drag and drop',
         },
-        {
-          id: 8,
-          title: 'Slider',
-          route: '/demo/slider',
-          description: 'Sample slider',
-        },
       ],
     },
     {

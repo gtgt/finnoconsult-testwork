@@ -42,7 +42,10 @@ export default class Image extends React.Component {
   }
 
   render() {
-    if (!this.props.source) return null;
+    if (!this.props.source) {
+      console.warn(this.constructor.name, 'hasn\'t received mandatory source props', this.props);
+      return null;
+    }
 
     if (this.props.link) {
       return (

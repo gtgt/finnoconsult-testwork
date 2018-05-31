@@ -40,8 +40,8 @@ $circle-size: 16px;
       background-color: $theme-color-white;
 
       &:after {
-        content: '';
-        background-image: url(./ubertrag.svg);
+        content: 'Dragging!';
+        // background-image: url(./ubertrag.svg);
         background-position: center;
         background-size: contain;
         background-repeat: no-repeat;

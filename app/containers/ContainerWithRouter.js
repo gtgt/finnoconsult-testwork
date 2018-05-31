@@ -1,40 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-// import { inject, observer } from 'mobx-react';
 
-import { View } from '../components/layout';
+import { View } from '../components/ui';
 
 import { oneOrManyChildElements } from '../prop-types';
 
 @withRouter
-// @inject('stores', 'actions') @observer
 export default class ContainerWithRouter extends React.Component {
   static propTypes = {
     history: PropTypes.shape().isRequired,
     location: PropTypes.shape({
       pathname: PropTypes.string.isRequired,
     }).isRequired,
-    // actions: PropTypes.shape({
-    //   toggleNavbar: PropTypes.func.isRequired,
-    // }).isRequired,
 
-    // hideNavBar: PropTypes.bool,
     children: oneOrManyChildElements,
     onDragEndPath: PropTypes.func,
   }
 
-  // componentDidMount() {
-    // console.log('componentDidMount', this.constructor.name, this.props.actions);
-    // if (this.props.actions && this.props.actions.toggleNavbar) {
-      // console.log('toggle NAVBAR!', this.props.hideNavBar);
-      // this.props.actions.toggleNavbar({ isVisible: !this.props.hideNavBar && true });
-    // }
-  // }
-
   onDragEnd({ from, to }) {
-    console.log('REAL: onDragEnd', { from, to });
-    if (this.props.onDragEndPath) { // TODO: should have been better to test it directly from pots, which is type of investment :)
+    console.log('TODO: better soluition for onDragEnd(', { from, to }, ')');
+
+    if (this.props.onDragEndPath) {
       this.goTo(this.buildRoute({ postfix: this.props.onDragEndPath(from, to) }));
     }
   }

@@ -1,0 +1,22 @@
+.component {
+  .knob {
+    -webkit-box-shadow: 0px 2px 3px 1px rgba(0,72,153,0.2);
+    -moz-box-shadow: 0px 2px 3px 1px rgba(0,72,153,0.2);
+    box-shadow: 0px 2px 3px 1px rgba(0,72,153,0.2);
+    border-radius: 100%;
+  }
+
+  .dragContainer {
+    padding-left: 12px;
+    padding-right: 12px;
+    // margin-bottom: 160px;
+
+    .dragContainerBackground {
+      background-image: url(./line-white.png);
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: 100% 4px;
+    }
+
+  }
+}

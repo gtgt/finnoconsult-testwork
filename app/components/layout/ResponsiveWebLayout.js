@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { ScrollView, View } from './';
+import { ScrollView, View } from '../ui';
 
 import { oneOrManyChildElements } from '../../prop-types';
 

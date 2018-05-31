@@ -1,12 +1,9 @@
-// import React from 'react';
 import styled, { css } from 'styled-components';
-
-// import { oneOrManyChildElements } from '../../prop-types';
 
 const View = styled.div`
   padding:0;
   margin:0;
-  ${props => props.isHidden && css`
+  ${props => props.hidden && css`
     display: none;
   `};
   ${props => props.center && css`
@@ -18,12 +15,15 @@ const View = styled.div`
   ${props => props.fullWidth && css`
     width: 100%;
   `};
+  ${props => props.fullHeight && css`
+    height: 100%;
+  `};
+  ${props => (props.autoHeight || props.auto) && css`
+    height: auto;
+  `};
+  ${props => props.height && css`
+    height: ${props.height};
+  `};
 `;
-  // display: flex;
-// const View = props => (<div {...props}>{props.children}</div>);
-
-// View.propTypes = {
-//   children: oneOrManyChildElements,
-// };
 
 module.exports = View;

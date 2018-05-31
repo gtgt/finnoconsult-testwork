@@ -7,9 +7,11 @@ import FormDemo from '../demo/Form';
 import GridDemo from '../demo/Grid';
 import CarouselDemo from '../demo/CarouselDemo';
 import DragDemoContainer from '../demo/DragDemoContainer';
+import TransferDemoContainer from '../demo/TransferDemoContainer';
 
 import Page from '../components/page/Page';
 import StaticImagePage from '../components/page/StaticImagePage';
+import { DraggableIndicator } from '../components/draggable';
 
 import { links } from '../content';
 
@@ -34,7 +36,6 @@ export default class PageContainer extends Component {
     this.mainPage = e;
   }
 
-  // TODO: refactor to LayoutContainer
   // checkScrolling(prevProps) {
   //   if (prevProps.location.pathname !== this.props.location.pathname && this.mainPage) {
   //     // console.log('routing occurred from ', this.props.location.pathname, 'to', prevProps.location.pathname, this.mainPage);
@@ -53,6 +54,8 @@ export default class PageContainer extends Component {
       <div>
         {/* TODO: */}
         {/* <ActionSheetContainer isOverlayVisible={isOverlayVisible} /> */}
+        <DraggableIndicator />
+
         <Route
           path="*/pages"
           render={() => (
@@ -81,6 +84,7 @@ export default class PageContainer extends Component {
                     <Route path="*/demo/grid" exact component={() => <GridDemo pageTitle="I'm a *hacked* Grid from PageContainer!" />} />
                     <Route path="*/demo/carousel" exact component={CarouselDemo} />
                     <Route path="*/demo/drag-drop" exact component={DragDemoContainer} />
+                    <Route path="*/demo/transfer/:from/:to" exact component={TransferDemoContainer} />
 
                     <Route
                       path="*/demo/images"
