@@ -59,29 +59,9 @@ export default class Screen extends Component {
     setNavigationBarRightLink({ link: this.getNavBarRightLink || navBarRightLink || null });
   }
 
-  componentWillUnmount() {
-    // const {
-    //   setNavBarTitle,
-    //   setNavBarClassName,
-    //   setNavBarComponent,
-    //   toggleNavbar,
-    //   setNavigationBarLeftLink,
-    //   setNavigationBarRightLink,
-    // } = this.props.actions;
-    // const {
-    //   pageNavBar,
-    // } = this.props;
-    //
-    // if (pageNavBar) {
-    //   toggleNavbar({ isVisible: true }); // do we need ???
-    //   setNavBarComponent({ component: null });
-    // }
-    //
-    // setNavBarTitle({ title: '' });
-    // setNavBarClassName({ className: '' });
-    // setNavigationBarLeftLink({ link: null });
-    // setNavigationBarRightLink({ link: null });
-  }
+  // componentWillUnmount() {
+  // // NOTE: This had been moved to Page.js, to detect new changes in location.
+  // }
 
 
   handlePlayingSound(ev) {

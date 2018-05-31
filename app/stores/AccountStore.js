@@ -9,27 +9,27 @@ export default class AccountStore {
   @observable containerHeight = 410;
   @observable itemHeight = 60;
   @observable handleHeight = 50;
-
-  // slide3:
-  @observable handleHeight3 = 90;
-  @observable handleBarHeight3 = 16;
-  @observable handleMarginTop = 160;
+  //
+  // // slide3:
+  // @observable handleHeight3 = 90;
+  // @observable handleBarHeight3 = 16;
+  // @observable handleMarginTop = 160;
 
   @observable adjustedFrom = -1; // TODO: set back to -1
   @observable adjustedTo = -1; // TODO: set back to -1
   @observable adjustedAmount = 0;
 
-  currency = 'CHF';
+  @observable currency = 'CHF';
 
-  iconFolderWhite='/icons/white/';
-  iconFolderBlue='/icons/blue/';
+  iconFolderDefault='/icons/white/';
+  iconFolderSelected='/icons/blue/';
 
   // NOTE/FIXME: every item has the id the same as the index id, which might not be the same in live
   @observable items = [
     {
       id: 0,
-      icon: `${this.iconFolderWhite}Coins.svg`,
-      selectedIcon: `${this.iconFolderBlue}Coins.svg`,
+      icon: `${this.iconFolderDefault}Coins.svg`,
+      // selectedIcon: `${this.iconFolderSelected}Coins.svg`,
       selectedClass: 'selectedItem1',
       title: 'Ausgaben',
       className: 'special',
@@ -38,80 +38,40 @@ export default class AccountStore {
     },
     {
       id: 1,
-      icon: `${this.iconFolderWhite}Card.svg`,
-      selectedIcon: `${this.iconFolderBlue}Card.svg`,
+      icon: `${this.iconFolderDefault}Card.svg`,
+      // selectedIcon: `${this.iconFolderSelected}Card.svg`,
       title: 'Leben',
       amount: 7900,
       active: true,
     },
     {
       id: 2,
-      icon: `${this.iconFolderWhite}Plane.svg`,
-      selectedIcon: `${this.iconFolderBlue}Plane.svg`,
+      icon: `${this.iconFolderDefault}Plane.svg`,
+      // selectedIcon: `${this.iconFolderSelected}Plane.svg`,
       title: 'Reisen',
       amount: 10000,
       active: false,
     },
     {
       id: 3,
-      icon: `${this.iconFolderWhite}savings.svg`,
-      selectedIcon: `${this.iconFolderBlue}savings.svg`,
+      icon: `${this.iconFolderDefault}savings.svg`,
+      // selectedIcon: `${this.iconFolderSelected}savings.svg`,
       title: 'Sparen',
       amount: 10000,
       active: true,
     },
     {
       id: 4,
-      icon: `${this.iconFolderWhite}camera.svg`,
-      selectedIcon: `${this.iconFolderBlue}camera.svg`,
+      icon: `${this.iconFolderDefault}camera.svg`,
+      // selectedIcon: `${this.iconFolderSelected}camera.svg`,
       title: 'Macbook',
       amount: 1800,
       active: true,
     },
-    // {
-    //   id: 5,
-    //   icon: `${this.iconFolderWhite}camera.svg`,
-    //   selectedIcon: `${this.iconFolderBlue}camera.svg`,
-    //   title: 'Rent',
-    //   amount: 100.3,
-    //   active: false,
-    // },
-    // {
-    //   id: 6,
-    //   icon: `${this.iconFolderWhite}camera.svg`,
-    //   selectedIcon: `${this.iconFolderBlue}camera.svg`,
-    //   title: 'DVD',
-    //   amount: 100.3,
-    //   active: false,
-    // },
-    // {
-    //   id: 7,
-    //   icon: `${this.iconFolderWhite}camera.svg`,
-    //   selectedIcon: `${this.iconFolderBlue}camera.svg`,
-    //   title: 'TV',
-    //   amount: 100.3,
-    //   active: false,
-    // },
-    // {
-    //   id: 8,
-    //   icon: `${this.iconFolderWhite}camera.svg`,
-    //   selectedIcon: `${this.iconFolderBlue}camera.svg`,
-    //   title: 'Laptop',
-    //   amount: 100.3,
-    //   active: false,
-    // },
-    // {
-    //   id: 9,
-    //   icon: `${this.iconFolderWhite}camera.svg`,
-    //   selectedIcon: `${this.iconFolderBlue}camera.svg`,
-    //   title: 'Car',
-    //   amount: 100.3,
-    //   active: false,
-    // },
     {
       id: 10,
-      icon: `${this.iconFolderBlue}ico-plus.svg`,
-      selectedIcon: `${this.iconFolderBlue}ico-plus.svg`,
+      icon: `${this.iconFolderSelected}ico-plus.svg`,
+      // selectedIcon: `${this.iconFolderSelected}ico-plus.svg`,
       title: 'Kategorie hinzufügen',
       amount: 0,
       active: false,
@@ -206,20 +166,5 @@ export default class AccountStore {
     // this.getActiveItems[this.getSlide1AdjustedTo].amount = this.getActiveItems[this.getSlide1AdjustedTo].amount - adjustment;
   }
 
-  // @action addAmount(index, amount) {
-  //   console.log(`FIXME: addAmount ${index} ${amount}`);
-  //   this.items[index].amount += amount;
-  // }
-
-  // constructor(...args) {
-  //   super(...args);
-  //
-  //   // Register action handlers
-  //   this.actions.setMaxSlides.listen(this._setMaxSlides.bind(this));
-  // }
-
-  // _setMaxSlides({ maxSlides }) {
-  //   this.maxSlides = maxSlides;
-  // }
 
 }

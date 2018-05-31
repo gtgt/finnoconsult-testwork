@@ -1,23 +1,38 @@
 import React from 'react';
-import { inject, observer } from 'mobx-react';
+import { observer } from 'mobx-react';
+import PropTypes from 'prop-types';
 
-import Screen from '../containers/screens/Screen';
+import { Grid } from '../components/layout';
+import { DraggableSource, DraggingTarget } from '../components/draggable';
+import { arrayOrMobXArray } from '../prop-types';
 
-import { View } from '../components/layout';
 
-@inject('stores', 'actions') @observer
-export default class DragDemo extends Screen {
-
-  static defaultProps = {
-    pageTitle: 'DragDemo',
+@observer
+export default class DragDemo extends React.Component {
+  static propTypes = {
+    items: arrayOrMobXArray.isRequired,
+    itemComponent: PropTypes.func.isRequired, //eslint-disable-line
+    onDragEnd: PropTypes.func,
   }
+
+  onDragEnd({ from, to }) {
+    return this.props.onDragEnd && this.props.onDragEnd({ from, to });
+  }
+
 
   render() {
     return (
-      <View>
-        Drag or not to drag?
-      </View>
-
+      <Grid>
+        {this.props.items.map((item, index) => (
+          <DraggableSource id={item.id} key={index} onDragEnd={e => this.onDragEnd(e)} isActive>
+            <DraggingTarget id={item.id}>
+              <this.props.itemComponent
+                {...item}
+              />
+            </DraggingTarget>
+          </DraggableSource>
+         ))}
+      </Grid>
     );
   }
 }

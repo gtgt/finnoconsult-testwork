@@ -1,5 +1,6 @@
 .component {
   height: auto;
+  position: relative;
 
   &.dragging {
     outline: 0;

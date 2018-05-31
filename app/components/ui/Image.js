@@ -8,19 +8,23 @@ import { numberOrStringText, oneOrManyChildElements } from '../../prop-types';
 import styles from './Image.scss';
 
 const ImgTag = props => (
-  <img
-    id={(props.id && 1) ? `img-${props.id}` : 'f'}
-    src={props.source}
-    alt={props.title}
-    style={props.style || {}}
-    useMap={props.usemap}
-    className={`${props.className || styles.default} ${props.default && styles.default}`}
-  />
+  <figure>
+    <img
+      id={(props.id && 1) ? `img-${props.id}` : 'f'}
+      src={props.source}
+      alt={props.title}
+      style={props.style || {}}
+      useMap={props.usemap}
+      className={`${props.className || styles.default} ${props.default && styles.default}`}
+    />
+    {props.caption && (<figcaption>{props.caption}</figcaption>)}
+  </figure>
 );
 ImgTag.propTypes = {
   id: numberOrStringText,
   source: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  caption: PropTypes.string,
   style: PropTypes.shape(),
   usemap: PropTypes.string,
   className: PropTypes.string,

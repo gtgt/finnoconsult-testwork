@@ -6,7 +6,7 @@ import NavBarOwner from '../demo/NavBarOwner';
 import FormDemo from '../demo/Form';
 import GridDemo from '../demo/Grid';
 import CarouselDemo from '../demo/CarouselDemo';
-import DragDemo from '../demo/DragDemo';
+import DragDemoContainer from '../demo/DragDemoContainer';
 
 import Page from '../components/page/Page';
 import StaticImagePage from '../components/page/StaticImagePage';
@@ -51,6 +51,8 @@ export default class PageContainer extends Component {
     const isHomeMatching = this.props.location.pathname.match(/^\/$/g) !== null;
     return (
       <div>
+        {/* TODO: */}
+        {/* <ActionSheetContainer isOverlayVisible={isOverlayVisible} /> */}
         <Route
           path="*/pages"
           render={() => (
@@ -78,7 +80,7 @@ export default class PageContainer extends Component {
                     <Route path="*/demo/form" exact component={FormDemo} />
                     <Route path="*/demo/grid" exact component={() => <GridDemo pageTitle="I'm a *hacked* Grid from PageContainer!" />} />
                     <Route path="*/demo/carousel" exact component={CarouselDemo} />
-                    <Route path="*/demo/drag-drop" exact component={DragDemo} />
+                    <Route path="*/demo/drag-drop" exact component={DragDemoContainer} />
 
                     <Route
                       path="*/demo/images"

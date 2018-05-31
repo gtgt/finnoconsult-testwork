@@ -1,4 +1,5 @@
 import { PropTypes } from 'react';
+import { PropTypes as MobxPropTypes } from 'mobx-react';
 
 export const oneOrManyChildElements = PropTypes.oneOfType([
   PropTypes.arrayOf(PropTypes.oneOfType([
@@ -22,4 +23,10 @@ export const functionOrStringText = PropTypes.oneOfType([
 export const numberOrStringText = PropTypes.oneOfType([
   PropTypes.string,
   PropTypes.number,
+]);
+
+
+export const arrayOrMobXArray = PropTypes.oneOfType([
+  MobxPropTypes.observableArray,
+  PropTypes.arrayOf(PropTypes.shape()),
 ]);
