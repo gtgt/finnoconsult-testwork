@@ -1,0 +1,2000 @@
+{
+  "components": {
+    "TransferContainer": {
+      "attributes": [
+        "handleComponent",
+        "monitorComponent",
+        "fromItem",
+        "toItem"
+      ],
+      "props": {
+        "handleComponent": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "monitorComponent": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "fromItem": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "amount": {
+                "name": "number",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "toItem": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "amount": {
+                "name": "number",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "TransferMonitor": {
+      "attributes": [
+        "children",
+        "fromItem",
+        "fromAmount",
+        "toItem",
+        "toAmount",
+        "transferAmount"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "fromItem": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "source": {
+                "name": "string",
+                "required": true
+              },
+              "title": {
+                "name": "string",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "fromAmount": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        },
+        "toItem": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "source": {
+                "name": "string",
+                "required": true
+              },
+              "title": {
+                "name": "string",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "toAmount": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        },
+        "transferAmount": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "Doors": {
+      "attributes": [
+        "something"
+      ],
+      "props": {
+        "something": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "Button": {
+      "attributes": [
+        "children",
+        "link",
+        "onClick",
+        "disabled",
+        "className",
+        "style",
+        "title"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "link": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "'/'",
+            "computed": false
+          }
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "disabled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "style": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": false,
+          "description": ""
+        },
+        "title": {
+          "defaultValue": {
+            "value": "'[ button ]'",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "ButtonGroup": {
+      "attributes": [
+        "titles",
+        "value",
+        "onClick",
+        "disabled",
+        "className",
+        "children"
+      ],
+      "props": {
+        "titles": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "string"
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "value": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "() => null",
+            "computed": false
+          }
+        },
+        "disabled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "''",
+            "computed": false
+          }
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "IconToggle": {
+      "attributes": [
+        "icons",
+        "value",
+        "onClick",
+        "disabled",
+        "className"
+      ],
+      "props": {
+        "icons": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "normal": {
+                  "name": "string",
+                  "required": true
+                },
+                "active": {
+                  "name": "string",
+                  "required": true
+                }
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "value": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "() => null",
+            "computed": false
+          }
+        },
+        "disabled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "''",
+            "computed": false
+          }
+        }
+      }
+    },
+    "NumericStepper": {
+      "attributes": [
+        "initValue",
+        "stepValue",
+        "minValue",
+        "maxValue",
+        "currency",
+        "title",
+        "onChange",
+        "decrementImage",
+        "incrementImage"
+      ],
+      "props": {
+        "initValue": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        },
+        "stepValue": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        },
+        "minValue": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        },
+        "maxValue": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        },
+        "currency": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "title": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "decrementImage": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "incrementImage": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "Stepper": {
+      "attributes": [
+        "onChangeDecrement",
+        "onChangeIncrement",
+        "decrementImage",
+        "incrementImage"
+      ],
+      "props": {
+        "onChangeDecrement": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onChangeIncrement": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "decrementImage": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "incrementImage": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "TextToggle": {
+      "attributes": [
+        "titles",
+        "value",
+        "onClick",
+        "disabled",
+        "className"
+      ],
+      "props": {
+        "titles": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "string"
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "value": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "() => null",
+            "computed": false
+          }
+        },
+        "disabled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "''",
+            "computed": false
+          }
+        }
+      }
+    },
+    "NumericInput": {
+      "attributes": [
+        "onChange",
+        "name",
+        "type",
+        "value",
+        "hint",
+        "label",
+        "className",
+        "layout",
+        "keyboard",
+        "closeButtonPosition"
+      ],
+      "props": {
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "name": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "type": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "value": {
+          "type": {
+            "name": "custom",
+            "raw": "numberOrStringText"
+          },
+          "required": false,
+          "description": ""
+        },
+        "hint": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "label": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "layout": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "keyboard": {
+                "name": "string",
+                "required": true
+              },
+              "OKbutton": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "keyboard": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": false,
+          "description": ""
+        },
+        "closeButtonPosition": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "NumericKeyboard": {
+      "attributes": [
+        "onChange",
+        "children",
+        "className",
+        "keyboard"
+      ],
+      "props": {
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "keyboard": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "TextInput": {
+      "attributes": [
+        "hint",
+        "value",
+        "onChange"
+      ],
+      "props": {
+        "hint": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "value": {
+          "type": {
+            "name": "custom",
+            "raw": "numberOrStringText"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "ActionSheet": {
+      "attributes": [
+        "children",
+        "onCancel",
+        "show"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onCancel": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "show": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "LayoutMode": {
+      "attributes": [
+        "children",
+        "portrait",
+        "landscape"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements.isRequired"
+          },
+          "required": false,
+          "description": ""
+        },
+        "portrait": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "landscape": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          }
+        }
+      }
+    },
+    "Overlay": {
+      "attributes": [
+        "children",
+        "show"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements.isRequired"
+          },
+          "required": false,
+          "description": ""
+        },
+        "show": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "ResponsiveWebLayout": {
+      "attributes": [
+        "children",
+        "headerMenu",
+        "navBar",
+        "tabBar",
+        "sideMenu"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "headerMenu": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "navBar": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "tabBar": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "sideMenu": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "Carousel": {
+      "attributes": [
+        "children",
+        "activeIndex",
+        "dots",
+        "onChange"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements.isRequired"
+          },
+          "required": false,
+          "description": ""
+        },
+        "activeIndex": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          }
+        },
+        "dots": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "CarouselItem": {
+      "attributes": [
+        "isActive",
+        "children",
+        "centerOffset",
+        "onClick",
+        "moveLeft",
+        "moveRight"
+      ],
+      "props": {
+        "isActive": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements.isRequired"
+          },
+          "required": false,
+          "description": ""
+        },
+        "centerOffset": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "moveLeft": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "moveRight": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "Sidebar": {
+      "attributes": [
+        "stores",
+        "actions"
+      ],
+      "props": {
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "anim": {
+                "name": "instanceOf",
+                "value": "AnimStore",
+                "required": true
+              },
+              "ui": {
+                "name": "instanceOf",
+                "value": "UIStore",
+                "required": true
+              },
+              "form": {
+                "name": "instanceOf",
+                "value": "FormStore",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "actions": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "toggleDebugBar": {
+                "name": "func",
+                "required": true
+              },
+              "toggleNavbar": {
+                "name": "func",
+                "required": true
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "DragBar": {
+      "attributes": [
+        "children",
+        "onDragStart",
+        "onDragEnd",
+        "onDragging",
+        "axis",
+        "formatFunction"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements.isRequired"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onDragStart": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onDragEnd": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onDragging": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "axis": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "formatFunction": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "DraggableIndicator": {
+      "attributes": [
+        "children",
+        "stores"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "drag": {
+                "name": "instanceOf",
+                "value": "DragStore",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "DraggableSource": {
+      "attributes": [
+        "children",
+        "id",
+        "onDragEnd",
+        "isActive",
+        "isActiveAlways",
+        "noIndication",
+        "actions",
+        "stores"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements.isRequired"
+          },
+          "required": false,
+          "description": ""
+        },
+        "id": {
+          "type": {
+            "name": "custom",
+            "raw": "numberOrStringText"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onDragEnd": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "isActive": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "isActiveAlways": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "noIndication": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "actions": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "setSourcePosition": {
+                "name": "func",
+                "required": true
+              },
+              "cleanSourcePosition": {
+                "name": "func",
+                "required": true
+              },
+              "setIndication": {
+                "name": "func",
+                "required": true
+              },
+              "cleanIndication": {
+                "name": "func",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "drag": {
+                "name": "instanceOf",
+                "value": "DragStore",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "DraggingTarget": {
+      "attributes": [
+        "children",
+        "id",
+        "onClick",
+        "className",
+        "style",
+        "actions",
+        "stores"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "id": {
+          "type": {
+            "name": "custom",
+            "raw": "numberOrStringText.isRequired"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "style": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": false,
+          "description": ""
+        },
+        "actions": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "registerTarget": {
+                "name": "func",
+                "required": true
+              },
+              "removeTarget": {
+                "name": "func",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "drag": {
+                "name": "instanceOf",
+                "value": "DragStore",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "LinkList": {
+      "attributes": [
+        "list",
+        "onSwipingRight",
+        "onSwipingLeft"
+      ],
+      "props": {
+        "list": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": "ListItem.propTypes",
+              "computed": true
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "onSwipingRight": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onSwipingLeft": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "Back": {
+      "attributes": [
+        "color",
+        "className"
+      ],
+      "props": {
+        "color": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "'#009EE2'",
+            "computed": false
+          }
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "MobileNavigationBar": {
+      "attributes": [
+        "isVisible",
+        "className",
+        "title",
+        "leftButton",
+        "rightButton",
+        "onSwipedLeft",
+        "onSwipedRight",
+        "children"
+      ],
+      "props": {
+        "isVisible": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "title": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "leftButton": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "rightButton": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onSwipedLeft": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onSwipedRight": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "StaticNavigationBar": {
+      "attributes": [
+        "children",
+        "title"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements.isRequired"
+          },
+          "required": false,
+          "description": ""
+        },
+        "title": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "ServiceStatus": {},
+    "StartService": {
+      "attributes": [
+        "isRunning",
+        "toggleRunState"
+      ],
+      "props": {
+        "isRunning": {
+          "type": {
+            "name": "bool"
+          },
+          "required": true,
+          "description": ""
+        },
+        "toggleRunState": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "Image": {
+      "attributes": [
+        "children",
+        "link",
+        "source",
+        "title"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "link": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "source": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "title": {
+          "defaultValue": {
+            "value": "''",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "Authenticate": {
+      "attributes": [
+        "children"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "Login": {
+      "attributes": [
+        "onSubmit"
+      ],
+      "props": {
+        "onSubmit": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "NavigationBarContainer": {
+      "attributes": [
+        "navigationBar",
+        "children"
+      ],
+      "props": {
+        "navigationBar": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "StaticNavigationBar",
+            "computed": true
+          }
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "NavigationBarStore": {
+      "attributes": [
+        "stores",
+        "navigationBar",
+        "children"
+      ],
+      "props": {
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "ui": {
+                "name": "instanceOf",
+                "value": "UIStore",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "navigationBar": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "MobileNavigationBar",
+            "computed": true
+          }
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "NavigationBarStoreWithButton": {
+      "attributes": [
+        "history",
+        "stores",
+        "navigationBar",
+        "leftButton",
+        "rightButton",
+        "children"
+      ],
+      "props": {
+        "history": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "goBack": {
+                "name": "func",
+                "required": true
+              },
+              "goForward": {
+                "name": "func",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "ui": {
+                "name": "instanceOf",
+                "value": "UIStore",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "navigationBar": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "leftButton": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "rightButton": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "StartServiceContainer": {},
+    "ActionSheetContainer": {
+      "attributes": [
+        "history",
+        "stores",
+        "isOverlayVisible"
+      ],
+      "props": {
+        "history": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": true,
+          "description": ""
+        },
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "ui": {
+                "name": "instanceOf",
+                "value": "UIStore",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "isOverlayVisible": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "ContainerWithRouter": {
+      "attributes": [
+        "history",
+        "location",
+        "children",
+        "onDragEndPath"
+      ],
+      "props": {
+        "history": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": true,
+          "description": ""
+        },
+        "location": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "pathname": {
+                "name": "string",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onDragEndPath": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "LayoutContainer": {
+      "attributes": [
+        "defaultLayout",
+        "canBeResponsive",
+        "children"
+      ],
+      "props": {
+        "defaultLayout": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "canBeResponsive": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          }
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "LinkContainer": {
+      "attributes": [
+        "history"
+      ],
+      "props": {
+        "history": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "PageContainer": {
+      "attributes": [
+        "history",
+        "location"
+      ],
+      "props": {
+        "history": {
+          "type": {
+            "name": "shape",
+            "value": {}
+          },
+          "required": true,
+          "description": ""
+        },
+        "location": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "pathname": {
+                "name": "string",
+                "required": true
+              },
+              "search": {
+                "name": "string",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "CarouselDemo": {
+      "attributes": [
+        "pageTitle"
+      ],
+      "props": {
+        "pageTitle": {
+          "defaultValue": {
+            "value": "'Carousel'",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "DragDemo": {
+      "attributes": [
+        "items",
+        "itemComponent",
+        "onDragEnd"
+      ],
+      "props": {
+        "items": {
+          "type": {
+            "name": "custom",
+            "raw": "arrayOrMobXArray.isRequired"
+          },
+          "required": false,
+          "description": ""
+        },
+        "itemComponent": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onDragEnd": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "DragDemoContainer": {
+      "attributes": [
+        "stores",
+        "pageTitle"
+      ],
+      "props": {
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "account": {
+                "name": "instanceOf",
+                "value": "AccountStore",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "pageTitle": {
+          "defaultValue": {
+            "value": "'Drag & Drop Demo for selecting'",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "FormDemo": {
+      "attributes": [
+        "pageTitle"
+      ],
+      "props": {
+        "pageTitle": {
+          "defaultValue": {
+            "value": "'FORM!'",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "GridDemo": {
+      "attributes": [
+        "pageTitle"
+      ],
+      "props": {
+        "pageTitle": {
+          "defaultValue": {
+            "value": "'I\\'m a grid!'",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "NavBarOwner": {
+      "attributes": [
+        "pageNavBar"
+      ],
+      "props": {
+        "pageNavBar": {
+          "defaultValue": {
+            "value": "() => <NavigationBarContainer title=\"This is displayed as my own navbar \">&nbsp;?:-D</NavigationBarContainer>",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "TransferDemoContainer": {
+      "attributes": [
+        "stores",
+        "match",
+        "pageTitle"
+      ],
+      "props": {
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "account": {
+                "name": "instanceOf",
+                "value": "AccountStore",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "match": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "params": {
+                "name": "shape",
+                "value": {
+                  "from": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "to": {
+                    "name": "string",
+                    "required": false
+                  }
+                },
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "pageTitle": {
+          "defaultValue": {
+            "value": "'Drag & Drop Demo for Transfer'",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    }
+  }
+}

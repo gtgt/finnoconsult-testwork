@@ -1,6 +1,6 @@
 {
   "name": "FinnoProject",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "title": "React boilerplate",
   "description": "React-router project boilerplate template",
   "keywords": [
@@ -12,6 +12,8 @@
   ],
   "main": "start.js",
   "scripts": {
+    "generate": "rc-autocomplete",
+    "predev": "generate",
     "dev": "NODE_ENV=development AUTO_LOGIN=1 webpack-dev-server --content-base build/ --config webpack.config.js --hot --inline",
     "### dev.subfolder": "yarn cleanbuild; NODE_ENV=production SUBFOLDER_LOCATION=/_subfolder_name webpack -p --config webpack.config.js; rm -rf ./_subfolder_name; mkdir ./_subfolder_name;  cp -R ./build/* ./_subfolder_name;  cp -R ./config/.htaccess ./_subfolder_name",
     "test": "jest",
@@ -88,6 +90,7 @@
     "jest-enzyme": "^2.1.0",
     "node-sass": "^4.3.0",
     "react-addons-test-utils": "^15.4.2",
+    "react-autocomplete-cli": "^0.0.3",
     "react-test-renderer": "^15.4.2",
     "sass-bem": "^2.6.5",
     "sass-loader": "^4.1.1",
@@ -117,12 +120,12 @@
     "styled-components": "^3.3.0"
   },
   "engines": {
-    "node": "6.x",
-    "npm": "3.x"
+    "node": "7.x",
+    "npm": "4.x"
   },
   "devEngines": {
-    "node": "6.x",
-    "npm": "3.x"
+    "node": "7.x",
+    "npm": "4.x"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
