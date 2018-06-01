@@ -116,6 +116,7 @@ export default class NumericInput extends React.Component {
         keyboard: false,
       });
     }
+    document.removeEventListener('keydown', e => this.onKeyPress(e));
     return v;
   }
 

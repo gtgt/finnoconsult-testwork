@@ -19,9 +19,15 @@ const links = {
       items: [
         {
           id: 0,
-          title: 'Text',
+          title: 'PureText',
           route: '/demo/text',
-          description: 'Simple paragraph content',
+          description: 'Simple paragraph content without component',
+        },
+        {
+          id: 0,
+          title: 'MoreText',
+          route: '/demo/texts',
+          description: 'Separate component with multiple texts',
         },
         {
           id: 1,
@@ -58,6 +64,12 @@ const links = {
           title: 'Drag&Drop',
           route: '/demo/drag-drop',
           description: 'Sample drag and drop',
+        },
+        {
+          id: 7,
+          title: 'Overlay',
+          route: '/demo/overlay',
+          description: 'Sample ActionSheet overlay',
         },
       ],
     },

@@ -4,20 +4,19 @@ import Text from './Text';
 import Button from './button/Button';
 import View from './View';
 import ScrollView from './ScrollView';
+import { H1, H2, H3, H4, H5, H6, Heading } from './Heading';
 
-import Grid from './layout';
-
-console.log('TODO: import Grid', Grid);
-
-const allUIComponents = Object.assign(
-  {},
-  // Grid,
-  {
-    Image,
-    Text,
-    Button,
-    View,
-    ScrollView,
-  },
-);
-module.exports = allUIComponents;
+module.exports = {
+  Image,
+  Text,
+  Button,
+  View,
+  ScrollView,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Heading,
+};

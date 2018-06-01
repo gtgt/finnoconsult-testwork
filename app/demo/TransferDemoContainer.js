@@ -25,8 +25,8 @@ export default class TransferDemoContainer extends Screen {
         to: PropTypes.string,
       }),
     }),
-  }
 
+  }
   static defaultProps = {
     pageTitle: 'Drag & Drop Demo for Transfer',
   }

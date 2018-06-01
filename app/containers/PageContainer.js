@@ -5,10 +5,13 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import NavBarOwner from '../demo/NavBarOwner';
 import FormDemo from '../demo/FormDemo';
 import GridDemo from '../demo/GridDemo';
+import TextDemo from '../demo/TextDemo';
 import CarouselDemo from '../demo/CarouselDemo';
 import DragDemoContainer from '../demo/DragDemoContainer';
 import TransferDemoContainer from '../demo/TransferDemoContainer';
 
+import ActionSheetContainer from './ActionSheetContainer';
+import { View } from '../components/ui';
 import { Page, StaticImagePage } from '../components/ui/layout/page';
 import { DraggableIndicator } from '../components/draggable';
 
@@ -49,10 +52,10 @@ export default class PageContainer extends Component {
 
   render() {
     const isHomeMatching = this.props.location.pathname.match(/^\/$/g) !== null;
+    const isOverlayVisible = this.props.location.pathname.match(/overlay\/?$/g) !== null;
     return (
-      <div>
-        {/* TODO: */}
-        {/* <ActionSheetContainer isOverlayVisible={isOverlayVisible} /> */}
+      <View>
+        <ActionSheetContainer isOverlayVisible={isOverlayVisible} />
         <DraggableIndicator />
 
         <Route
@@ -78,6 +81,7 @@ export default class PageContainer extends Component {
               <TransitionGroup>
                 <CSSTransition key={location.key} classNames="pageTransition" timeout={500}>
                   <Switch location={location}>
+                    <Route path="*/demo/texts" exact component={TextDemo} />
                     <Route path="*/demo/navbar" exact component={NavBarOwner} />
                     <Route path="*/demo/form" exact component={FormDemo} />
                     <Route path="*/demo/grid" exact component={() => <GridDemo pageTitle="I'm a *hacked* Grid from PageContainer!" />} />
@@ -135,7 +139,7 @@ export default class PageContainer extends Component {
             </Page>
           )}
         />
-      </div>
+      </View>
     );
   }
 }

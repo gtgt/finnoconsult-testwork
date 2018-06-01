@@ -3,8 +3,12 @@ import styled, { css } from 'styled-components';
 const View = styled.div`
   padding:0;
   margin:0;
+  transition: all 0.5 ease;
   ${props => props.hidden && css`
     display: none;
+  `};
+  ${props => props.bold && css`
+    font-weight: bold;
   `};
   ${props => props.center && css`
     display: flex;
@@ -24,6 +28,16 @@ const View = styled.div`
   ${props => props.height && css`
     height: ${props.height};
   `};
+  ${props => props.border && css`
+    border: ${`solid 1px ${(props.border && props.border !== true) || 'lightgray'}`};
+  `};
+  ${props => props.round && css`
+    border-radius: ${(props.round && props.round !== true) || '1em'};
+  `};
+  ${props => props.underline && css`
+    text-decoration: underline;
+  `};
+
 `;
 
 module.exports = View;

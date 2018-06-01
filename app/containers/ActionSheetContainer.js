@@ -20,14 +20,28 @@ export default class LinkContainer extends React.Component {
     isOverlayVisible: PropTypes.bool,
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', e => this.onKeyPress(e));
+  }
+  componentDidUpdate() {
+    document.addEventListener('keydown', e => this.onKeyPress(e));
+  }
+
   onNewInvestment() {
-    this.routerHistory.push('/investment/zak-invest-intro');
+    this.routerHistory.push('/');
     // this.props.actions.toggleOverlay({ isVisible: false });
   }
 
   onCancel() {
     this.routerHistory.goBack();
     // this.props.actions.toggleOverlay({ isVisible: false });
+  }
+
+  onKeyPress(event) {
+    if (event && event.keyCode === 27) {
+      this.onCancel();
+      document.removeEventListener('keydown', e => this.onKeyPress(e));
+    }
   }
 
   get routerHistory() {
@@ -41,8 +55,8 @@ export default class LinkContainer extends React.Component {
         onCancel={e => this.onCancel(e)}
       >
         <button disabled>Neuer Topf</button>
-        <button>Spartopf</button>
-        <button onClick={e => this.onNewInvestment(e)}>Invest-Topf</button>
+        <button>Ain&apos;t doing no nothing</button>
+        <button onClick={e => this.onNewInvestment(e)}>Go Home</button>
       </ActionSheet>
     );
   }
