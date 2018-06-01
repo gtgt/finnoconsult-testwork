@@ -28,6 +28,9 @@ export default class TextDemo extends Screen {
         <Heading level={4}>Hip</Heading>
         <Heading h6 bold>Legs</Heading>
         <Text underline>On the ground</Text>
+        <Text>
+          Under the ground
+        </Text>
       </View>
     );
   }

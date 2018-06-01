@@ -1,5 +1,106 @@
 {
   "components": {
+    "Page": {
+      "attributes": [
+        "className",
+        "children",
+        "setScrollAnchor",
+        "actions"
+      ],
+      "props": {
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "setScrollAnchor": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "actions": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "setNavBarTitle": {
+                "name": "func",
+                "required": true
+              },
+              "setNavBarClassName": {
+                "name": "func",
+                "required": true
+              },
+              "setNavigationBarLeftLink": {
+                "name": "func",
+                "required": true
+              },
+              "setNavigationBarRightLink": {
+                "name": "func",
+                "required": true
+              },
+              "toggleNavbar": {
+                "name": "func",
+                "required": true
+              },
+              "setNavBarComponent": {
+                "name": "func",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        }
+      }
+    },
+    "StaticImagePage": {
+      "attributes": [
+        "images",
+        "children"
+      ],
+      "props": {
+        "images": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "source": {
+                  "name": "string",
+                  "required": true
+                },
+                "title": {
+                  "name": "string",
+                  "required": false
+                }
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
     "TransferContainer": {
       "attributes": [
         "handleComponent",
@@ -1447,6 +1548,68 @@
         }
       }
     },
+    "Heading": {
+      "attributes": [
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "level"
+      ],
+      "props": {
+        "h1": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "h2": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "h3": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "h4": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "h5": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "h6": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "level": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
     "Image": {
       "attributes": [
         "children",
@@ -1937,6 +2100,20 @@
         "pageNavBar": {
           "defaultValue": {
             "value": "() => <NavigationBarContainer title=\"This is displayed as my own navbar \">&nbsp;?:-D</NavigationBarContainer>",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "TextDemo": {
+      "attributes": [
+        "pageTitle"
+      ],
+      "props": {
+        "pageTitle": {
+          "defaultValue": {
+            "value": "'Header variations'",
             "computed": false
           },
           "required": false

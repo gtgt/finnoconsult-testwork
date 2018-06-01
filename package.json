@@ -1,6 +1,6 @@
 {
   "name": "FinnoProject",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "title": "React boilerplate",
   "description": "React-router project boilerplate template",
   "keywords": [
@@ -13,10 +13,11 @@
   "main": "start.js",
   "scripts": {
     "generate": "rc-autocomplete",
-    "predev": "generate",
+    "predev": "yarn generate",
     "dev": "NODE_ENV=development AUTO_LOGIN=1 webpack-dev-server --content-base build/ --config webpack.config.js --hot --inline",
     "### dev.subfolder": "yarn cleanbuild; NODE_ENV=production SUBFOLDER_LOCATION=/_subfolder_name webpack -p --config webpack.config.js; rm -rf ./_subfolder_name; mkdir ./_subfolder_name;  cp -R ./build/* ./_subfolder_name;  cp -R ./config/.htaccess ./_subfolder_name",
     "test": "jest",
+    "cleandev": "rm -rf ./node_modules; yarn install",
     "cleanbuild": "rm -rf ./build/*.js",
     "_prebuild": "yarn test",
     "build": "yarn cleanbuild; mkdir ./Release; mv -f ./build/*.js ./Release; rm -rf ./build/*.js.map; NODE_ENV=production webpack -p --config webpack.config.js",

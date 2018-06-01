@@ -12,6 +12,8 @@ import PageContainer from './containers/PageContainer';
 import LayoutContainer from './containers/LayoutContainer';
 import NavigationBarStoreWithButton from './containers/navigation/NavigationBarStoreWithButton';
 
+import getUrlParameter from './helpers/url-helper';
+
 
 import './theme/app.global.scss';
 
@@ -22,15 +24,25 @@ export default function App() {
   };
   console.warn('Starting project boilerplate', project.name, project.version);
 
-  const basename = ENV.SUBFOLDER_LOCATION || '';
-  // const history = useBasename(createHistory)({
-  //   basename: ENV.SUBFOLDER_LOCATION,
-  // });
-  // <Router history={history}>
+  const routerConfig = {
+    get basename() {
+      const autoConfig = getUrlParameter('router-auto-config-root');
+      // console.log('autoConfig', autoConfig);
+      if (autoConfig && (
+        autoConfig.value === 'true' ||
+        autoConfig.value === true ||
+        (autoConfig.name && !autoConfig.value && autoConfig.name === autoConfig.param)
+      )) {
+        return window.location.pathname;
+      }
+      return ENV.SUBFOLDER_LOCATION || '';
+    },
+  };
+
   return (
     <Authenticate>
       <LayoutMode>
-        <Router basename={basename}>
+        <Router {...routerConfig}>
           <LayoutContainer
             headerMenu={() => <valami>TODO: Dummy header</valami>}
             navBar={() => <NavigationBarStoreWithButton rightButton={() => <span style={{ transform: 'rotate(90deg)' }}>:-)</span>} />}
