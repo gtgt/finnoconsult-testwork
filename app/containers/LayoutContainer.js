@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 import classnames from 'classnames';
 // import platform from 'platform';
-// import { Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import UIStore from '../stores/UIStore';
 import { oneOrManyChildElements } from '../prop-types';
@@ -14,7 +14,9 @@ import { ResponsiveWebLayout as WebLayout } from '../components/ui/layout';
 const MobileLayout = WebLayout;
 const TabletLayout = WebLayout;
 
-// @withRouter
+// NOTE: withRouter is a must with @observer decorator:
+// https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/blocked-updates.md
+@withRouter
 @inject('stores', 'actions') @observer
 export default class LayoutContainer extends Component {
   static propTypes = {

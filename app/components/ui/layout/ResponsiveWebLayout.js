@@ -9,26 +9,27 @@ import styles from './ResponsiveWebLayout.scss';
 
 const MainView = ScrollView.withComponent('main');
 
-const WebLayout = props => (
-  <View className={`${props.className} ${styles.component}`}>
-    {props.headerMenu && <header><props.headerMenu /></header>}
-    {props.navBar && <nav><props.navBar /></nav>}
-    {props.sideMenu && <aside><props.sideMenu /></aside>}
-    <MainView>
-      {props.children}
-    </MainView>
-    {props.tabBar && <footer><props.tabBar /></footer>}
-  </View>
-);
+export default class WebLayout extends React.Component {
+  static propTypes = {
+    children: oneOrManyChildElements,
+    headerMenu: PropTypes.func,
+    navBar: PropTypes.func,
+    tabBar: PropTypes.func,
+    sideMenu: PropTypes.func,
+    className: PropTypes.string,
+  };
 
-WebLayout.propTypes = {
-  children: oneOrManyChildElements,
-  headerMenu: PropTypes.func,
-  navBar: PropTypes.func,
-  tabBar: PropTypes.func,
-  sideMenu: PropTypes.func,
-  className: PropTypes.string,
-};
-
-
-module.exports = WebLayout;
+  render() {
+    return (
+      <View className={`${this.props.className} ${styles.component}`}>
+        {this.props.headerMenu && <header><this.props.headerMenu /></header>}
+        {this.props.navBar && <nav><this.props.navBar /></nav>}
+        {this.props.sideMenu && <aside><this.props.sideMenu /></aside>}
+        <MainView>
+          {this.props.children}
+        </MainView>
+        {this.props.tabBar && <footer><this.props.tabBar /></footer>}
+      </View>
+    );
+  }
+}

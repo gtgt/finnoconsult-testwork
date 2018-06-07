@@ -29,7 +29,8 @@ export default class PageContainer extends Component {
     }).isRequired,
   }
 
-  // componentDidMount()a {
+  // componentDidMount() {
+  //   console.log('page componentDidMount');
   // }
   // componentDidUpdate(prevProps) {
   //   this.checkScrolling(prevProps);
