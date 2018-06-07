@@ -9,6 +9,7 @@ export default class Screen extends Component {
     navBarClassName: PropTypes.string,
     navBarLeftButton: PropTypes.func,
     navBarRightButton: PropTypes.func,
+    layoutClassName: PropTypes.string,
     actions: PropTypes.shape({
       setNavBarTitle: PropTypes.func.isRequired,
       setNavBarClassName: PropTypes.func.isRequired,
@@ -16,6 +17,7 @@ export default class Screen extends Component {
       setNavigationBarLeftButton: PropTypes.func.isRequired,
       setNavigationBarRightButton: PropTypes.func.isRequired,
       toggleNavbar: PropTypes.func.isRequired,
+      setLayoutClassName: PropTypes.func.isRequired,
     }).isRequired,
     // animationSpeed: PropTypes.number.isRequired,
   };
@@ -32,6 +34,7 @@ export default class Screen extends Component {
       pageNavBar,
       navBarLeftButton,
       navBarRightButton,
+      layoutClassName,
     } = this.props;
     const {
       setNavBarTitle,
@@ -40,7 +43,7 @@ export default class Screen extends Component {
       toggleNavbar,
       setNavigationBarLeftButton,
       setNavigationBarRightButton,
-      // setNavBarBackLink
+      setLayoutClassName,
     } = this.props.actions;
 
     // console.warn('new NAVBAR!');
@@ -54,9 +57,10 @@ export default class Screen extends Component {
     // TODO: move this default '' obj to Store?
     setNavBarTitle({ title: this.getPageTitle || pageTitle || '' });
     setTimeout(() => setNavBarTitle({ title: this.getPageTitle || pageTitle || '' }), 600);
-    setNavBarClassName({ className: this.getNavBarClassName || navBarClassName });
+    setNavBarClassName({ className: this.getNavBarClassName || navBarClassName || null });
     setNavigationBarLeftButton({ button: this.getNavBarLeftButton || navBarLeftButton || null });
     setNavigationBarRightButton({ button: this.getNavBarRightButton || navBarRightButton || null });
+    setLayoutClassName({ className: this.getLayoutClassName || layoutClassName || null });
   }
 
   // componentWillUnmount() {

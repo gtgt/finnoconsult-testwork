@@ -2,10 +2,13 @@ import PropTypes from 'prop-types';
 import defineActions from './lib/actions';
 
 export default defineActions({
-  toggleNavbar: {
+  toggleDebugBar: {
     isVisible: PropTypes.bool,
   },
-  toggleDebugBar: {
+  setLayoutClassName: {
+    className: PropTypes.string,
+  },
+  toggleNavbar: {
     isVisible: PropTypes.bool,
   },
   setNavBarTitle: {
@@ -22,13 +25,6 @@ export default defineActions({
   },
   setNavBarComponent: {
     component: PropTypes.func,
-  },
-  setSlideLabel: {
-    index: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-  },
-  setSlide: {
-    slide: PropTypes.number.isRequired,
   },
   nextSlide: {},
   prevSlide: {},

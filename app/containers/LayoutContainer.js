@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { inject, observer } from 'mobx-react';
+import classnames from 'classnames';
 // import platform from 'platform';
 // import { Route, withRouter } from 'react-router-dom';
 
+import UIStore from '../stores/UIStore';
 import { oneOrManyChildElements } from '../prop-types';
 
 import { ResponsiveWebLayout as WebLayout } from '../components/ui/layout';
@@ -12,11 +15,16 @@ const MobileLayout = WebLayout;
 const TabletLayout = WebLayout;
 
 // @withRouter
+@inject('stores', 'actions') @observer
 export default class LayoutContainer extends Component {
   static propTypes = {
     defaultLayout: PropTypes.func, //eslint-disable-line
     canBeResponsive: PropTypes.bool,
+    className: PropTypes.string,
     children: oneOrManyChildElements,
+    stores: PropTypes.shape({
+      ui: PropTypes.instanceOf(UIStore).isRequired,
+    }),
   }
 
   static defaultProps = {
@@ -58,6 +66,10 @@ export default class LayoutContainer extends Component {
     return (
       <this.state.layout
         {...this.props}
+        className={classnames({
+          [`${this.props.className}`]: this.props.className,
+          [`${this.props.stores.ui.layoutClassName}`]: this.props.stores.ui.layoutClassName,
+        })}
       >
         {this.props.children}
       </this.state.layout>

@@ -78,7 +78,13 @@ const links = {
           description: 'Simple page to show static images',
         },
         {
-          id: 9,
+          id: 13,
+          title: 'FullPage',
+          route: '/demo/fullpage',
+          description: 'Full Page with floating navbar',
+        },
+        {
+          id: 20,
           title: 'Overlay',
           route: '/demo/overlay',
           description: 'Sample ActionSheet overlay',

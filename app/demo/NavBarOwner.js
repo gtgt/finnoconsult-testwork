@@ -11,7 +11,7 @@ import NavigationBarContainer from '../containers/navigation/NavigationBarContai
 export default class NavBarOwner extends Screen {
 
   static defaultProps = {
-    pageNavBar: () => <NavigationBarContainer title="This is displayed as my own navbar ">&nbsp;?:-D</NavigationBarContainer>,
+    pageNavBar: () => <NavigationBarContainer style={{ height: '100px', border: 'solid 1px black' }} title="This is displayed as my own navbar ">&nbsp;?:-D</NavigationBarContainer>,
   }
 
   render() {

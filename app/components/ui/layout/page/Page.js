@@ -29,6 +29,7 @@ export default class Page extends Component {
       setNavigationBarRightButton: PropTypes.func.isRequired,
       toggleNavbar: PropTypes.func.isRequired,
       setNavBarComponent: PropTypes.func.isRequired,
+      setLayoutClassName: PropTypes.func.isRequired,
     }).isRequired,
     // location: PropTypes.shape({
     //   pathname: PropTypes.string.isRequired,
@@ -53,6 +54,7 @@ export default class Page extends Component {
         setNavigationBarRightButton,
         toggleNavbar,
         setNavBarComponent,
+        setLayoutClassName,
       } = this.props.actions;
 
       toggleNavbar({ isVisible: true });
@@ -61,6 +63,7 @@ export default class Page extends Component {
       setNavBarClassName({ className: '' });
       setNavigationBarLeftButton({ button: null });
       setNavigationBarRightButton({ button: null });
+      setLayoutClassName({ className: null });
 
 
       this.setState(prevState => ({

@@ -7,6 +7,7 @@ import FormDemo from '../demo/FormDemo';
 import GridDemo from '../demo/GridDemo';
 import TextDemo from '../demo/TextDemo';
 import CarouselDemo from '../demo/CarouselDemo';
+import FullPageDemo from '../demo/FullPageDemo';
 import DragDemoContainer from '../demo/DragDemoContainer';
 import TransferDemoContainer from '../demo/TransferDemoContainer';
 
@@ -91,6 +92,7 @@ export default class PageContainer extends Component {
                     <Route path="*/demo/static/:image" exact component={RouterBasedStaticImagePage} />
                     <Route path="*/demo/static/:image/:title" exact component={RouterBasedStaticImagePage} />
                     <Route path="*/demo/static/" exact component={RouterBasedStaticImagePage} />
+                    <Route path="*/demo/fullpage/" exact component={FullPageDemo} />
 
                     <Route
                       path="*/demo/images"
