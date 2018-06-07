@@ -5,6 +5,7 @@ import Screen from '../containers/screens/Screen';
 import {
   View,
   Text,
+  Button,
   H1,
   H2,
   H3,
@@ -16,6 +17,24 @@ import {
 export default class TextDemo extends Screen {
   static defaultProps = {
     pageTitle: 'Header variations',
+  }
+
+  get getNavBarLeftButton() {
+    return <Button onClick={() => this.onClick('HOME')}>HOME</Button>;
+  }
+
+  get getNavBarRightButton() {
+    return (
+      <View>
+        <Button onClick={() => this.onClick('Left')}>Left</Button>
+        |
+        <Button onClick={() => this.onClick('Right')}>Right</Button>
+      </View>
+    );
+  }
+
+  onClick(from) {
+    console.log('clicked by button:', from);
   }
 
   render() {

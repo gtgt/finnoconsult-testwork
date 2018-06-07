@@ -14,11 +14,11 @@ export default defineActions({
   setNavBarClassName: {
     className: PropTypes.string,
   },
-  setNavigationBarLeftLink: {
-    link: PropTypes.func,
+  setNavigationBarLeftButton: {
+    button: PropTypes.shape(),
   },
-  setNavigationBarRightLink: {
-    link: PropTypes.func,
+  setNavigationBarRightButton: {
+    button: PropTypes.shape(),
   },
   setNavBarComponent: {
     component: PropTypes.func,

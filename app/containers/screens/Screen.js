@@ -7,14 +7,14 @@ export default class Screen extends Component {
     pageTitle: PropTypes.string,
     pageNavBar: PropTypes.func,
     navBarClassName: PropTypes.string,
-    navBarLeftLink: PropTypes.func,
-    navBarRightLink: PropTypes.func,
+    navBarLeftButton: PropTypes.func,
+    navBarRightButton: PropTypes.func,
     actions: PropTypes.shape({
       setNavBarTitle: PropTypes.func.isRequired,
       setNavBarClassName: PropTypes.func.isRequired,
       setNavBarComponent: PropTypes.func.isRequired,
-      setNavigationBarLeftLink: PropTypes.func.isRequired,
-      setNavigationBarRightLink: PropTypes.func.isRequired,
+      setNavigationBarLeftButton: PropTypes.func.isRequired,
+      setNavigationBarRightButton: PropTypes.func.isRequired,
       toggleNavbar: PropTypes.func.isRequired,
     }).isRequired,
     // animationSpeed: PropTypes.number.isRequired,
@@ -30,16 +30,16 @@ export default class Screen extends Component {
       pageTitle,
       navBarClassName,
       pageNavBar,
-      navBarLeftLink,
-      navBarRightLink,
+      navBarLeftButton,
+      navBarRightButton,
     } = this.props;
     const {
       setNavBarTitle,
       setNavBarClassName,
       setNavBarComponent,
       toggleNavbar,
-      setNavigationBarLeftLink,
-      setNavigationBarRightLink,
+      setNavigationBarLeftButton,
+      setNavigationBarRightButton,
       // setNavBarBackLink
     } = this.props.actions;
 
@@ -55,8 +55,8 @@ export default class Screen extends Component {
     setNavBarTitle({ title: this.getPageTitle || pageTitle || '' });
     setTimeout(() => setNavBarTitle({ title: this.getPageTitle || pageTitle || '' }), 600);
     setNavBarClassName({ className: this.getNavBarClassName || navBarClassName });
-    setNavigationBarLeftLink({ link: this.getNavBarLeftLink || navBarLeftLink || null });
-    setNavigationBarRightLink({ link: this.getNavBarRightLink || navBarRightLink || null });
+    setNavigationBarLeftButton({ button: this.getNavBarLeftButton || navBarLeftButton || null });
+    setNavigationBarRightButton({ button: this.getNavBarRightButton || navBarRightButton || null });
   }
 
   // componentWillUnmount() {

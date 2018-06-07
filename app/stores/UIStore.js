@@ -16,9 +16,8 @@ export default class UIStore extends Store {
 
   @observable navigationBarTitle = '';
   @observable navigationBarClassName = null;
-  // TODO: setter
-  @observable navigationBarLeftLink = null;
-  @observable navigationBarRightLink = null;
+  @observable navigationBarLeftButton = null;
+  @observable navigationBarRightButtons = null;
 
   @observable slideLabels = ['', '', '', '', '', ''];
 
@@ -42,8 +41,8 @@ export default class UIStore extends Store {
     this.actions.toggleNavbar.listen(this._toggleNavbar.bind(this));
     this.actions.setNavBarTitle.listen(this._setNavBarTitle.bind(this));
     this.actions.setNavBarClassName.listen(this._setNavBarClassName.bind(this));
-    this.actions.setNavigationBarLeftLink.listen(this._setNavigationBarLeftLink.bind(this));
-    this.actions.setNavigationBarRightLink.listen(this._setNavigationBarRightLink.bind(this));
+    this.actions.setNavigationBarLeftButton.listen(this._setNavigationBarLeftButton.bind(this));
+    this.actions.setNavigationBarRightButton.listen(this._setNavigationBarRightButton.bind(this));
     this.actions.setNavBarComponent.listen(this._setNavBarComponent.bind(this));
     this.actions.setSlideLabel.listen(this._setSlideLabel.bind(this));
     this.actions.nextSlide.listen(this._nextSlide.bind(this));
@@ -85,11 +84,11 @@ export default class UIStore extends Store {
     this.navigationBarClassName = className;
   }
 
-  _setNavigationBarLeftLink({ link }) {
-    this.navigationBarLeftLink = link;
+  _setNavigationBarLeftButton({ button }) {
+    this.navigationBarLeftButton = button;
   }
-  _setNavigationBarRightLink({ link }) {
-    this.navigationBarRightLink = link;
+  _setNavigationBarRightButton({ button }) {
+    this.navigationBarRightButton = button;
   }
 
   _setNavBarComponent({ component }) {
