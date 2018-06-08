@@ -20,6 +20,8 @@ export default class TabBarContainer extends View {
 
   handleClick(index) {
     this.setState({ selectedIndex: index });
+
+    return true;
   }
 
   render() {
