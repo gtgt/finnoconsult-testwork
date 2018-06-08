@@ -1,0 +1,34 @@
+:export {
+  themeColorWhite: $theme-color-white;
+  themeColorMain: $theme-color-main;
+}
+
+.component {
+  // height: $theme-navigation-height;
+  background-color: $theme-navigation-background;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $theme-navigation-z-index;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  width: 100%;
+  height: 64px;
+  // align-items: center;
+  // width: $theme-viewport-width;
+  // max-width: $theme-viewport-maxwidth;
+  // border-bottom: solid 2px $theme-color-lightgray;
+
+  & > button {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+  }
+
+  & > button.isActive {
+    background-color: #e1e1e1;
+  }
+}

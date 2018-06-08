@@ -11,9 +11,11 @@ import LinkContainer from './containers/LinkContainer';
 import PageContainer from './containers/PageContainer';
 import LayoutContainer from './containers/LayoutContainer';
 import NavigationBarStoreWithButton from './containers/navigation/NavigationBarStoreWithButton';
+import TabBarContainer from './components/navigation/TabBarContainer';
 
 import getUrlParameter from './helpers/url-helper';
 
+import links from './content/links';
 
 import './theme/app.global.scss';
 
@@ -46,7 +48,7 @@ export default function App() {
           <LayoutContainer
             headerMenu={() => <valami>TODO: Dummy header</valami>}
             navBar={() => <NavigationBarStoreWithButton rightButton={() => <span style={{ transform: 'rotate(90deg)' }}>:-)</span>} />}
-            tabBar={() => <div> TODO: Footer</div>}
+            tabBar={() => <TabBarContainer items={links.links.tabBarLinks} />}
             sideMenu={LinkContainer}
           >
             <PageContainer />

@@ -109,6 +109,43 @@ const links = {
       link: 'https://www.finnoconsult.at',
     },
   ],
+  tabBarLinks: [
+    {
+      id: 0,
+      image: null,
+      title: 'PureText',
+      route: '/demo/text',
+      description: 'Simple paragraph content without component',
+    },
+    {
+      id: 1,
+      image: null,
+      title: 'MoreText',
+      route: '/demo/texts',
+      description: 'Separate component with multiple texts',
+    },
+    {
+      id: 2,
+      image: null,
+      title: 'Grid',
+      route: '/demo/grid',
+      description: 'Grid view demo',
+    },
+    {
+      id: 3,
+      image: null,
+      title: 'Form',
+      route: '/demo/form',
+      description: 'Form element demo',
+    },
+    {
+      id: 4,
+      image: null,
+      title: 'Image',
+      route: '/demo/images',
+      description: 'Sample image scroller',
+    },
+  ],
   functions: {
     getRoute: item => item.route || `/pages?${item.id}`,
     getLink: (items, search) => items.find(i => i.id === parseInt(search && search.match(/\?(\d+)/)[1], 10) || 0).link,
