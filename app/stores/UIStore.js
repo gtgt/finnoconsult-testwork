@@ -18,7 +18,7 @@ export default class UIStore extends Store {
   @observable navigationBarTitle = '';
   @observable navigationBarClassName = null;
   @observable navigationBarLeftButton = null;
-  @observable navigationBarRightButtons = null;
+  @observable navigationBarRightButton = null;
 
   // NOTE:  set AUTO_LOGIN=1 in package.json script section for auto-login, or set to =0 or simple omit in case you want login page
   @observable userLoggedIn = ENV.AUTO_LOGIN === 1;
