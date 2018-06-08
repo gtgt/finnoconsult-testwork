@@ -17,6 +17,7 @@ import {
 import {
   NavigationButton,
   BackButton,
+  NavigationButtonFactory,
 } from '../components/ui/layout/navigation';
 
 @inject('stores', 'actions') @observer
@@ -42,6 +43,10 @@ export default class TextDemo extends Screen {
         <Button onClick={() => this.onClick('NoWhere')}>NoWhere</Button>
         |
         <NavigationButton to="right">Right</NavigationButton>
+        |
+        <NavigationButton to="right">Generated1</NavigationButton>
+        |
+        <NavigationButtonFactory use="search" />
       </View>
     );
   }

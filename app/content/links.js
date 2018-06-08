@@ -164,6 +164,14 @@ const links = {
       description: 'Sample image scroller',
     },
   ],
+  buttons: [
+    {
+      id: 'search',
+      image: null,
+      title: 'Search',
+      to: '/demo/search',
+    },
+  ],
   functions: {
     getRoute: item => item.route || `/pages?${item.id}`,
     getLink: (items, search) => items.find(i => i.id === parseInt(search && search.match(/\?(\d+)/)[1], 10) || 0).link,
