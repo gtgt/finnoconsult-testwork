@@ -6,7 +6,8 @@ import { oneOrManyChildElements } from '../../prop-types';
 
 import UIStore from '../../stores/UIStore';
 import NavigationBarStore from './NavigationBarStore';
-import { Button } from '../../components/ui';
+// import { Button } from '../../components/ui';
+import { BackButton } from '../../components/ui/layout/navigation';
 
 @withRouter
 @inject('stores', 'actions') @observer
@@ -28,34 +29,34 @@ export default class NavigationBarStoreWithButton extends Component {
     children: oneOrManyChildElements,
   };
 
-  onLeftClick() {
+  // onLeftClick() {
     // if (this.props.location.pathname.match(/\/pages/g)) {
     //   this.props.actions.toggleNavbar({ isVisible: !this.props.stores.ui.isNavigationBarVisible });
     //   return null;
     // }
-    if (this.props.stores.ui.navigationBarLeftLink) {
-      return this.props.stores.ui.navigationBarLeftLink();
-    }
-    this.props.history.goBack();
-    return null;
-  }
+    // if (this.props.stores.ui.navigationBarLeftButton) {
+    //   return this.props.stores.ui.navigationBarLeftLink();
+    // }
+    // this.props.history.goBack();
+    // return null;
+  // }
   onRightClick() {
-    if (this.props.stores.ui.navigationBarRightLink) {
-      // return
-      this.props.stores.ui.navigationBarRightLink();
-    }
+    // if (this.props.stores.ui.navigationBarRightLink) {
+    //   // return
+    //   this.props.stores.ui.navigationBarRightLink();
+    // }
     this.props.history.goForward();
     // return null;
   }
 
   get leftButton() {
-    // TODO: add image instead of text &lt;
-    return () => this.props.leftButton || <Button onClick={e => this.onLeftClick(e)}>&lt;</Button>;
+    return () => this.props.leftButton || this.props.stores.ui.navigationBarLeftButton || <BackButton />;
   }
 
   get rightButton() {
     // TODO: add image instead of text &lt;
-    return () => this.props.rightButton || <Button onClick={e => this.onRightClick(e)}>&gt;</Button>;
+    // <Button onClick={e => this.onRightClick(e)}>&gt;</Button>
+    return () => this.props.rightButton || this.props.stores.ui.navigationBarRightButton || null;
   }
 
   render() {

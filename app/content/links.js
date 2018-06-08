@@ -66,7 +66,25 @@ const links = {
           description: 'Sample drag and drop',
         },
         {
-          id: 7,
+          id: 11,
+          title: 'Static1',
+          route: '/demo/static/bank/bank',
+          description: 'Simple page to show static images',
+        },
+        {
+          id: 12,
+          title: 'Static2',
+          route: '/demo/static/?title=more detailed title&image=https://finnoconsult.at/img/bg-shibuya.jpg',
+          description: 'Simple page to show static images',
+        },
+        {
+          id: 13,
+          title: 'FullPage',
+          route: '/demo/fullpage',
+          description: 'Full Page with floating navbar',
+        },
+        {
+          id: 20,
           title: 'Overlay',
           route: '/demo/overlay',
           description: 'Sample ActionSheet overlay',

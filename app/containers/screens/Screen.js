@@ -7,15 +7,17 @@ export default class Screen extends Component {
     pageTitle: PropTypes.string,
     pageNavBar: PropTypes.func,
     navBarClassName: PropTypes.string,
-    navBarLeftLink: PropTypes.func,
-    navBarRightLink: PropTypes.func,
+    navBarLeftButton: PropTypes.func,
+    navBarRightButton: PropTypes.func,
+    layoutClassName: PropTypes.string,
     actions: PropTypes.shape({
       setNavBarTitle: PropTypes.func.isRequired,
       setNavBarClassName: PropTypes.func.isRequired,
       setNavBarComponent: PropTypes.func.isRequired,
-      setNavigationBarLeftLink: PropTypes.func.isRequired,
-      setNavigationBarRightLink: PropTypes.func.isRequired,
+      setNavigationBarLeftButton: PropTypes.func.isRequired,
+      setNavigationBarRightButton: PropTypes.func.isRequired,
       toggleNavbar: PropTypes.func.isRequired,
+      setLayoutClassName: PropTypes.func.isRequired,
     }).isRequired,
     // animationSpeed: PropTypes.number.isRequired,
   };
@@ -30,17 +32,18 @@ export default class Screen extends Component {
       pageTitle,
       navBarClassName,
       pageNavBar,
-      navBarLeftLink,
-      navBarRightLink,
+      navBarLeftButton,
+      navBarRightButton,
+      layoutClassName,
     } = this.props;
     const {
       setNavBarTitle,
       setNavBarClassName,
       setNavBarComponent,
       toggleNavbar,
-      setNavigationBarLeftLink,
-      setNavigationBarRightLink,
-      // setNavBarBackLink
+      setNavigationBarLeftButton,
+      setNavigationBarRightButton,
+      setLayoutClassName,
     } = this.props.actions;
 
     // console.warn('new NAVBAR!');
@@ -54,9 +57,10 @@ export default class Screen extends Component {
     // TODO: move this default '' obj to Store?
     setNavBarTitle({ title: this.getPageTitle || pageTitle || '' });
     setTimeout(() => setNavBarTitle({ title: this.getPageTitle || pageTitle || '' }), 600);
-    setNavBarClassName({ className: this.getNavBarClassName || navBarClassName });
-    setNavigationBarLeftLink({ link: this.getNavBarLeftLink || navBarLeftLink || null });
-    setNavigationBarRightLink({ link: this.getNavBarRightLink || navBarRightLink || null });
+    setNavBarClassName({ className: this.getNavBarClassName || navBarClassName || null });
+    setNavigationBarLeftButton({ button: this.getNavBarLeftButton || navBarLeftButton || null });
+    setNavigationBarRightButton({ button: this.getNavBarRightButton || navBarRightButton || null });
+    setLayoutClassName({ className: this.getLayoutClassName || layoutClassName || null });
   }
 
   // componentWillUnmount() {

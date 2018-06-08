@@ -4,7 +4,7 @@ import Swipeable from 'react-swipeable';
 
 import styles from './MobileNavigationBar.scss';
 
-import { oneOrManyChildElements } from '../../prop-types';
+import { oneOrManyChildElements } from '../../../../prop-types';
 
 @observer
 export default class MobileNavigationBar extends Component {

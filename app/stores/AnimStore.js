@@ -79,7 +79,7 @@ export default class AninStore extends Store {
     }
 
     this.start=new Date().getTime();
-    this.stores.ui._setSlide({ slide: act });
+    // this.stores.ui._setSlide({ slide: act });
     this.act = act;
   }
 

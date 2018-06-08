@@ -7,12 +7,13 @@ import FormDemo from '../demo/FormDemo';
 import GridDemo from '../demo/GridDemo';
 import TextDemo from '../demo/TextDemo';
 import CarouselDemo from '../demo/CarouselDemo';
+import FullPageDemo from '../demo/FullPageDemo';
 import DragDemoContainer from '../demo/DragDemoContainer';
 import TransferDemoContainer from '../demo/TransferDemoContainer';
 
 import ActionSheetContainer from './ActionSheetContainer';
 import { View } from '../components/ui';
-import { Page, StaticImagePage } from '../components/ui/layout/page';
+import { Page, StaticImagePage, RouterBasedStaticImagePage } from '../components/ui/layout/page';
 import { DraggableIndicator } from '../components/draggable';
 
 import { links } from '../content';
@@ -28,7 +29,8 @@ export default class PageContainer extends Component {
     }).isRequired,
   }
 
-  // componentDidMount()a {
+  // componentDidMount() {
+  //   console.log('page componentDidMount');
   // }
   // componentDidUpdate(prevProps) {
   //   this.checkScrolling(prevProps);
@@ -88,6 +90,10 @@ export default class PageContainer extends Component {
                     <Route path="*/demo/carousel" exact component={CarouselDemo} />
                     <Route path="*/demo/drag-drop" exact component={DragDemoContainer} />
                     <Route path="*/demo/transfer/:from/:to" exact component={TransferDemoContainer} />
+                    <Route path="*/demo/static/:image" exact component={RouterBasedStaticImagePage} />
+                    <Route path="*/demo/static/:image/:title" exact component={RouterBasedStaticImagePage} />
+                    <Route path="*/demo/static/" exact component={RouterBasedStaticImagePage} />
+                    <Route path="*/demo/fullpage/" exact component={FullPageDemo} />
 
                     <Route
                       path="*/demo/images"

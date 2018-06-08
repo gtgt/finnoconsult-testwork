@@ -42,11 +42,11 @@
                 "name": "func",
                 "required": true
               },
-              "setNavigationBarLeftLink": {
+              "setNavigationBarLeftButton": {
                 "name": "func",
                 "required": true
               },
-              "setNavigationBarRightLink": {
+              "setNavigationBarRightButton": {
                 "name": "func",
                 "required": true
               },
@@ -57,11 +57,68 @@
               "setNavBarComponent": {
                 "name": "func",
                 "required": true
+              },
+              "setLayoutClassName": {
+                "name": "func",
+                "required": true
               }
             }
           },
           "required": true,
           "description": ""
+        }
+      }
+    },
+    "RouterBasedStaticImagePage": {
+      "attributes": [
+        "children",
+        "match",
+        "imageRepository"
+      ],
+      "props": {
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "match": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "params": {
+                "name": "shape",
+                "value": {
+                  "image": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "title": {
+                    "name": "string",
+                    "required": false
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "imageRepository": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "{\n  bank: 'https://finnoconsult.at/img/bg-bank.jpg',\n}",
+            "computed": false
+          }
         }
       }
     },
@@ -909,7 +966,8 @@
         "headerMenu",
         "navBar",
         "tabBar",
-        "sideMenu"
+        "sideMenu",
+        "className"
       ],
       "props": {
         "children": {
@@ -944,6 +1002,13 @@
         "sideMenu": {
           "type": {
             "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "className": {
+          "type": {
+            "name": "string"
           },
           "required": false,
           "description": ""
@@ -1504,10 +1569,28 @@
     },
     "StaticNavigationBar": {
       "attributes": [
+        "className",
+        "style",
         "children",
         "title"
       ],
       "props": {
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "style": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": false,
+          "description": ""
+        },
         "children": {
           "type": {
             "name": "custom",
@@ -1910,7 +1993,9 @@
       "attributes": [
         "defaultLayout",
         "canBeResponsive",
-        "children"
+        "className",
+        "children",
+        "stores"
       ],
       "props": {
         "defaultLayout": {
@@ -1931,10 +2016,31 @@
             "computed": false
           }
         },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
         "children": {
           "type": {
             "name": "custom",
             "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "stores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "ui": {
+                "name": "instanceOf",
+                "value": "UIStore",
+                "required": true
+              }
+            }
           },
           "required": false,
           "description": ""
@@ -2078,6 +2184,28 @@
         }
       }
     },
+    "FullPageDemo": {
+      "attributes": [
+        "pageTitle",
+        "layoutClassName"
+      ],
+      "props": {
+        "pageTitle": {
+          "defaultValue": {
+            "value": "'Full page, with floating navbar'",
+            "computed": false
+          },
+          "required": false
+        },
+        "layoutClassName": {
+          "defaultValue": {
+            "value": "'ResponsiveWebLayout_navBarFloatingOverPage'",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
     "GridDemo": {
       "attributes": [
         "pageTitle"
@@ -2099,7 +2227,7 @@
       "props": {
         "pageNavBar": {
           "defaultValue": {
-            "value": "() => <NavigationBarContainer title=\"This is displayed as my own navbar \">&nbsp;?:-D</NavigationBarContainer>",
+            "value": "() => <NavigationBarContainer style={{ height: '100px', border: 'solid 1px black' }} title=\"This is displayed as my own navbar \">&nbsp;?:-D</NavigationBarContainer>",
             "computed": false
           },
           "required": false

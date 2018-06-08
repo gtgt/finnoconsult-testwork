@@ -47,7 +47,8 @@ export default function App() {
         <Router {...routerConfig}>
           <LayoutContainer
             headerMenu={() => <valami>TODO: Dummy header</valami>}
-            navBar={() => <NavigationBarStoreWithButton rightButton={() => <span style={{ transform: 'rotate(90deg)' }}>:-)</span>} />}
+            navBar={() => <NavigationBarStoreWithButton />}
+            //  rightButton={() => <span style={{ transform: 'rotate(90deg)' }}>:-)</span>}
             tabBar={() => <TabBarContainer items={links.links.tabBarLinks} />}
             sideMenu={LinkContainer}
           >

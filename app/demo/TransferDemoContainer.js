@@ -8,7 +8,7 @@ import Screen from '../containers/screens/Screen';
 import { View, Button } from '../components/ui';
 import { TransferMonitor, TransferContainer } from '../components/draggable';
 
-import ContainerWithRouter from '../containers/ContainerWithRouter';
+import DragContainerWithRouter from '../containers/DragContainerWithRouter';
 import mockImages from './mockImages';
 
 // import images from './images.json';
@@ -41,14 +41,14 @@ export default class TransferDemoContainer extends Screen {
 
 
   onSubmit() {
-    console.warn('// TODO: implement onSubmit in ContainerWithRouter');
+    console.warn('// TODO: implement onSubmit in DragContainerWithRouter');
     this.goBack();
   }
 
 
   render() {
     return (
-      <ContainerWithRouter>
+      <DragContainerWithRouter>
         <TransferContainer
           fromItem={this.fromItem}
           toItem={this.toItem}
@@ -63,7 +63,7 @@ export default class TransferDemoContainer extends Screen {
             </Button>
           </View>
         </TransferContainer>
-      </ContainerWithRouter>
+      </DragContainerWithRouter>
     );
   }
 }

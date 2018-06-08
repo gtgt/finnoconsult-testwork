@@ -25,10 +25,11 @@ export default class Page extends Component {
       // toggleNavbar: PropTypes.func.isRequired,
       setNavBarTitle: PropTypes.func.isRequired,
       setNavBarClassName: PropTypes.func.isRequired,
-      setNavigationBarLeftLink: PropTypes.func.isRequired,
-      setNavigationBarRightLink: PropTypes.func.isRequired,
+      setNavigationBarLeftButton: PropTypes.func.isRequired,
+      setNavigationBarRightButton: PropTypes.func.isRequired,
       toggleNavbar: PropTypes.func.isRequired,
       setNavBarComponent: PropTypes.func.isRequired,
+      setLayoutClassName: PropTypes.func.isRequired,
     }).isRequired,
     // location: PropTypes.shape({
     //   pathname: PropTypes.string.isRequired,
@@ -49,18 +50,20 @@ export default class Page extends Component {
       const {
         setNavBarTitle,
         setNavBarClassName,
-        setNavigationBarLeftLink,
-        setNavigationBarRightLink,
+        setNavigationBarLeftButton,
+        setNavigationBarRightButton,
         toggleNavbar,
         setNavBarComponent,
+        setLayoutClassName,
       } = this.props.actions;
 
       toggleNavbar({ isVisible: true });
       setNavBarComponent({ component: null });
       setNavBarTitle({ title: '' });
       setNavBarClassName({ className: '' });
-      setNavigationBarLeftLink({ link: null });
-      setNavigationBarRightLink({ link: null });
+      setNavigationBarLeftButton({ button: null });
+      setNavigationBarRightButton({ button: null });
+      setLayoutClassName({ className: null });
 
 
       this.setState(prevState => ({

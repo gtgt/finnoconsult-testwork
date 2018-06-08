@@ -4,7 +4,7 @@ import { inject, observer } from 'mobx-react';
 import { oneOrManyChildElements } from '../../prop-types';
 
 import UIStore from '../../stores/UIStore';
-import MobileNavigationBar from '../../components/navigation/MobileNavigationBar';
+import { MobileNavigationBar } from '../../components/ui/layout/navigation/';
 import { View } from '../../components/ui';
 
 @inject('stores', 'actions') @observer

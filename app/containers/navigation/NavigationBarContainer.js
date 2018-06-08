@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 
 import { oneOrManyChildElements } from '../../prop-types';
 
-import StaticNavigationBar from '../../components/navigation/StaticNavigationBar';
+import { StaticNavigationBar } from '../../components/ui/layout/navigation';
 
 @observer
 export default class NavigationBarContainer extends Component {

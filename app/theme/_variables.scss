@@ -63,7 +63,7 @@ $theme-hugefont-size: 2.8vh;
  * Navigation
  */
 $theme-navigation-z-index: 10;
-$theme-navigation-height: 6vh;
+$theme-navigation-height: 62px;
 $theme-navigation-topmenubarmaxwidth: 100vw;
 $theme-navigation-leftmenubarmaxwidth: 20vw;
 $theme-navigation-color: $theme-color-main;
@@ -71,6 +71,8 @@ $theme-navigation-background: $theme-color-white;
 $theme-navigation-background-alternate: $theme-color-lightgray;
 $theme-navigation-bottom-height: 100px;
 $theme-navigation-border: $theme-color-darkgray;
+
+$theme-footer-height: 56px;
 
 /*
  * Menu
