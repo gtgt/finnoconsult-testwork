@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { observer } from 'mobx-react';
 // import Swipeable from 'react-swipeable';
 
-import { oneOrManyChildElements } from '../../prop-types';
+import { oneOrManyChildElements } from '../../../../prop-types';
 
 import styles from './StaticNavigationBar.scss';
 

@@ -14,6 +14,11 @@ import {
   Heading,
 } from '../components/ui';
 
+import {
+  NavigationButton,
+  BackButton,
+} from '../components/ui/layout/navigation';
+
 @inject('stores', 'actions') @observer
 export default class TextDemo extends Screen {
   static defaultProps = {
@@ -31,9 +36,12 @@ export default class TextDemo extends Screen {
   get getNavBarRightButton() {
     return (
       <View>
-        <Button onClick={() => this.onClick('Left')}>Left</Button>
+        <BackButton />
+        <BackButton>Back</BackButton>
         |
-        <Button onClick={() => this.onClick('Right')}>Right</Button>
+        <Button onClick={() => this.onClick('NoWhere')}>NoWhere</Button>
+        |
+        <NavigationButton to="right">Right</NavigationButton>
       </View>
     );
   }

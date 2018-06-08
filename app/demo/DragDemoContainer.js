@@ -7,7 +7,7 @@ import Screen from '../containers/screens/Screen';
 
 import DragDemo from './DragDemo';
 import { View, Image } from '../components/ui';
-import ContainerWithRouter from '../containers/ContainerWithRouter';
+import DragContainerWithRouter from '../containers/DragContainerWithRouter';
 
 import mockImages from './mockImages';
 
@@ -45,14 +45,14 @@ export default class DragDemoContainer extends Screen {
   render() {
     return (
       // TODO: onDragEndPath?
-      <ContainerWithRouter
+      <DragContainerWithRouter
         onDragEndPath={(from, to) => `transfer/${from}/${to}`}
       >
         <DragDemo
           items={this.items}
           itemComponent={ItemComponent}
         />
-      </ContainerWithRouter>
+      </DragContainerWithRouter>
     );
   }
 }
