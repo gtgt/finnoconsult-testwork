@@ -1,0 +1,33 @@
+.component {
+  border: 1px solid #ccc;
+  width: 50px;
+  height: 26px;
+  border-radius: 13px;
+  cursor: pointer;
+  display: inline-block;
+
+  &.on {
+      background: #278AFF;
+  }
+
+  & > .switchToggle {
+      border: 1px solid #DADADA;
+      box-shadow: 1px 1px 1px #ccc;
+      width: 25px;
+      height: 24px;
+      left: 0;
+      border-radius: 12px;
+      background: #FFF;
+      position: relative;
+      transition: left .2s ease-in-out !important;
+  }
+
+  &.on > .switchToggle {
+      left: 23px;
+      border-color: #004899;
+  }
+
+  &.disabled {
+      cursor: not-allowed;
+  }
+}
