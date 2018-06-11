@@ -1,4 +1,4 @@
-import { View } from '../';
+import View from '../View';
 
 /*
  * Vertical Layout
@@ -9,4 +9,5 @@ const VerticalLayout = View.extend`
   flex-direction: column;
   height: auto;
 `;
+
 module.exports = VerticalLayout;
