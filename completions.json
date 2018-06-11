@@ -1024,15 +1024,20 @@
         "onClick",
         "onDisabledClick",
         "enabled",
-        "className"
+        "className",
+        "children"
       ],
       "props": {
         "on": {
           "type": {
             "name": "bool"
           },
-          "required": true,
-          "description": ""
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
         },
         "onClick": {
           "type": {
@@ -1073,6 +1078,14 @@
             "value": "''",
             "computed": false
           }
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
         }
       }
     },
@@ -1295,7 +1308,15 @@
         "label",
         "icon",
         "description",
-        "accessoryView"
+        "route",
+        "accessoryView",
+        "rightArrow",
+        "switcher",
+        "badge",
+        "accessoryLabel",
+        "onClick",
+        "switchState",
+        "switch"
       ],
       "props": {
         "label": {
@@ -1307,9 +1328,7 @@
         },
         "icon": {
           "type": {
-            "name": "shape",
-            "value": "",
-            "computed": true
+            "name": "string"
           },
           "required": false,
           "description": ""
@@ -1321,6 +1340,17 @@
           "required": false,
           "description": ""
         },
+        "route": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "''",
+            "computed": false
+          }
+        },
         "accessoryView": {
           "type": {
             "name": "shape",
@@ -1329,6 +1359,63 @@
           },
           "required": false,
           "description": ""
+        },
+        "rightArrow": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "switcher": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "badge": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          }
+        },
+        "accessoryLabel": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "switchState": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "switch": {
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "required": false
         }
       }
     },
@@ -1344,22 +1431,14 @@
             "name": "string"
           },
           "required": false,
-          "description": "",
-          "defaultValue": {
-            "value": "'HEADER'",
-            "computed": false
-          }
+          "description": ""
         },
         "footerLabel": {
           "type": {
             "name": "string"
           },
           "required": false,
-          "description": "",
-          "defaultValue": {
-            "value": "'FOOTER'",
-            "computed": false
-          }
+          "description": ""
         },
         "children": {
           "type": {
