@@ -1032,6 +1032,77 @@
         }
       }
     },
+    "Switch": {
+      "attributes": [
+        "on",
+        "onClick",
+        "onDisabledClick",
+        "enabled",
+        "className",
+        "children"
+      ],
+      "props": {
+        "on": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onDisabledClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        },
+        "enabled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          }
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "''",
+            "computed": false
+          }
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
     "TextInput": {
       "attributes": [
         "hint",
@@ -1201,6 +1272,192 @@
         "className": {
           "type": {
             "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      }
+    },
+    "TableView": {
+      "attributes": [
+        "isGrouped",
+        "children",
+        "className"
+      ],
+      "props": {
+        "isGrouped": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
+          },
+          "required": false,
+          "description": ""
+        },
+        "className": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "''",
+            "computed": false
+          }
+        }
+      }
+    },
+    "TableViewCell": {
+      "attributes": [
+        "label",
+        "icon",
+        "description",
+        "route",
+        "accessoryView",
+        "rightArrow",
+        "switcher",
+        "badge",
+        "accessoryLabel",
+        "onClick",
+        "switchState",
+        "switch"
+      ],
+      "props": {
+        "label": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "icon": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "description": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "route": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "''",
+            "computed": false
+          }
+        },
+        "accessoryView": {
+          "type": {
+            "name": "shape",
+            "value": "",
+            "computed": true
+          },
+          "required": false,
+          "description": ""
+        },
+        "rightArrow": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        },
+        "switcher": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "badge": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "",
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          }
+        },
+        "accessoryLabel": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "switchState": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "switch": {
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "TableViewSection": {
+      "attributes": [
+        "label",
+        "footerLabel",
+        "children"
+      ],
+      "props": {
+        "label": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "footerLabel": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "children": {
+          "type": {
+            "name": "custom",
+            "raw": "oneOrManyChildElements"
           },
           "required": false,
           "description": ""
@@ -1716,7 +1973,7 @@
           "type": {
             "name": "string"
           },
-          "required": false,
+          "required": true,
           "description": ""
         },
         "location": {
@@ -2419,6 +2676,20 @@
         "pageNavBar": {
           "defaultValue": {
             "value": "() => <NavigationBarContainer style={{ height: '100px', border: 'solid 1px black' }} title=\"This is displayed as my own navbar \">&nbsp;?:-D</NavigationBarContainer>",
+            "computed": false
+          },
+          "required": false
+        }
+      }
+    },
+    "TableViewDemo": {
+      "attributes": [
+        "pageTitle"
+      ],
+      "props": {
+        "pageTitle": {
+          "defaultValue": {
+            "value": "'TableViewDemo'",
             "computed": false
           },
           "required": false

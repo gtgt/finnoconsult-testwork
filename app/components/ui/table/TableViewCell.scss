@@ -1,0 +1,82 @@
+.component {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color: #FFF;
+  border-top: 1px solid #DADADA;
+  width: 100%;
+  height: 51px;
+
+  &:last-child {
+    border-bottom: 1px solid #DADADA;
+  }
+
+  & > .icon {
+    width: 24px;
+    height: 24px;
+    margin: 12px 0px 12px 15px;
+  }
+
+  & > .labelContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+
+    .label {
+      font-family: inherit;
+      font-size: 17px;
+      color: #000000;
+      letter-spacing: 0;
+      line-height: 21px;
+      margin: 0 !important;
+    }
+
+    .description {
+      color: #333;
+      margin: 0 !important;
+    }
+  }
+
+  & > .accessoryView {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    .badge {
+      width: 16px;
+      height: 16px;
+      background-color: #278AFF;
+      border-radius: 8px;
+      margin: 17px 0px 10px 10px;
+      font-family: HelveticaNeue;
+      font-size: 11px;
+      color: #FFFFFF;
+      letter-spacing: 0;
+      text-align: center;
+      padding-top: 3px;
+    }
+
+    .accessoryLabel {
+      font-family: CircularStd-Book;
+      font-size: 17px;
+      color: #8B959E;
+      letter-spacing: 0;
+      text-align: right;
+      line-height: 21px;
+      margin: 15px 0px 10px 10px;
+    }
+
+    .rightArrow {
+      width: 8px;
+      height: 14px;
+      margin: 18px 15px 12px 12px;
+    }
+
+    .switcher {
+      margin: 12px 15px 12px 12px;
+    }
+  }
+}

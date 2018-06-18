@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Screen from '../containers/screens/Screen';
 
-import { TextInput, NumericInput, Button } from '../components/ui/input';
+import { TextInput, NumericInput, Button, Switch } from '../components/ui/input';
 import { Form, HorizontalLayout, VerticalLayout } from '../components/ui/layout';
 import { TextToggle, ButtonGroup, NumericStepper } from '../components/ui/button';
 
@@ -21,6 +21,8 @@ export default class FormDemo extends Screen {
     listType: 0,
     activeButtonIndex: 1,
     activeButtonIndex2: 0,
+
+    switched: true,
   }
 
   onChangedStepper(e) {
@@ -40,6 +42,11 @@ export default class FormDemo extends Screen {
   onChangeTextToggle(e) {
     console.log('onChangeButtonGroup2', e);
     this.setState({ listType: e });
+  }
+
+  onToggleSwitch() {
+    console.log('onToggleSwitch - new state: ', !this.state.switched);
+    this.setState({ switched: !this.state.switched });
   }
 
   render() {
@@ -67,6 +74,8 @@ export default class FormDemo extends Screen {
           onChange={e => console.log(e, 'forintnak', e/2, ' a fele!')}
           // closeButtonPosition={9}
         />
+
+        <Switch onClick={() => this.onToggleSwitch()} on={this.state.switched} />
 
         <label htmlFor="Stepper">Stepper</label>
         <HorizontalLayout id="Stepper">

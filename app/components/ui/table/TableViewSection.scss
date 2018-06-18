@@ -1,0 +1,33 @@
+.component {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: transparent;
+  width: 100%;
+  height: auto;
+
+  & .header {
+    padding: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000000;
+    letter-spacing: 0;
+    margin-left: 10px;
+    margin-top: 9px;
+    height: 30px;
+  }
+
+  & .content {
+  }
+
+  & .footer {
+    padding: 5px;
+    font-size: 15px;
+    color: #8B959E;
+    letter-spacing: 0;
+    margin-left: 10px;
+    margin-top: 8px;
+    height: 30px;
+  }
+}

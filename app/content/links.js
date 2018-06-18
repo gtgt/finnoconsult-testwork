@@ -42,6 +42,12 @@ const links = {
           description: 'Form element demo',
         },
         {
+          id: 3,
+          title: 'TableView',
+          route: '/demo/table',
+          description: 'TableView demo',
+        },
+        {
           id: 4,
           title: 'Image',
           route: '/demo/images',
