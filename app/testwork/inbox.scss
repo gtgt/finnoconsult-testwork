@@ -1,0 +1,66 @@
+.Inbox {
+  margin: 0 2vh;
+
+  .MailList {
+    font-size: $theme-mediumfont-size;
+
+    .MailItem {
+      position: relative;
+      background-color: $theme-color-white;
+      cursor: pointer;
+      padding-top: 1vh;
+
+      &:first-of-type {
+        padding-top: 0;
+      }
+
+      .from {
+        font-size: $theme-bigfont-size;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .subject {
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .body {
+        color: $theme-color-darkgray;
+      }
+
+      .children {
+        > .MailList .MailItem {
+          position: relative;
+          height: 0;
+          padding-top: 0;
+          transition: all 1s ease-in-out;
+        }
+
+        &:after {
+          content: '\00bb';
+          font-size: $theme-hugefont-size;
+          color: $theme-color-main;
+          position: absolute;
+          top: 0;
+          right: 0;
+          transition: all 1s ease-in-out;
+        }
+
+        @include modifier(open) {
+          > .MailList .MailItem {
+            height: 55px;
+            padding-top: 1vh;
+          }
+          &:after {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "name": "FinnoProject",
+  "name": "finnoproject-testwork",
   "version": "0.1.0",
-  "title": "React boilerplate",
-  "description": "React-router project boilerplate template",
+  "title": "Testwork",
+  "description": "Testwork using React-router project boilerplate template",
   "keywords": [
     "React",
     "react-router",
@@ -35,7 +35,10 @@
     "downloads": "yarn zipupload"
   },
   "author": "Peter Horvath <peter.horvath@innovaciostanacsado.com>",
-  "contributors": "Peter Biró <peter.biro@innovaciostanacsado.com>",
+  "contributors": [
+    "Peter Biró <peter.biro@innovaciostanacsado.com>",
+    "Tamás Gere <tcat.hu@gmail.com>"
+  ],
   "repository": "https://github.com/finnoconsult/react-boilerplate/",
   "bugs": "https://trello.com/b/VJw3nIWg/boilerplate-for-prototype-and-speadcreation",
   "license": "UNLICENSED",
@@ -106,6 +109,7 @@
     "mobx-react": "^4.0.3",
     "platform": "^1.3.4",
     "prop-types": "^0.2.0",
+    "ratchet-npm": "^2.0.4",
     "rc-queue-anim": "^0.13.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
@@ -117,12 +121,12 @@
     "styled-components": "^3.3.0"
   },
   "engines": {
-    "node": "6.x",
-    "npm": "3.x"
+    "node": "^10.x",
+    "npm": "^3.x"
   },
   "devEngines": {
-    "node": "6.x",
-    "npm": "3.x"
+    "node": "^10.x",
+    "npm": "^3.x"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
