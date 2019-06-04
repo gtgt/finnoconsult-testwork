@@ -9,15 +9,11 @@ import Grid from './layout';
 
 console.log('TODO: import Grid', Grid);
 
-const allUIComponents = Object.assign(
-  {},
-  // Grid,
-  {
-    Image,
-    Text,
-    Button,
-    View,
-    ScrollView,
-  },
-);
+const allUIComponents = {
+  Image,
+  Text,
+  Button,
+  View,
+  ScrollView,
+};
 module.exports = allUIComponents;

@@ -1,0 +1,20 @@
+.FormRow {
+  padding: 0 2vh;
+  .label {
+    flex-grow: 1;
+    padding: 1vh 0;
+  }
+  .value {
+    padding: 1vh 0;
+  }
+  .form {
+    height: 0;
+    overflow: hidden;
+    &.visible {
+      height: auto;
+    }
+    input {
+      width: 100%;
+    }
+  }
+}

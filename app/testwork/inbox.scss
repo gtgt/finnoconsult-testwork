@@ -2,13 +2,13 @@
   margin: 0 2vh;
 
   .MailList {
+    position: relative;
     font-size: $theme-mediumfont-size;
-
     .MailItem {
       position: relative;
       background-color: $theme-color-white;
-      cursor: pointer;
       padding-top: 1vh;
+      cursor: default;
 
       &:first-of-type {
         padding-top: 0;
@@ -33,31 +33,43 @@
         color: $theme-color-darkgray;
       }
 
-      .children {
-        > .MailList .MailItem {
-          position: relative;
-          height: 0;
-          padding-top: 0;
-          transition: all 1s ease-in-out;
-        }
-
+      @include modifier(hasChildren) {
+        cursor: pointer;
         &:after {
           content: '\00bb';
           font-size: $theme-hugefont-size;
           color: $theme-color-main;
           position: absolute;
+          visibility: visible;
           top: 0;
           right: 0;
-          transition: all 1s ease-in-out;
+          transition: transform .5s linear;
         }
+      }
+      @include modifier(open) {
+        &:after {
+          transform: rotate(90deg);
+        }
+      }
 
-        @include modifier(open) {
-          > .MailList .MailItem {
-            height: 55px;
-            padding-top: 1vh;
+      .children {
+        overflow-y: hidden;
+        transition: height .5s linear;
+        display: flex;
+        flex-direction: column;
+        @include modifier(closed) {
+          height: 0!important;
+          .MailList {
+            .MailItem {
+              transform: translateY(-300%);
+            }
           }
-          &:after {
-            transform: rotate(90deg);
+        }
+        .MailList {
+          .MailItem {
+            padding-top: 1vh;
+            overflow-y: hidden;
+            transition: transform .5s linear;
           }
         }
       }

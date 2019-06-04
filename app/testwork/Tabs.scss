@@ -42,5 +42,70 @@
   }
 }
 .TabContent {
-
+  width: 100%;
+  max-width: 100%;
+  .brn {
+    margin-top: 10vh;
+    max-width: 100%;
+  }
+  :global {
+    .LinkList_component {
+      ul > li {
+        position: relative;
+        .LinkList_image {
+          width: 4vh;
+          height: 4vh;
+          float: none;
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 2vh;
+          border: none;
+          border-radius: 0;
+        }
+        h5 {
+          display: inline-block;
+          & + .LinkList_more {
+            opacity: 1;
+            &:after {
+              content: '\00bb';
+              font-size: $theme-hugefont-size;
+              position: absolute;
+              visibility: visible;
+              top: 2vh;
+              right: 2vh;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.Tile {
+  text-align: center;
+  min-height: 20vh;
+  &:nth-of-type(1) {
+    background-color: #589503;
+  }
+  &:nth-of-type(2) {
+    background-color: #035faf;
+  }
+  &:nth-of-type(3) {
+    background-color: #035faf;
+  }
+  &:nth-of-type(4) {
+    background-color: #0064b7;
+  }
+  .icon {
+    width:35%;
+    margin-bottom: 1vh;
+    &.circleIcon {
+      background-color: white;
+      width: 50%;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+  }
+  .value {
+    margin-bottom: 1vh;
+  }
 }
