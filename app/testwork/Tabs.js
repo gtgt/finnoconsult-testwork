@@ -110,7 +110,7 @@ const tabs = [
 function TabContent({ match }) {
   return (
     <VerticalLayout className={styles.TabContent}>
-      {tabs[match.params.index * 1].content()}
+        {tabs[match.params.index * 1] ? tabs[match.params.index * 1].content() : tabs[0].content()}
     </VerticalLayout>
   );
 }
